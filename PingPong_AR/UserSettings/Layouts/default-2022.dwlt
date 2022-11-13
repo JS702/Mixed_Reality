@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 484
     height: 774
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -346,22 +346,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Oculus/SampleFramework/Usage/DistanceGrab/PhysicsMaterials
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Oculus/SampleFramework/Usage/DistanceGrab/PhysicsMaterials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Programming\GitHub\Mixed_Reality\PingPong_AR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 986b0000
-    m_LastClickedID: 27544
-    m_ExpandedIDs: 000000004c6b000000ca9a3b
+    scrollPos: {x: 0, y: 180}
+    m_SelectedIDs: 70cf0000
+    m_LastClickedID: 53104
+    m_ExpandedIDs: 000000005669000092690000dcc60000dec60000fac600000ccf00000ecf00001acf000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -389,7 +389,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004c6b0000
+    m_ExpandedIDs: 0000000056690000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -519,21 +519,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 46e0feff9ae0fefff6e8feffb2fafeff06fbfeff6203fffff813ffff4a14ffff981cffff3a2fffff8c2fffffe437ffffc447ffff1648ffff6050ffff745fffffc65fffff1068ffff3676ffff8876ffffd27effff188fffff6a8fffffb497ffff72abffffc4abffff2ab4ffff9ebdffffd6bdffff02beffff2ebeffff5ebeffff8ebeffffc2befffff6beffffa2c0ffffcac5ffffd8d4ffff2ad5ffff74ddffff40ebffff96ebffff70f4ffff2efbffffb6640000ca640000d0640000d8640000f2640000ec6d0000206e0000446e0000526e0000ce6e00005476000088760000ba76000036770000147900000e7b0000227b0000287b0000327b0000527b0000307c0000447c00004a7c00006c7c000070820000a4820000c8820000d88200005483000084830000608b0000948b0000c88b0000448c0000d293000006940000349400003a940000b69400004a9c00007e9c0000a29c0000ac9c0000b29c00002e9d0000c0a40000f4a4000022a5000028a50000a4a50000c2ac0000f6ac000024ad00002aad0000a6ad0000b4b50000e8b5000016b600001cb6000098b6000094c50000c8c50000f6c50000fcc5000078c60000
+      m_ExpandedIDs: 00b6feff52b6feffa2befeff3ccffeff90cffeffead7feffb2e6feff06e7feff52effeffd000ffff2201ffff6e09ffff7e18ffffd218ffff1e21ffffb234ffff0635ffff523dffffe24bffff344cffff8054ffffbe65ffff1066ffff5e6effff2e7dffff807dffffcc85ffff1a94ffff6c94ffffb89cffffaaabfffffeabffff4ab4ffff34b8ffffcab9ffff0ccbffff5ecbffffacd3ffff76e2ffffcae2ffffa8ebffff98f9ffff2efbffffc4640000d8640000e864000002650000526e0000846e0000c06e00003e6f0000c6760000f87600001e77000034770000b2770000187a00002c7a0000327a00003c7a0000567a0000d67f00000a800000388000003e800000ba8000004a8800007e880000ac880000b28800002e890000be900000f29000002091000026910000a29100002e990000629900009099000096990000129a000048a100007ca10000aaa10000b0a100002ca20000b0a90000e4a9000018aa000094aa00001cbb000050bb00007ebb000084bb000000bc0000e4cb000018cc000046cc00004ccc0000c8cc0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: RightHandAnchor
-        m_OriginalName: RightHandAnchor
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 35784
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -620,7 +620,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -801,9 +801,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.40372348, y: 2.0578454, z: 0.20625982}
+    m_Target: {x: -1.4296873, y: 1.5484601, z: -0.049159538}
     speed: 2
-    m_Value: {x: 0.40372348, y: 2.0578454, z: 0.20625982}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -849,13 +849,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.0035978283, y: -0.5071799, z: -0.0021508026, w: -0.8618575}
+    m_Target: {x: -0.098985, y: 0.71117395, z: -0.102269724, w: -0.6884992}
     speed: 2
-    m_Value: {x: 0.0036009655, y: -0.50587463, z: -0.002145353, w: -0.86259687}
+    m_Value: {x: -0.16429526, y: 0.3377023, z: -0.059992336, w: -0.9248596}
   m_Size:
-    m_Target: 0.32322353
+    m_Target: 0.94179004
     speed: 2
-    m_Value: 0.32322353
+    m_Value: 0.9012345
   m_Ortho:
     m_Target: 0
     speed: 2
