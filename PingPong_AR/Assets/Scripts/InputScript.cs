@@ -30,7 +30,10 @@ public class InputScript : MonoBehaviour
     public void MakeTable()
     {
         GameObject createdTable = Instantiate(table, tablePoints[0].transform.position - tablePoints[1].transform.position, Quaternion.identity);
-        // nicht vollstädnig
+        // nicht vollständig
+        //Bin mir nicht sicher ob die Rotation passt,  die Mitte der Tisches ist ja einfach nur auf der Mitte des echten Tisches, aber die Ecken müssen nicht übereinstimmen
     }
+
+    //TODO iwo hier einen Bereich angeben in dem die Targets spawnen können
 }
 

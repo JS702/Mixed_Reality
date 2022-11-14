@@ -10,18 +10,21 @@ public class BallSpawner : MonoBehaviour
 
     public Vector3 shootDirection;
 
-    public bool isEnabled;
+    public bool isEnabled;//Vllt removen wenn der nix anderes macht außer sachen spawnen
 
     public float shootSpeed;
+
+    GameManager gameManager;
     void Start()
     {
-
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
     {
         if (isEnabled && OVRInput.GetDown(OVRInput.Button.One))//TODO gucken welcher Knopf und ob der immer auslöst oder unter bestimmten Bedingungen
         {
+            //gameManager.SpawnTarget(); wieder anmachen wenn Tisch bauen geht
             if (ball)
             {
                 Destroy(ball);
