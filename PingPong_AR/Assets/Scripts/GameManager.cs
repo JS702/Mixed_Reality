@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public GameObject target;
     public GameObject targetPrefab;
-    public List<Vector3> tablePoints;
     public Vector3[] site1; // Die zwei Ecken von einer Seite; müssen im Input übergeben werden
     public Vector3[] site2;
     public GameObject player;
+    public GameObject ballSpawner;
     // Start is called before the first frame update
     void Start()
     {
