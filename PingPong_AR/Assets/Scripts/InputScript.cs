@@ -20,10 +20,11 @@ public class InputScript : MonoBehaviour
         Mesh m = new Mesh();
         m.vertices= new Vector3[]
         {
-        new Vector3(firstPoint.x,firstPoint.y,firstPoint.z)
-        new Vector3(firstPoint.x,firstPoint.y,secondPoint.z)
-        new Vector3(secondPoint.x,firstPoint.y,secondPoint.z)
-        new Vector3(secondPoint.x,firstPoint.y,firstPoint.z)
+        //all vectors take the height of the first point -> y1
+        new Vector3(firstPoint.x,firstPoint.y,firstPoint.z) // x1,y1,z1
+        new Vector3(firstPoint.x,firstPoint.y,secondPoint.z) // x1,y1,z2
+        new Vector3(secondPoint.x,firstPoint.y,secondPoint.z) //x2,y1,z2
+        new Vector3(secondPoint.x,firstPoint.y,firstPoint.z)// x2,y1,z1
         }
         m.uv = new Vector2[]
         {
@@ -33,6 +34,7 @@ public class InputScript : MonoBehaviour
         new Vector2(1,1)
         }
         m.triangles = new int[]{0,1,2,0,2,3};
+
         mf.mesh =m;
         m.RecalculateBounds();
         m.RecalculateNormals();
@@ -53,12 +55,6 @@ public class InputScript : MonoBehaviour
            }
         }
         
-    }
-    public void MakeTable()
-    {
-        GameObject createdTable = Instantiate(table, tablePoints[0].transform.position - tablePoints[1].transform.position, Quaternion.identity);
-        // nicht vollst�ndig
-        //Bin mir nicht sicher ob die Rotation passt,  die Mitte der Tisches ist ja einfach nur auf der Mitte des echten Tisches, aber die Ecken m�ssen nicht �bereinstimmen
     }
 
     //TODO iwo hier einen Bereich angeben in dem die Targets spawnen k�nnen
