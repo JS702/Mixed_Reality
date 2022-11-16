@@ -47,7 +47,7 @@ public class InputScript : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger) && tablePoints.Length < 2)
         {
            GameObject AnkerTable =  Instantiate(objectToSpawn, OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch),Quaternion.identity);//Controller1.transform
-           tablePoints[tablePoints.Length] = AnkerTable;
+           tablePoints[tablePoints.Length] = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
            if(tablePoints.Length == 2)
            {
                 //Notiz an Nicolas: erstmal gucken, ob der cude überhaupt spawned
