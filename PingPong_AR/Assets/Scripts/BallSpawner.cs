@@ -17,7 +17,7 @@ public class BallSpawner : MonoBehaviour
     GameManager gameManager;
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>(); // 
     }
 
     void Update()
