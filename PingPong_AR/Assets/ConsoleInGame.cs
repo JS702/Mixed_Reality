@@ -7,10 +7,12 @@ using TMPro;
 public class ConsoleInGame : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI txt;
+    [SerializeField] bool withStackTrace = false;
+    [SerializeField] int textSize = 20;
     // Start is called before the first frame update
     void Start()
     {
-        
+        txt.fontSize = textSize;
     }
 
     // Update is called once per frame
@@ -37,6 +39,10 @@ public class ConsoleInGame : MonoBehaviour
         else
         {
             txt.text += '\n'  +"Other: "+ logString;
+        }
+        if (withStackTrace)
+        {
+            txt.text += '\n' + "-----" + stackTrace;
         }
     }
        

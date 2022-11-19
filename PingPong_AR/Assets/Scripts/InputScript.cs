@@ -17,6 +17,8 @@ public class InputScript : MonoBehaviour
 
     public bool isEnabled = true; // Wenn Tisch das auf false
 
+    [SerializeField] GameObject Cam;
+
     private void Start()
     {
        
@@ -54,7 +56,7 @@ public class InputScript : MonoBehaviour
         m.RecalculateBounds();
         m.RecalculateNormals();
     }
-    public void MakeTablePref()
+    public void MakeTablePref() // Notiz: Zu Roation Probleme , Einbauen das man beim ersten die Roation irgentwie bestimmt (Kontrollewr so halten, Knopf) Dann Roation auf zweiten Würfel auch (konistenz) und dann zum Spawn auf den Tisch !!!!
     {
          Debug.Log("StartTableX");
          Vector3 spawnPoint = (tablePoints[1].transform.position + tablePoints[0].transform.position) /2f;
@@ -68,11 +70,76 @@ public class InputScript : MonoBehaviour
 
 
          Table.transform.localScale = new Vector3(scaleX, 0.02f, scaleZ);
+
+
+
+        Vector3 NearsAnker;
+
+        Vector3 FarAnker;
+
         
 
-        // if (ScaleX < ScaleZ) und darüber dann besetimmen was die Kurse Kante ist , dann Per Inferung messen welche Kannte bzw Punkt weiter weg von Spiler ist , Aber der kannte wird Ziel und Ball Wurf erscheiden[Pre Implentation Notiz]
+        if (Vector3.Distance(Cam.transform.position, tablePoints[0].transform.position) < Vector3.Distance(Cam.transform.position, tablePoints[1].transform.position))
+        {
+            NearsAnker = tablePoints[0].transform.position;
+            FarAnker = tablePoints[1].transform.position; 
+        }
+        else
+        {
+            NearsAnker = tablePoints[1].transform.position;
+            FarAnker = tablePoints[0].transform.position;
+        }
 
+        //Vector3 SecoundPoint;
+        Vector3 Corn1 = new Vector3(FarAnker.x, NearsAnker.y, NearsAnker.z);
+        Vector3 Corn2 = new Vector3(NearsAnker.x, NearsAnker.y, FarAnker.z);
+
+        // Other Test
+        Vector3 TestNearVeckor = NearsAnker;
+        TestNearVeckor.y += 0.1f;
+        GameObject testObject0 = Instantiate(objectToSpawn, TestNearVeckor, Quaternion.identity);
+
+        //testObject 
+        GameObject testObject1 = Instantiate(objectToSpawn,Corn1,Quaternion.identity);
+        GameObject testObject2 = Instantiate(objectToSpawn, Corn2, Quaternion.identity);
         
+
+        Vector3[] NearSide;
+        Vector3[] FarSide;
+        if (Vector3.Distance(Cam.transform.position, Corn1) < Vector3.Distance(Cam.transform.position, Corn2))
+        {
+           // SecoundPoint = Corn1;
+            NearSide = new Vector3[]{ NearsAnker, Corn1 };
+            FarSide = new Vector3[] { FarAnker, Corn2 };
+        }
+        else
+        {
+            //  SecoundPoint = Corn2;
+            NearSide = new Vector3[] { NearsAnker, Corn2 };
+            FarSide = new Vector3[] { FarAnker, Corn1 };
+        }
+
+        Vector3 TestStuff= NearSide[1];
+        TestStuff.y += 0.1f;
+        Instantiate(objectToSpawn, TestStuff, Quaternion.identity);
+
+
+
+
+
+        Vector3 BallPos = (FarSide[1] + FarSide[0] ) / 2;
+        BallPos.y += 0.45f;
+        Vector3 dir = BallPos - Table.transform.position;
+      //  dir.y = 0;
+
+        Instantiate(objectToSpawn, BallPos, Quaternion.identity);
+
+
+        FindObjectOfType<BallSpawner>().Relocate(BallPos,dir*-1);
+
+        FindObjectOfType<GameManager>().SpawnTarget(FarSide, NearSide); // Wenn GameManger mehr als einer benutzt wird es in einen Feld packen 
+
+
     }
 
 

@@ -33,4 +33,9 @@ public class BallSpawner : MonoBehaviour
             ball.GetComponent<Rigidbody>().AddRelativeForce(shootDirection * shootSpeed);
         }
     }
+    public void Relocate(Vector3 newPos,Vector3 dir)
+    {
+        transform.position = newPos;
+        shootDirection = dir;
+    }
 }

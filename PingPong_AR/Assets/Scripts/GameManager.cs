@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnTarget();
+       // SpawnTargetSimple();
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
         if(!target && OVRInput.GetDown(OVRInput.Button.Two))
         {
-            SpawnTarget();
+           // SpawnTargetSimple();
         }
     }
 
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         score++;
     }
 
-    public void SpawnTarget()
+    public void SpawnTargetSimple()
     {
         /*
         Vector3[] site = Vector3.Distance(player.transform.position, site1[0]) > Vector3.Distance(player.transform.position, site2[0]) ? site1 : site2;
@@ -46,6 +46,31 @@ public class GameManager : MonoBehaviour
         target = Instantiate(targetPrefab, (farthestPoint + range), Quaternion.identity); // TODO rotation anpassen
         */
         target = Instantiate(targetPrefab, new Vector3(-1,1,2), Quaternion.identity);
+    }
+    public void SetSite(Vector3 pointA,Vector3 pointB)
+    {
+        site1[0] = pointA;
+        site1[1] = pointB;
+
+    }
+    public void SpawnTarget(Vector3[] Near, Vector3[] far)
+    {
+        Debug.Log(targetPrefab);
+        Debug.Log(site1 +"-" + site2);
+        site1 = Near;
+        site2 = far;
+
+        
+
+
+       Vector3[] site = Vector3.Distance(player.transform.position, site1[0]) > Vector3.Distance(player.transform.position, site2[0]) ? site1 : site2;
+       Vector3 farthestPoint = site[0].magnitude > site[1].magnitude ? site[0] : site[1];
+       Vector3 nearestPoint = site[0].magnitude > site[1].magnitude ? site[1] : site[0];
+
+       Vector3 range = (farthestPoint - nearestPoint) * Random.value;
+       range.y = 0.5f; // Target können auch höher spawnen
+      
+       target = Instantiate(targetPrefab, (farthestPoint + range), Quaternion.identity); // TODO rotation anpassen 
     }
 
 

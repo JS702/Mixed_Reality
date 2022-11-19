@@ -510,6 +510,8 @@ struct TMP_SpriteAsset_t81F779E6F705CE190DC0D1F93A954CB8B1774B39;
 struct TMP_Style_tA9E5B1B35EBFE24EF980CEA03251B638282E120C;
 // TMPro.TMP_StyleSheet
 struct TMP_StyleSheet_t70C71699F5CB2D855C361DBB78A44C901236C859;
+// TMPro.TMP_Text
+struct TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9;
 // TMPro.TMP_TextElement
 struct TMP_TextElement_t262A55214F712D4274485ABE5676E5254B84D0A5;
 // TMPro.TMP_TextInfo
@@ -839,6 +841,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteralAE0E2D66D9BF36C388DEC01E65D1A398965AE74A
 IL2CPP_EXTERN_C String_t* _stringLiteralB00BB45121807BCF0EF94A6239799099324DA522;
 IL2CPP_EXTERN_C String_t* _stringLiteralB81BA2487A1392EB3940DAED4DDA9AB0C8F7F8F4;
 IL2CPP_EXTERN_C String_t* _stringLiteralC141E3E49B09432DE6995F93C09165D932D81629;
+IL2CPP_EXTERN_C String_t* _stringLiteralC3A2D74DAE947CD92477DE312C465E6EF3F70288;
 IL2CPP_EXTERN_C String_t* _stringLiteralCA1C38650B88B2F7CF61DA8541B72E6E8C250D3B;
 IL2CPP_EXTERN_C String_t* _stringLiteralCA757EEEB5C4EF47B48825209818E7E928FF7F86;
 IL2CPP_EXTERN_C String_t* _stringLiteralCBC59E001755D6920BD8A2C6420D11291A5ECC36;
@@ -4448,6 +4451,10 @@ struct ConsoleInGame_t8CB4468C58521297120E762FB27D2A5DA4DDF7C1  : public MonoBeh
 {
 	// TMPro.TextMeshProUGUI ConsoleInGame::txt
 	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___txt_4;
+	// System.Boolean ConsoleInGame::withStackTrace
+	bool ___withStackTrace_5;
+	// System.Int32 ConsoleInGame::textSize
+	int32_t ___textSize_6;
 };
 
 // CustomDebugUI
@@ -7305,6 +7312,8 @@ IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void List_1_AddWithResize_mC
 // System.Void System.Collections.Generic.List`1<System.Int32>::AddWithResize(T)
 IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void List_1_AddWithResize_m378B392086AAB6F400944FA9839516326B3F7BB8_gshared (List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* __this, int32_t ___item0, const RuntimeMethod* method) ;
 
+// System.Void TMPro.TMP_Text::set_fontSize(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TMP_Text_set_fontSize_m1C3A3BA2BC88E5E1D89375FD35A0AA91E75D3AAD (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, float ___value0, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Application/LogCallback::.ctor(System.Object,System.IntPtr)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LogCallback__ctor_m327A4C69691F8A4B01D405858E48B8A7D9D2A79D (LogCallback_tCFFF3C009186124A6A83A1E6BB7E360C5674C413* __this, RuntimeObject* ___object0, intptr_t ___method1, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Application::add_logMessageReceived(UnityEngine.Application/LogCallback)
@@ -8544,6 +8553,11 @@ inline void List_1_AddWithResize_m378B392086AAB6F400944FA9839516326B3F7BB8 (List
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConsoleInGame_Start_mED1BDF693A1B98698680753B73C64989D4FF90AD (ConsoleInGame_t8CB4468C58521297120E762FB27D2A5DA4DDF7C1* __this, const RuntimeMethod* method) 
 {
 	{
+		// txt.fontSize = textSize;
+		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_0 = __this->___txt_4;
+		int32_t L_1 = __this->___textSize_6;
+		NullCheck(L_0);
+		TMP_Text_set_fontSize_m1C3A3BA2BC88E5E1D89375FD35A0AA91E75D3AAD(L_0, ((float)L_1), NULL);
 		// }
 		return;
 	}
@@ -8603,6 +8617,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConsoleInGame_HandleLog_mD57E8F8193F05FD
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9402668AFBCCB673B987A7E172AC2F7FD66F9636);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralC3A2D74DAE947CD92477DE312C465E6EF3F70288);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralEE36E245DAD9C4B8543CBD7588838A7D91CF3BA4);
 		s_Il2CppMethodInitialized = true;
 	}
@@ -8611,7 +8626,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConsoleInGame_HandleLog_mD57E8F8193F05FD
 		int32_t L_0 = ___type2;
 		if (L_0)
 		{
-			goto IL_0020;
+			goto IL_0021;
 		}
 	}
 	{
@@ -8626,10 +8641,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConsoleInGame_HandleLog_mD57E8F8193F05FD
 		L_5 = String_Concat_m8855A6DE10F84DA7F4EC113CADDB59873A25573B(L_3, _stringLiteral9402668AFBCCB673B987A7E172AC2F7FD66F9636, L_4, NULL);
 		NullCheck(L_2);
 		VirtualActionInvoker1< String_t* >::Invoke(66 /* System.Void TMPro.TMP_Text::set_text(System.String) */, L_2, L_5);
-		return;
+		goto IL_003d;
 	}
 
-IL_0020:
+IL_0021:
 	{
 		// txt.text += '\n'  +"Other: "+ logString;
 		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_6 = __this->___txt_4;
@@ -8642,6 +8657,33 @@ IL_0020:
 		L_10 = String_Concat_m8855A6DE10F84DA7F4EC113CADDB59873A25573B(L_8, _stringLiteralEE36E245DAD9C4B8543CBD7588838A7D91CF3BA4, L_9, NULL);
 		NullCheck(L_7);
 		VirtualActionInvoker1< String_t* >::Invoke(66 /* System.Void TMPro.TMP_Text::set_text(System.String) */, L_7, L_10);
+	}
+
+IL_003d:
+	{
+		// if (withStackTrace)
+		bool L_11 = __this->___withStackTrace_5;
+		if (!L_11)
+		{
+			goto IL_0061;
+		}
+	}
+	{
+		// txt.text += '\n' + "-----" + stackTrace;
+		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_12 = __this->___txt_4;
+		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_13 = L_12;
+		NullCheck(L_13);
+		String_t* L_14;
+		L_14 = VirtualFuncInvoker0< String_t* >::Invoke(65 /* System.String TMPro.TMP_Text::get_text() */, L_13);
+		String_t* L_15 = ___stackTrace1;
+		String_t* L_16;
+		L_16 = String_Concat_m8855A6DE10F84DA7F4EC113CADDB59873A25573B(L_14, _stringLiteralC3A2D74DAE947CD92477DE312C465E6EF3F70288, L_15, NULL);
+		NullCheck(L_13);
+		VirtualActionInvoker1< String_t* >::Invoke(66 /* System.Void TMPro.TMP_Text::set_text(System.String) */, L_13, L_16);
+	}
+
+IL_0061:
+	{
 		// }
 		return;
 	}
@@ -8650,6 +8692,8 @@ IL_0020:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConsoleInGame__ctor_m5ECD0FCE321D4945FDD054829C94D4A0A1935CEF (ConsoleInGame_t8CB4468C58521297120E762FB27D2A5DA4DDF7C1* __this, const RuntimeMethod* method) 
 {
 	{
+		// [SerializeField] int textSize = 20;
+		__this->___textSize_6 = ((int32_t)20);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
 	}
