@@ -7,6 +7,7 @@ public class RacketScript : MonoBehaviour
     [SerializeField] Transform handtoTrack;
     Rigidbody racketRigi;
     // Start is called before the first frame update
+
     void Start()
     {
         racketRigi = GetComponent<Rigidbody>();
@@ -30,5 +31,28 @@ public class RacketScript : MonoBehaviour
         transform.rotation = handtoTrack.rotation; // Nur zum Test -1
         
         racketRigi.MoveRotation( handtoTrack.rotation); // Nur zum Test -1
+    }
+
+    //vibrationTime = Zeit in Sekunden, die der Controller vibrieren soll
+    //controller = entweder OVRInput.Controller.RHand oder OVRInput.Controller.LHand für rechts oder links
+    public IEnumerator vibrate(float vibrationTime, OVRInput.Controller controller)
+    {
+        OVRInput.SetControllerVibration(0.1f, 1f, controller);
+
+        while (vibrationTime > 0)
+        {
+            vibrationTime = vibrationTime - 0.01f;
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        OVRInput.SetControllerVibration(0f, 0f, controller);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Ball"))
+        {
+            StartCoroutine(vibrate(0.05f, OVRInput.Controller.RHand));
+        }
     }
 }
