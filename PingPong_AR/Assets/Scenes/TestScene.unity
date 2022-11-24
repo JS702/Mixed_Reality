@@ -2160,6 +2160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 1409059863348764837, guid: 00d86bc16ea725a47acc64d204e76f46, type: 3}
   tablePref: {fileID: 3053736722807605343, guid: a54d4c6916352814093c68158148cebb, type: 3}
+  netPrefab: {fileID: 2185131914241627451, guid: 3252b984e76f54645a51431b20880ae5, type: 3}
   tablePoints: []
   TestObjectInput: {fileID: 508488789}
   isEnabled: 1

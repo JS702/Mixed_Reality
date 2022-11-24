@@ -11,6 +11,8 @@ public class InputScript : MonoBehaviour
 
     public GameObject tablePref;
 
+    [SerializeField] GameObject netPrefab;
+
     public List<GameObject> tablePoints = new List<GameObject>();
 
     public GameObject TestObjectInput;
@@ -18,6 +20,11 @@ public class InputScript : MonoBehaviour
     public bool isEnabled = true; // Wenn Tisch das auf false
 
     [SerializeField] GameObject Cam;
+
+    public float scaleX;
+    public float scaleZ;
+
+    GameObject Table;
 
     private void Start()
     {
@@ -63,13 +70,18 @@ public class InputScript : MonoBehaviour
          spawnPoint.y = tablePoints[0].transform.position.y;
          Debug.Log(spawnPoint +"" + tablePoints[0].transform.position +"" + tablePoints[1].transform.position);
 
-         GameObject Table = Instantiate(tablePref, spawnPoint, Quaternion.identity);
+        //GameObject Table = Instantiate(tablePref, spawnPoint, Quaternion.identity);
 
-         float scaleX = Mathf.Abs(tablePoints[1].transform.position.x - tablePoints[0].transform.position.x);
-         float scaleZ = Mathf.Abs(tablePoints[1].transform.position.z - tablePoints[0].transform.position.z);
+        Table = Instantiate(tablePref, spawnPoint, Quaternion.identity);
+
+        //float scaleX = Mathf.Abs(tablePoints[1].transform.position.x - tablePoints[0].transform.position.x);
+        //float scaleZ = Mathf.Abs(tablePoints[1].transform.position.z - tablePoints[0].transform.position.z);
+
+        scaleX = Mathf.Abs(tablePoints[1].transform.position.x - tablePoints[0].transform.position.x);
+        scaleZ = Mathf.Abs(tablePoints[1].transform.position.z - tablePoints[0].transform.position.z);
 
 
-         Table.transform.localScale = new Vector3(scaleX, 0.02f, scaleZ);
+        Table.transform.localScale = new Vector3(scaleX, 0.02f, scaleZ);
 
 
 
@@ -142,7 +154,12 @@ public class InputScript : MonoBehaviour
 
     }
 
-
+    void makeNet()
+    {
+        GameObject net = Instantiate(netPrefab, Table.transform.position, Quaternion.identity);
+        net.transform.localScale = new Vector3(scaleX + 0.0001f, 0.125f, 0.01f);
+        net.transform.position = new Vector3(net.transform.position.x, net.transform.position.y + 0.06f, net.transform.position.z);
+    }
 
     // Update is called once per frame
     void Update()
@@ -157,6 +174,7 @@ public class InputScript : MonoBehaviour
                 isEnabled = false;
                 MakeTablePref();
                 //MakeTable(tablePoints[1].transform.position, tablePoints[0].transform.position);
+                makeNet();
 
             }
             else
