@@ -2165,6 +2165,10 @@ MonoBehaviour:
   TestObjectInput: {fileID: 508488789}
   isEnabled: 1
   Cam: {fileID: 86603307}
+  scaleX: 0
+  scaleZ: 0
+  material: {fileID: 2100000, guid: fd930b3c91159bd4fb0f7bedf9de881a, type: 2}
+  testCube: {fileID: 9063742373144981970, guid: 3e5db4c5211c13447a6d49bf5433995d, type: 3}
 --- !u!4 &1857620417
 Transform:
   m_ObjectHideFlags: 0

@@ -25,6 +25,28 @@ public class InputScript : MonoBehaviour
     public float scaleZ;
 
     GameObject Table;
+    GameObject tableFromMesh;
+
+    Vector3[] vertices = new Vector3[4];
+    Vector2[] uv = new Vector2[4];
+    int[] triangles = new int[6];
+
+    [SerializeField] Material material;
+
+    int buttonPressCounter;
+
+    [SerializeField] GameObject testCube;
+
+    float yPosition;
+
+    Vector3 controllerPosition;
+
+    GameObject vertex0;
+    GameObject vertex1;
+    GameObject vertex2;
+    GameObject vertex3;
+
+    GameObject ballSpawnerCube;
 
     private void Start()
     {
@@ -161,6 +183,127 @@ public class InputScript : MonoBehaviour
         net.transform.position = new Vector3(net.transform.position.x, net.transform.position.y + 0.06f, net.transform.position.z);
     }
 
+    void makeTableFromMesh()
+    {
+        Mesh mesh = new Mesh();
+
+        uv[0] = new Vector2(0, 1);
+        uv[1] = new Vector2(1, 1);
+        uv[2] = new Vector2(0, 0);
+        uv[3] = new Vector2(1, 0);
+
+        triangles[0] = 0;
+        triangles[1] = 1;
+        triangles[2] = 2;
+        triangles[3] = 2;
+        triangles[4] = 1;
+        triangles[5] = 3;
+
+        mesh.vertices = vertices;
+        mesh.uv = uv;
+        mesh.triangles = triangles;
+
+        tableFromMesh = new GameObject("Mesh", typeof(MeshFilter), typeof(MeshRenderer));
+
+        tableFromMesh.GetComponent<MeshFilter>().mesh = mesh;
+
+        tableFromMesh.GetComponent<MeshRenderer>().material = material;
+
+        MeshCollider tableCollider = tableFromMesh.AddComponent(typeof(MeshCollider)) as MeshCollider;
+
+        Vector3 ballSpawnerPosition = vertices[0] + ((vertices[1] - vertices[0]) / 2);
+        ballSpawnerPosition.y += 0.45f;
+
+        FindObjectOfType<BallSpawner>().Relocate(ballSpawnerPosition, vertices[3] - ballSpawnerPosition);
+
+        if (ballSpawnerCube)
+        {
+            Destroy(ballSpawnerCube);
+        }
+
+        ballSpawnerCube = Instantiate(testCube, ballSpawnerPosition, Quaternion.identity);
+        Destroy(ballSpawnerCube.GetComponent<BoxCollider>());
+    }
+
+    IEnumerator makeTableRectangular()
+    {
+        Vector3 zeroToOne = vertices[1] - vertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
+        Vector3 zeroToTwo = vertices[2] - vertices[0]; //Vektor von Vertex 0 nach 2 (linke Kante)
+        Vector3 oneToThree = vertices[3] - vertices[1]; //Vektor von Vertex 1 nach 3 (rechte Kante)
+
+        //Richtet Vertex 3 (untere rechte Ecke) / Winkel bei Vertex 1 (obere rechte Ecke) neue aus
+        if (Vector3.Angle(zeroToOne, oneToThree) > 91f)
+        {
+            Debug.Log("Fixing Vertex 3 / Angle at Vertex 1...");
+            while (Vector3.Angle(zeroToOne, oneToThree) > 91f)
+            {
+                vertices[3] = vertices[3] + (zeroToOne / 100f);
+                vertex3.transform.position = vertices[3];
+                oneToThree = vertices[3] - vertices[1];
+                yield return new WaitForSeconds(0.0001f);
+            }
+        } else if (Vector3.Angle(zeroToOne, oneToThree) < 89f)
+        {
+            Debug.Log("Fixing Vertex 3 / Angle at Vertex 1...");
+            while (Vector3.Angle(zeroToOne, oneToThree) < 89f)
+            {
+                vertices[3] = vertices[3] - (zeroToOne / 100f);
+                vertex3.transform.position = vertices[3];
+                oneToThree = vertices[3] - vertices[1];
+                yield return new WaitForSeconds(0.0001f);
+            }
+        }
+        Debug.Log("Finished fixing Vertex 3 / Angle at Vertex 1");
+
+        //Richtet Vertex 2 (untere linke Ecke) / Winkel bei Vertex 0 (obere linke Ecke) neue aus
+        if (Vector3.Angle(zeroToOne, zeroToTwo) > 91f)
+        {
+            Debug.Log("Fixing Vertex 2 / Angle at Vertex 0...");
+            while (Vector3.Angle(zeroToOne, zeroToTwo) > 91f)
+            {
+                vertices[2] = vertices[2] + (zeroToOne / 100f);
+                vertex2.transform.position = vertices[2];
+                zeroToTwo = vertices[2] - vertices[0];
+                yield return new WaitForSeconds(0.0001f);
+            }
+        }
+        else if (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
+        {
+            Debug.Log("Fixing Vertex 2 / Angle at Vertex 0...");
+            while (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
+            {
+                vertices[2] = vertices[2] - (zeroToOne / 100f);
+                vertex2.transform.position = vertices[2];
+                zeroToTwo = vertices[2] - vertices[0];
+                yield return new WaitForSeconds(0.0001f);
+            }
+        }
+        Debug.Log("Finished fixing Vertex 2 / Angle at Vertex 0...");
+        Debug.Log("New Angles: " + Vector3.Angle(zeroToOne, oneToThree) + ", " + Vector3.Angle(zeroToOne, zeroToTwo));
+
+        //Vermittelt den Abstand von Vertex 2 und 3 zur oberen Kante (Kante zwischen Vertex 0 und 1)
+        float difference = Mathf.Abs(zeroToTwo.magnitude - oneToThree.magnitude); //Unterschied der Entfernung von Vertex 2 und 3 zur oberen Kante
+        Vector3 differenceToMove = Vector3.Normalize(zeroToTwo) * (difference / 2); //Vektor, um den Vertex 1 und 2 bewegt werden müssen, um den Abstand zu vermitteln
+
+        if (Mathf.Abs(zeroToTwo.magnitude) > Mathf.Abs(oneToThree.magnitude))
+        {
+            vertices[2] = vertices[2] - differenceToMove;
+            vertices[3] = vertices[3] + differenceToMove;
+        } else
+        {
+            vertices[2] = vertices[2] + differenceToMove;
+            vertices[3] = vertices[3] - differenceToMove;
+        }
+
+        vertex2.transform.position = vertices[2];
+        vertex3.transform.position = vertices[3];
+
+        Destroy(tableFromMesh);
+        makeTableFromMesh();
+
+        Debug.Log("Table is now rectangular");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -168,6 +311,7 @@ public class InputScript : MonoBehaviour
         //// Wurde die Taste ___ auf dem Touch Controller gedr�ckt?
         if (OVRInput.GetDown(OVRInput.Button.Four) && isEnabled)
         {
+            /*
             if (tablePoints.Count >= 2)
             {
                 Debug.Log("StartTable");
@@ -183,10 +327,51 @@ public class InputScript : MonoBehaviour
                 tablePoints.Add(AnkerTable);
                 Debug.Log("Pressed" + tablePoints.Count);
             }
-            
+            */
 
-     
-           
+            switch(buttonPressCounter)
+            {
+                
+                case 0:
+                    controllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
+                    vertices[0] = controllerPosition;
+                    yPosition = controllerPosition.y;
+                    vertex0 = Instantiate(testCube, vertices[0], Quaternion.identity);
+                    break;
+
+                case 1:
+                    controllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
+                    vertices[1] = new Vector3(controllerPosition.x, yPosition, controllerPosition.z);
+                    vertex1 = Instantiate(testCube, vertices[1], Quaternion.identity);
+                    break;
+
+                case 2:
+                    controllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
+                    vertices[2] = new Vector3(controllerPosition.x, yPosition, controllerPosition.z);
+                    vertex2 = Instantiate(testCube, vertices[2], Quaternion.identity);
+                    break;
+
+                case 3:
+                    controllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
+                    vertices[3] = new Vector3(controllerPosition.x, yPosition, controllerPosition.z);
+                    vertex3 = Instantiate(testCube, vertices[3], Quaternion.identity);
+                    break;
+
+                case 4:
+                    makeTableFromMesh();
+                    break;
+
+                case 5:
+                    StartCoroutine(makeTableRectangular());
+                    break;
+                
+            }
+
+            buttonPressCounter++;
+
+
+
+
         }
         if (OVRInput.GetDown(OVRInput.Button.Two))
         {
