@@ -53,6 +53,16 @@ public class InputScript : MonoBehaviour
        
     }
 
+    public Vector3[] getNear()
+    {
+        return new Vector3[] { vertices[0], vertices[1] };
+    }
+
+    public Vector3[] getFar()
+    {
+        return new Vector3[] { vertices[2], vertices[3] };
+    }
+
     public void MakeTable(Vector3 firstPoint, Vector3 secondPoint)
     {
         GameObject Table = new GameObject("Table");
@@ -234,7 +244,7 @@ public class InputScript : MonoBehaviour
         //Richtet Vertex 3 (untere rechte Ecke) / Winkel bei Vertex 1 (obere rechte Ecke) neue aus
         if (Vector3.Angle(zeroToOne, oneToThree) > 91f)
         {
-            Debug.Log("Fixing Vertex 3 / Angle at Vertex 1...");
+            //Debug.Log("Fixing Vertex 3 / Angle at Vertex 1...");
             while (Vector3.Angle(zeroToOne, oneToThree) > 91f)
             {
                 vertices[3] = vertices[3] + (zeroToOne / 100f);
@@ -244,7 +254,7 @@ public class InputScript : MonoBehaviour
             }
         } else if (Vector3.Angle(zeroToOne, oneToThree) < 89f)
         {
-            Debug.Log("Fixing Vertex 3 / Angle at Vertex 1...");
+            //Debug.Log("Fixing Vertex 3 / Angle at Vertex 1...");
             while (Vector3.Angle(zeroToOne, oneToThree) < 89f)
             {
                 vertices[3] = vertices[3] - (zeroToOne / 100f);
@@ -253,12 +263,12 @@ public class InputScript : MonoBehaviour
                 yield return new WaitForSeconds(0.0001f);
             }
         }
-        Debug.Log("Finished fixing Vertex 3 / Angle at Vertex 1");
+        //Debug.Log("Finished fixing Vertex 3 / Angle at Vertex 1");
 
         //Richtet Vertex 2 (untere linke Ecke) / Winkel bei Vertex 0 (obere linke Ecke) neue aus
         if (Vector3.Angle(zeroToOne, zeroToTwo) > 91f)
         {
-            Debug.Log("Fixing Vertex 2 / Angle at Vertex 0...");
+            //Debug.Log("Fixing Vertex 2 / Angle at Vertex 0...");
             while (Vector3.Angle(zeroToOne, zeroToTwo) > 91f)
             {
                 vertices[2] = vertices[2] + (zeroToOne / 100f);
@@ -269,7 +279,7 @@ public class InputScript : MonoBehaviour
         }
         else if (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
         {
-            Debug.Log("Fixing Vertex 2 / Angle at Vertex 0...");
+            //Debug.Log("Fixing Vertex 2 / Angle at Vertex 0...");
             while (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
             {
                 vertices[2] = vertices[2] - (zeroToOne / 100f);
@@ -278,8 +288,8 @@ public class InputScript : MonoBehaviour
                 yield return new WaitForSeconds(0.0001f);
             }
         }
-        Debug.Log("Finished fixing Vertex 2 / Angle at Vertex 0...");
-        Debug.Log("New Angles: " + Vector3.Angle(zeroToOne, oneToThree) + ", " + Vector3.Angle(zeroToOne, zeroToTwo));
+        //Debug.Log("Finished fixing Vertex 2 / Angle at Vertex 0...");
+        //Debug.Log("New Angles: " + Vector3.Angle(zeroToOne, oneToThree) + ", " + Vector3.Angle(zeroToOne, zeroToTwo));
 
         //Vermittelt den Abstand von Vertex 2 und 3 zur oberen Kante (Kante zwischen Vertex 0 und 1)
         float difference = Mathf.Abs(zeroToTwo.magnitude - oneToThree.magnitude); //Unterschied der Entfernung von Vertex 2 und 3 zur oberen Kante
@@ -301,7 +311,7 @@ public class InputScript : MonoBehaviour
         Destroy(tableFromMesh);
         makeTableFromMesh();
 
-        Debug.Log("Table is now rectangular");
+        //Debug.Log("Table is now rectangular");
     }
 
     // Update is called once per frame

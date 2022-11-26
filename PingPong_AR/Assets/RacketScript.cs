@@ -6,6 +6,7 @@ public class RacketScript : MonoBehaviour
 {
     [SerializeField] Transform handtoTrack;
     Rigidbody racketRigi;
+    public bool hitBall;
     // Start is called before the first frame update
 
     void Start()
@@ -52,6 +53,7 @@ public class RacketScript : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Ball"))
         {
+            hitBall = true;
             StartCoroutine(vibrate(0.05f, OVRInput.Controller.RHand));
         }
     }

@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     }
     public void SpawnTarget(Vector3[] Near, Vector3[] far)
     {
+        /*
         Debug.Log(targetPrefab);
         Debug.Log(site1 +"-" + site2);
         site1 = Near;
@@ -69,8 +70,21 @@ public class GameManager : MonoBehaviour
 
        Vector3 range = (farthestPoint - nearestPoint) * Random.value;
        range.y = 0.5f; // Target können auch höher spawnen
-      
-       target = Instantiate(targetPrefab, (farthestPoint + range), Quaternion.identity); // TODO rotation anpassen 
+        */
+
+        if (target)
+        {
+            Destroy(target);
+            //Debug.Log("Target destroyed. Cause: New Target");
+        }
+
+        //target = Instantiate(targetPrefab, (farthestPoint + range), Quaternion.identity); // TODO rotation anpassen
+        Vector3 targetPositionX = Near[0] + ((Near[1] - Near[0]) * Random.Range(0f, 1f)); //0: linke Seite | 1: rechte Seite
+        Vector3 targetPositionY = new Vector3(0, Random.Range(0f, 1f), 0); //0: genau auf der Platte | >0: irgendwo über der Platte
+        Vector3 targetPositionZ = (far[0] - Near[0]) * Random.Range(0f, 0.45f); //0: Ende wo der Ball spawnt | 1: Ende wo der Ball nicht spawnt
+        Vector3 targetPosition = targetPositionX + targetPositionY + targetPositionZ;
+
+        target = Instantiate(targetPrefab, targetPosition, Quaternion.identity); // TODO rotation anpassen
     }
 
 

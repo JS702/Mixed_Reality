@@ -15,16 +15,23 @@ public class BallSpawner : MonoBehaviour
     public float shootSpeed;
 
     GameManager gameManager;
+    [SerializeField] GameObject inputGuy;
+    InputScript inputScript;
+    RacketScript racketScript;
+
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>(); // 
+        inputScript = inputGuy.GetComponent<InputScript>();
+        racketScript = FindObjectOfType<RacketScript>();
     }
 
     void Update()
     {
         if (isEnabled && OVRInput.GetDown(OVRInput.Button.One))//TODO gucken welcher Knopf und ob der immer auslöst oder unter bestimmten Bedingungen
         {
-            //gameManager.SpawnTarget(); wieder anmachen wenn Tisch bauen geht
+            racketScript.hitBall = false;
+            gameManager.SpawnTarget(inputScript.getNear(), inputScript.getFar()); //wieder anmachen wenn Tisch bauen geht
             if (ball)
             {
                 Destroy(ball);
