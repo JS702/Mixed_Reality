@@ -12,6 +12,7 @@ public class InputScript : MonoBehaviour
     public GameObject tablePref;
 
     [SerializeField] GameObject netPrefab;
+    GameObject net;
 
     public List<GameObject> tablePoints = new List<GameObject>();
 
@@ -188,9 +189,18 @@ public class InputScript : MonoBehaviour
 
     void makeNet()
     {
-        GameObject net = Instantiate(netPrefab, Table.transform.position, Quaternion.identity);
-        net.transform.localScale = new Vector3(scaleX + 0.0001f, 0.125f, 0.01f);
-        net.transform.position = new Vector3(net.transform.position.x, net.transform.position.y + 0.06f, net.transform.position.z);
+        if (net)
+        {
+            Destroy(net);
+        }
+
+        Vector3 zeroToOne = vertices[1] - vertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
+        Vector3 tableCenter = vertices[0] - ((vertices[0] - vertices[3]) / 2); //Mitte des Tisches (bzw zwischen Vertex 0 und 3)
+        
+        net = Instantiate(netPrefab, tableCenter, Quaternion.identity);
+        net.transform.rotation = Quaternion.FromToRotation(Vector3.right, zeroToOne); //Netz parallel zur oberen Kante aufstellen
+        net.transform.localScale = new Vector3(zeroToOne.magnitude, 0.125f, 0.01f); //Breite vom Netz der oberen Kante anpassen
+        net.transform.position = new Vector3(net.transform.position.x, net.transform.position.y + 0.06f, net.transform.position.z); //Netz ein Stück hochsetzen
     }
 
     void makeTableFromMesh()
@@ -220,6 +230,8 @@ public class InputScript : MonoBehaviour
         tableFromMesh.GetComponent<MeshRenderer>().material = material;
 
         MeshCollider tableCollider = tableFromMesh.AddComponent(typeof(MeshCollider)) as MeshCollider;
+
+        makeNet();
 
         Vector3 ballSpawnerPosition = vertices[0] + ((vertices[1] - vertices[0]) / 2);
         ballSpawnerPosition.y += 0.45f;
