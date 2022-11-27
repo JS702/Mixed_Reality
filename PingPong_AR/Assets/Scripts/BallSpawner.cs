@@ -31,7 +31,7 @@ public class BallSpawner : MonoBehaviour
         if (isEnabled && OVRInput.GetDown(OVRInput.Button.One))//TODO gucken welcher Knopf und ob der immer auslöst oder unter bestimmten Bedingungen
         {
             racketScript.hitBall = false;
-            gameManager.SpawnTarget(inputScript.getNear(), inputScript.getFar()); //wieder anmachen wenn Tisch bauen geht
+            gameManager.SpawnTarget(inputScript.getNear(), inputScript.getFar(), inputScript.getParallel());
             if (ball)
             {
                 Destroy(ball);

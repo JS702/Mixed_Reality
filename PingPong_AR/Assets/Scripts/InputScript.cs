@@ -64,6 +64,11 @@ public class InputScript : MonoBehaviour
         return new Vector3[] { vertices[2], vertices[3] };
     }
 
+    public Vector3 getParallel()
+    {
+        return vertices[1] - vertices[0];
+    }
+
     public void MakeTable(Vector3 firstPoint, Vector3 secondPoint)
     {
         GameObject Table = new GameObject("Table");
@@ -182,7 +187,7 @@ public class InputScript : MonoBehaviour
 
         FindObjectOfType<BallSpawner>().Relocate(BallPos,dir*-1);
 
-        FindObjectOfType<GameManager>().SpawnTarget(FarSide, NearSide); // Wenn GameManger mehr als einer benutzt wird es in einen Feld packen 
+        FindObjectOfType<GameManager>().SpawnTarget(FarSide, NearSide, vertices[1] - vertices[0]); // Wenn GameManger mehr als einer benutzt wird es in einen Feld packen 
 
 
     }
