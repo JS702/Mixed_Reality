@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -224,7 +225,34 @@ public class InputScript : MonoBehaviour
         triangles[4] = 1;
         triangles[5] = 3;
 
-        mesh.vertices = vertices;
+        float distanceOneToZero = Vector3.Distance(vertices[1], vertices[0]);
+        float distanceTwoToZero = Vector3.Distance(vertices[2], vertices[0]);
+        float distanceThreeToZero = Vector3.Distance(vertices[3], vertices[0]);
+
+        /*if(distanceTwoToZero > distanceThreeToZero)
+        {
+            Vector3 temp = vertices[2];
+            vertices[2] = vertices[3];
+            vertices[3] = temp;
+
+            vertex2.transform.position = vertices[2];
+            vertex3.transform.position = vertices[3];
+
+        }*/
+
+
+        var map = new Dictionary<float,Vector3>();
+        map.Add( distanceOneToZero,vertices[1]);
+        map.Add(distanceTwoToZero, vertices[2]);
+        map.Add( distanceThreeToZero,vertices[3]);
+
+        float[] distanceArray = { distanceThreeToZero, distanceOneToZero, distanceTwoToZero };
+        Array.Sort(distanceArray);
+
+
+        Vector3[] sortedVertices = { vertices[0], map[distanceArray[0]], map[distanceArray[1]], map[distanceArray[2]] };
+
+        mesh.vertices = sortedVertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
 
@@ -411,4 +439,3 @@ public class InputScript : MonoBehaviour
         //TODO iwo hier einen Bereich angeben in dem die Targets spawnen k�nnen
     }
 }
-
