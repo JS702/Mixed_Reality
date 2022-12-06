@@ -40,12 +40,7 @@ public class RacketScript : MonoBehaviour
     {
         OVRInput.SetControllerVibration(0.1f, 1f, controller);
 
-        while (vibrationTime > 0)
-        {
-            vibrationTime = vibrationTime - 0.01f;
-            yield return new WaitForSeconds(0.01f);
-        }
-
+        yield return new WaitForSeconds(vibrationTime);
         OVRInput.SetControllerVibration(0f, 0f, controller);
     }
 

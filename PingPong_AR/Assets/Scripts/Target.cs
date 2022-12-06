@@ -11,7 +11,6 @@ public class Target : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         gameManager = FindObjectOfType<GameManager>(); // Es gibt nur einen GameManger also liber diesen Befehl müssen und nicht String Refernece basirend
         racketScript = FindObjectOfType<RacketScript>();
     }

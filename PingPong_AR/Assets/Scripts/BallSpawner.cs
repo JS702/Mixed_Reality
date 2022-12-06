@@ -21,7 +21,7 @@ public class BallSpawner : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>(); // 
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         inputScript = inputGuy.GetComponent<InputScript>();
         racketScript = FindObjectOfType<RacketScript>();
     }
