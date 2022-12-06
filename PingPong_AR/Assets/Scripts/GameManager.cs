@@ -9,10 +9,13 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public GameObject target;
     public GameObject targetPrefab;
-    public Vector3[] site1; // Die zwei Ecken von einer Seite; müssen im Input übergeben werden
+    public Vector3[] site1; // Die zwei Ecken von einer Seite; mï¿½ssen im Input ï¿½bergeben werden
     public Vector3[] site2;
     public GameObject player;
     public GameObject ballSpawner;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,15 +39,6 @@ public class GameManager : MonoBehaviour
 
     public void SpawnTargetSimple()
     {
-        /*
-        Vector3[] site = Vector3.Distance(player.transform.position, site1[0]) > Vector3.Distance(player.transform.position, site2[0]) ? site1 : site2;
-        Vector3 farthestPoint = site[0].magnitude > site[1].magnitude ? site[0] : site[1];
-        Vector3 nearestPoint = site[0].magnitude > site[1].magnitude ? site[1] : site[0];
-
-        Vector3 range = (farthestPoint - nearestPoint) * Random.value;
-        range.y = 0.5f; // Target können auch höher spawnen
-        target = Instantiate(targetPrefab, (farthestPoint + range), Quaternion.identity); // TODO rotation anpassen
-        */
         target = Instantiate(targetPrefab, new Vector3(-1,1,2), Quaternion.identity);
     }
     public void SetSite(Vector3 pointA,Vector3 pointB)
@@ -55,22 +49,6 @@ public class GameManager : MonoBehaviour
     }
     public void SpawnTarget(Vector3[] Near, Vector3[] far, Vector3 parallel)
     {
-        /*
-        Debug.Log(targetPrefab);
-        Debug.Log(site1 +"-" + site2);
-        site1 = Near;
-        site2 = far;
-
-        
-
-
-       Vector3[] site = Vector3.Distance(player.transform.position, site1[0]) > Vector3.Distance(player.transform.position, site2[0]) ? site1 : site2;
-       Vector3 farthestPoint = site[0].magnitude > site[1].magnitude ? site[0] : site[1];
-       Vector3 nearestPoint = site[0].magnitude > site[1].magnitude ? site[1] : site[0];
-
-       Vector3 range = (farthestPoint - nearestPoint) * Random.value;
-       range.y = 0.5f; // Target können auch höher spawnen
-        */
 
         if (target)
         {
@@ -80,7 +58,7 @@ public class GameManager : MonoBehaviour
 
         //target = Instantiate(targetPrefab, (farthestPoint + range), Quaternion.identity); // TODO rotation anpassen
         Vector3 targetPositionX = Near[0] + ((Near[1] - Near[0]) * Random.Range(0f, 1f)); //0: linke Seite | 1: rechte Seite
-        Vector3 targetPositionY = new Vector3(0, Random.Range(0f, 1f), 0); //0: genau auf der Platte | >0: irgendwo über der Platte
+        Vector3 targetPositionY = new Vector3(0, 0, 0); //0: genau auf der Platte | >0: irgendwo ï¿½ber der Platte
         Vector3 targetPositionZ = (far[0] - Near[0]) * Random.Range(0f, 0.45f); //0: Ende wo der Ball spawnt | 1: Ende wo der Ball nicht spawnt
         Vector3 targetPosition = targetPositionX + targetPositionY + targetPositionZ;
 

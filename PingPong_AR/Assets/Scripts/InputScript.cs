@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
+
 
 public class InputScript : MonoBehaviour
 {
@@ -47,6 +49,9 @@ public class InputScript : MonoBehaviour
     GameObject vertex1;
     GameObject vertex2;
     GameObject vertex3;
+
+    Vector3[] sortedVertices = new Vector3[4];
+    Vector3 previousVertex;
 
     GameObject ballSpawnerCube;
 
@@ -102,6 +107,86 @@ public class InputScript : MonoBehaviour
         m.RecalculateBounds();
         m.RecalculateNormals();
     }
+
+    void flipNormalVector()
+    {
+        Vector3 temp0 = sortedVertices[0];
+        Vector3 temp1 = sortedVertices[1];
+
+        sortedVertices[0] = sortedVertices[2];
+        sortedVertices[1] = sortedVertices[3];
+
+        sortedVertices[2] = temp0;
+        sortedVertices[3] = temp1;
+
+        makeTableFromMesh();
+    }
+    Vector3 getClosestVertex(Vector3 start)
+    {
+        Vector3 closestVertex = new Vector3(100000000f, 100000000f, 100000000f);
+
+        foreach (Vector3 vertex in vertices)
+        {
+            if (vertex != start && vertex != previousVertex)
+            {
+                if (Mathf.Abs(Vector3.Distance(start, vertex)) < Mathf.Abs(Vector3.Distance(start, closestVertex)))
+                {
+                    closestVertex = vertex;
+                }
+            }
+        }
+        return closestVertex;
+    }
+
+
+    Vector3 getFarthestVertex(Vector3 start)
+    {
+        Vector3 farthestVertex = start;
+
+        foreach (Vector3 vertex in vertices)
+        {
+            if (vertex != start && vertex != previousVertex)
+            {
+                if (Mathf.Abs(Vector3.Distance(start, vertex)) > Mathf.Abs(Vector3.Distance(start, farthestVertex)))
+                {
+                    farthestVertex = vertex;
+                }
+            }
+        }
+        return farthestVertex;
+    }
+
+    Vector3 getLastVertex()
+    {
+        Vector3 lastVertex = sortedVertices[0]; //irgendwas, wird ohnehin �berschrieben, aber sonst weint Visual Studio rum
+        foreach (Vector3 vertex in vertices)
+        {
+            if (!sortedVertices.Contains(vertex))
+            {
+                lastVertex = vertex;
+                break;
+            }
+        }
+        return lastVertex;
+    }
+
+    void sortVertices()
+    {
+        sortedVertices[0] = vertices[0];
+        previousVertex = sortedVertices[0];
+
+        sortedVertices[1] = getClosestVertex(sortedVertices[0]);
+        previousVertex = sortedVertices[1];
+
+        sortedVertices[2] = getFarthestVertex(sortedVertices[1]);
+        previousVertex = sortedVertices[2];
+
+        sortedVertices[3] = getLastVertex();
+        previousVertex = sortedVertices[3];
+    }
+
+    
+
     public void MakeTablePref() // Notiz: Zu Roation Probleme , Einbauen das man beim ersten die Roation irgentwie bestimmt (Kontrollewr so halten, Knopf) Dann Roation auf zweiten Würfel auch (konistenz) und dann zum Spawn auf den Tisch !!!!
     {
          Debug.Log("StartTableX");
@@ -200,8 +285,8 @@ public class InputScript : MonoBehaviour
             Destroy(net);
         }
 
-        Vector3 zeroToOne = vertices[1] - vertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
-        Vector3 tableCenter = vertices[0] - ((vertices[0] - vertices[3]) / 2); //Mitte des Tisches (bzw zwischen Vertex 0 und 3)
+        Vector3 zeroToOne = sortedVertices[1] - sortedVertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
+        Vector3 tableCenter = sortedVertices[0] - ((sortedVertices[0] - sortedVertices[3]) / 2); //Mitte des Tisches (bzw zwischen Vertex 0 und 3)
         
         net = Instantiate(netPrefab, tableCenter, Quaternion.identity);
         net.transform.rotation = Quaternion.FromToRotation(Vector3.right, zeroToOne); //Netz parallel zur oberen Kante aufstellen
@@ -225,32 +310,19 @@ public class InputScript : MonoBehaviour
         triangles[4] = 1;
         triangles[5] = 3;
 
-        float distanceOneToZero = Vector3.Distance(vertices[1], vertices[0]);
-        float distanceTwoToZero = Vector3.Distance(vertices[2], vertices[0]);
-        float distanceThreeToZero = Vector3.Distance(vertices[3], vertices[0]);
+        sortVertices();
 
-        /*if(distanceTwoToZero > distanceThreeToZero)
+
+        Vector3 side1 = sortedVertices[1] - sortedVertices[0];
+        Vector3 side2 = sortedVertices[2] - sortedVertices[0];
+
+        Vector3 normal = Vector3.Cross(side1, side2);
+            
+        if (normal.y < 0f) //Normalenvektor zeigt nach unten
         {
-            Vector3 temp = vertices[2];
-            vertices[2] = vertices[3];
-            vertices[3] = temp;
+            flipNormalVector();
+        }
 
-            vertex2.transform.position = vertices[2];
-            vertex3.transform.position = vertices[3];
-
-        }*/
-
-
-        var map = new Dictionary<float,Vector3>();
-        map.Add( distanceOneToZero,vertices[1]);
-        map.Add(distanceTwoToZero, vertices[2]);
-        map.Add( distanceThreeToZero,vertices[3]);
-
-        float[] distanceArray = { distanceThreeToZero, distanceOneToZero, distanceTwoToZero };
-        Array.Sort(distanceArray);
-
-
-        Vector3[] sortedVertices = { vertices[0], map[distanceArray[0]], map[distanceArray[1]], map[distanceArray[2]] };
 
         mesh.vertices = sortedVertices;
         mesh.uv = uv;
@@ -289,7 +361,6 @@ public class InputScript : MonoBehaviour
         //Richtet Vertex 3 (untere rechte Ecke) / Winkel bei Vertex 1 (obere rechte Ecke) neue aus
         if (Vector3.Angle(zeroToOne, oneToThree) > 91f)
         {
-            //Debug.Log("Fixing Vertex 3 / Angle at Vertex 1...");
             while (Vector3.Angle(zeroToOne, oneToThree) > 91f)
             {
                 vertices[3] = vertices[3] + (zeroToOne / 100f);
@@ -299,7 +370,6 @@ public class InputScript : MonoBehaviour
             }
         } else if (Vector3.Angle(zeroToOne, oneToThree) < 89f)
         {
-            //Debug.Log("Fixing Vertex 3 / Angle at Vertex 1...");
             while (Vector3.Angle(zeroToOne, oneToThree) < 89f)
             {
                 vertices[3] = vertices[3] - (zeroToOne / 100f);
@@ -308,12 +378,10 @@ public class InputScript : MonoBehaviour
                 yield return new WaitForSeconds(0.0001f);
             }
         }
-        //Debug.Log("Finished fixing Vertex 3 / Angle at Vertex 1");
 
         //Richtet Vertex 2 (untere linke Ecke) / Winkel bei Vertex 0 (obere linke Ecke) neue aus
         if (Vector3.Angle(zeroToOne, zeroToTwo) > 91f)
         {
-            //Debug.Log("Fixing Vertex 2 / Angle at Vertex 0...");
             while (Vector3.Angle(zeroToOne, zeroToTwo) > 91f)
             {
                 vertices[2] = vertices[2] + (zeroToOne / 100f);
@@ -324,7 +392,6 @@ public class InputScript : MonoBehaviour
         }
         else if (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
         {
-            //Debug.Log("Fixing Vertex 2 / Angle at Vertex 0...");
             while (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
             {
                 vertices[2] = vertices[2] - (zeroToOne / 100f);
@@ -333,8 +400,6 @@ public class InputScript : MonoBehaviour
                 yield return new WaitForSeconds(0.0001f);
             }
         }
-        //Debug.Log("Finished fixing Vertex 2 / Angle at Vertex 0...");
-        //Debug.Log("New Angles: " + Vector3.Angle(zeroToOne, oneToThree) + ", " + Vector3.Angle(zeroToOne, zeroToTwo));
 
         //Vermittelt den Abstand von Vertex 2 und 3 zur oberen Kante (Kante zwischen Vertex 0 und 1)
         float difference = Mathf.Abs(zeroToTwo.magnitude - oneToThree.magnitude); //Unterschied der Entfernung von Vertex 2 und 3 zur oberen Kante
@@ -356,7 +421,6 @@ public class InputScript : MonoBehaviour
         Destroy(tableFromMesh);
         makeTableFromMesh();
 
-        //Debug.Log("Table is now rectangular");
     }
 
     // Update is called once per frame
@@ -366,23 +430,6 @@ public class InputScript : MonoBehaviour
         //// Wurde die Taste ___ auf dem Touch Controller gedr�ckt?
         if (OVRInput.GetDown(OVRInput.Button.Four) && isEnabled)
         {
-            /*
-            if (tablePoints.Count >= 2)
-            {
-                Debug.Log("StartTable");
-                isEnabled = false;
-                MakeTablePref();
-                //MakeTable(tablePoints[1].transform.position, tablePoints[0].transform.position);
-                makeNet();
-
-            }
-            else
-            {
-                GameObject AnkerTable = Instantiate(objectToSpawn, OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch), Quaternion.identity);//Controller1.transform // 
-                tablePoints.Add(AnkerTable);
-                Debug.Log("Pressed" + tablePoints.Count);
-            }
-            */
 
             switch(buttonPressCounter)
             {
