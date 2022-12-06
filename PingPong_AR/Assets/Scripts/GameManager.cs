@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         //target = Instantiate(targetPrefab, (farthestPoint + range), Quaternion.identity); // TODO rotation anpassen
         Vector3 targetPositionX = Near[0] + ((Near[1] - Near[0]) * Random.Range(0f, 1f)); //0: linke Seite | 1: rechte Seite
         Vector3 targetPositionY = new Vector3(0, 0, 0); //0: genau auf der Platte | >0: irgendwo �ber der Platte
-        Vector3 targetPositionZ = (far[0] - Near[0]) * Random.Range(0f, 0.45f); //0: Ende wo der Ball spawnt | 1: Ende wo der Ball nicht spawnt
+        Vector3 targetPositionZ = (Near[0]-far[0]); //* Random.Range(0f, 0.45f); //0: Ende wo der Ball spawnt | 1: Ende wo der Ball nicht spawnt
         Vector3 targetPosition = targetPositionX + targetPositionY + targetPositionZ;
 
         target = Instantiate(targetPrefab, targetPosition, Quaternion.FromToRotation(Vector3.right, parallel)); // TODO rotation anpassen
