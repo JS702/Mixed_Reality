@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 0}
   ballPrefab: {fileID: 3162465353886834653, guid: b66b300c7723dc6489fc99b63ba41baf, type: 3}
-  shootDirection: {x: 0, y: 8000, z: -100}
+  shootDirection: {x: 0, y: 0, z: -100}
   isEnabled: 1
   shootSpeed: 10
   inputGuy: {fileID: 1857620415}
