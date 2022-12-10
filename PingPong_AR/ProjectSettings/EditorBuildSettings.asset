@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Oculus/VR/Scenes/TrackedKeyboard.unity
     guid: eb540761693b1de438733a3581e21f58
-  - enabled: 1
-    path: "Assets/Scenes/Men\xFC.unity"
-    guid: c8e9b136f3fe1ab4eb589b61a3fef320
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 55b36ede995783a4c865c0dda0092273

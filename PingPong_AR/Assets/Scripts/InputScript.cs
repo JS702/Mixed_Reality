@@ -250,7 +250,7 @@ public class InputScript : MonoBehaviour
 
     IEnumerator makeTableRectangular()
     {
-        vertices = sortedVertices;
+        //vertices = sortedVertices;
         Vector3 zeroToOne = vertices[1] - vertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
         Vector3 zeroToTwo = vertices[2] - vertices[0]; //Vektor von Vertex 0 nach 2 (linke Kante)
         Vector3 oneToThree = vertices[3] - vertices[1]; //Vektor von Vertex 1 nach 3 (rechte Kante)
