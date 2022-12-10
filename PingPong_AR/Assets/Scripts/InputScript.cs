@@ -251,27 +251,27 @@ public class InputScript : MonoBehaviour
     IEnumerator makeTableRectangular()
     {
         //vertices = sortedVertices;
-        Vector3 zeroToOne = vertices[1] - vertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
-        Vector3 zeroToTwo = vertices[2] - vertices[0]; //Vektor von Vertex 0 nach 2 (linke Kante)
-        Vector3 oneToThree = vertices[3] - vertices[1]; //Vektor von Vertex 1 nach 3 (rechte Kante)
+        Vector3 zeroToOne = sortedVertices[1] - sortedVertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
+        Vector3 zeroToTwo = sortedVertices[2] - sortedVertices[0]; //Vektor von Vertex 0 nach 2 (linke Kante)
+        Vector3 oneToThree = sortedVertices[3] - sortedVertices[1]; //Vektor von Vertex 1 nach 3 (rechte Kante)
 
         //Richtet Vertex 3 (untere rechte Ecke) / Winkel bei Vertex 1 (obere rechte Ecke) neue aus
         if (Vector3.Angle(zeroToOne, oneToThree) > 91f)
         {
             while (Vector3.Angle(zeroToOne, oneToThree) > 91f)
             {
-                vertices[3] = vertices[3] + (zeroToOne / 100f);
-                vertex3.transform.position = vertices[3];
-                oneToThree = vertices[3] - vertices[1];
+                sortedVertices[3] = sortedVertices[3] + (zeroToOne / 100f);
+                vertex3.transform.position = sortedVertices[3];
+                oneToThree = sortedVertices[3] - sortedVertices[1];
                 yield return new WaitForSeconds(0.01f);
             }
         } else if (Vector3.Angle(zeroToOne, oneToThree) < 89f)
         {
             while (Vector3.Angle(zeroToOne, oneToThree) < 89f)
             {
-                vertices[3] = vertices[3] - (zeroToOne / 100f);
-                vertex3.transform.position = vertices[3];
-                oneToThree = vertices[3] - vertices[1];
+                sortedVertices[3] = sortedVertices[3] - (zeroToOne / 100f);
+                vertex3.transform.position = sortedVertices[3];
+                oneToThree = sortedVertices[3] - sortedVertices[1];
                 yield return new WaitForSeconds(0.01f);
             }
         }
@@ -281,9 +281,9 @@ public class InputScript : MonoBehaviour
         {
             while (Vector3.Angle(zeroToOne, zeroToTwo) > 91f)
             {
-                vertices[2] = vertices[2] + (zeroToOne / 100f);
-                vertex2.transform.position = vertices[2];
-                zeroToTwo = vertices[2] - vertices[0];
+                sortedVertices[2] = sortedVertices[2] + (zeroToOne / 100f);
+                vertex2.transform.position = sortedVertices[2];
+                zeroToTwo = sortedVertices[2] - sortedVertices[0];
                 yield return new WaitForSeconds(0.01f);
             }
         }
@@ -291,9 +291,9 @@ public class InputScript : MonoBehaviour
         {
             while (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
             {
-                vertices[2] = vertices[2] - (zeroToOne / 100f);
-                vertex2.transform.position = vertices[2];
-                zeroToTwo = vertices[2] - vertices[0];
+                sortedVertices[2] = sortedVertices[2] - (zeroToOne / 100f);
+                vertex2.transform.position = sortedVertices[2];
+                zeroToTwo = sortedVertices[2] - sortedVertices[0];
                 yield return new WaitForSeconds(0.01f);
             }
         }
@@ -304,16 +304,16 @@ public class InputScript : MonoBehaviour
 
         if (Mathf.Abs(zeroToTwo.magnitude) > Mathf.Abs(oneToThree.magnitude))
         {
-            vertices[2] = vertices[2] - differenceToMove;
-            vertices[3] = vertices[3] + differenceToMove;
+            sortedVertices[2] = sortedVertices[2] - differenceToMove;
+            sortedVertices[3] = sortedVertices[3] + differenceToMove;
         } else
         {
-            vertices[2] = vertices[2] + differenceToMove;
-            vertices[3] = vertices[3] - differenceToMove;
+            sortedVertices[2] = sortedVertices[2] + differenceToMove;
+            sortedVertices[3] = sortedVertices[3] - differenceToMove;
         }
 
-        vertex2.transform.position = vertices[2];
-        vertex3.transform.position = vertices[3];
+        vertex2.transform.position = sortedVertices[2];
+        vertex3.transform.position = sortedVertices[3];
 
         Destroy(tableFromMesh);
         makeTableFromMesh();
