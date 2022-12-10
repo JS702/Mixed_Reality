@@ -14,6 +14,7 @@ public class InputScript : MonoBehaviour
     public GameObject tablePref;
 
     [SerializeField] GameObject netPrefab;
+    GameObject player;
     GameObject net;
 
     public List<GameObject> tablePoints = new List<GameObject>();
@@ -53,20 +54,56 @@ public class InputScript : MonoBehaviour
 
     GameObject ballSpawnerCube;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private Vector3 getNearestPoint(Vector3 point)
+    {
+        Vector3 nearestPoint = new Vector3(100000000f, 100000000f, 100000000f);
+        foreach (Vector3 vertex in vertices)
+        {
+            if (Vector3.Distance(vertex, point) < Vector3.Distance(nearestPoint, point))
+            {
+                nearestPoint = vertex;
+            }
+        }
+        return nearestPoint;
+    }
+
+    private Vector3 getFarthestPoint(Vector3 point)
+    {
+        Vector3 farthestPoint = new Vector3(0, 0, 0);
+        foreach (Vector3 vertex in vertices)
+        {
+            if (Vector3.Distance(vertex, point) > Vector3.Distance(farthestPoint, point))
+            {
+                farthestPoint = vertex;
+            }
+        }
+        return farthestPoint;
+    }
 
     public Vector3[] getNear()
     {
-        return new Vector3[] { vertices[0], vertices[1] };
+        Vector3 nearestPoint = getNearestPoint(player.transform.position);
+        return new Vector3[] { nearestPoint, getNearestPoint(nearestPoint) };//Ich weiß nicht ob die Reihenfolge hier relevant ist, also ob z.B. { vertices[1], vertices[0] } erlaubt ist
+        //return new Vector3[] { vertices[0], vertices[1] };
+
     }
 
     public Vector3[] getFar()
     {
-        return new Vector3[] { vertices[2], vertices[3] };
+        Vector3 farthestPoint = getFarthestPoint(player.transform.position);
+        return new Vector3[] { farthestPoint, getFarthestPoint(farthestPoint) };//Ich weiß nicht ob die Reihenfolge hier relevant ist, also ob z.B. { vertices[1], vertices[0] } erlaubt ist
+        //return new Vector3[] { vertices[2], vertices[3] };
     }
 
     public Vector3 getParallel()
     {
-        return vertices[1] - vertices[0];
+        return getNear()[1] - getNear()[0];
+        //return vertices[1] - vertices[0];
     }
 
 
@@ -208,22 +245,12 @@ public class InputScript : MonoBehaviour
 
         makeNet();
 
-        Vector3 ballSpawnerPosition = vertices[0] + ((vertices[1] - vertices[0]) / 2);
-        ballSpawnerPosition.y += 0.45f;
-
-        FindObjectOfType<BallSpawner>().Relocate(ballSpawnerPosition, vertices[3] - ballSpawnerPosition);
-
-        if (ballSpawnerCube)
-        {
-            Destroy(ballSpawnerCube);
-        }
-
-        ballSpawnerCube = Instantiate(testCube, ballSpawnerPosition, Quaternion.identity);
-        Destroy(ballSpawnerCube.GetComponent<BoxCollider>());
+        
     }
 
     IEnumerator makeTableRectangular()
     {
+        vertices = sortedVertices;
         Vector3 zeroToOne = vertices[1] - vertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
         Vector3 zeroToTwo = vertices[2] - vertices[0]; //Vektor von Vertex 0 nach 2 (linke Kante)
         Vector3 oneToThree = vertices[3] - vertices[1]; //Vektor von Vertex 1 nach 3 (rechte Kante)

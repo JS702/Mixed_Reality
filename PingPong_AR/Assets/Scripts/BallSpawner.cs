@@ -24,6 +24,7 @@ public class BallSpawner : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         inputScript = inputGuy.GetComponent<InputScript>();
         racketScript = FindObjectOfType<RacketScript>();
+        shootDirection = Vector3.forward;
     }
 
     void Update()
@@ -31,7 +32,7 @@ public class BallSpawner : MonoBehaviour
         if (isEnabled && OVRInput.GetDown(OVRInput.Button.One))//TODO gucken welcher Knopf und ob der immer auslöst oder unter bestimmten Bedingungen
         {
             racketScript.hitBall = false;
-            gameManager.SpawnTarget(inputScript.getNear(), inputScript.getFar(), inputScript.getParallel());
+            gameManager.SpawnTarget(inputScript.getFar(), inputScript.getNear(), false);//TODO manchmal moving = true setzen, vllt bei jedem 5 ball oder so
             if (ball)
             {
                 Destroy(ball);
@@ -40,9 +41,5 @@ public class BallSpawner : MonoBehaviour
             ball.GetComponent<Rigidbody>().AddRelativeForce(shootDirection * shootSpeed);
         }
     }
-    public void Relocate(Vector3 newPos,Vector3 dir)
-    {
-        transform.position = newPos;
-        shootDirection = dir;
-    }
+
 }
