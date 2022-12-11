@@ -53,16 +53,16 @@ public class GameManager : MonoBehaviour
         */
 
         Vector3 targetPosition = far[0] + ((far[1] - far[0]) * Random.Range(0f, 1f));
-        targetPosition.y += Random.Range(0f, 0.5f);
+        targetPosition.y += Random.Range(0f, 0.1f);
 
         target = Instantiate(targetPrefab, targetPosition, Quaternion.identity); // TODO rotation anpassen
         Vector3 lookPosition = near[0] + ((near[1] - near[0]) * 0.5f);
 
         target.transform.LookAt(lookPosition);
-        if (moving)
+        if (moving) 
         {
             target.GetComponent<MovingTarget>().far = far;
-            target.GetComponent<MovingTarget>().moveAxis = targetPosition;
+            target.GetComponent<MovingTarget>().moveAxis = (far[1] - far[0]);
             target.GetComponent<MovingTarget>().enabled = true;
         }
         MoveBallSpawner(far, near);
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     public void MoveBallSpawner(Vector3[] far, Vector3[] near)
     {
         Vector3 position = far[0] + ((far[1] - far[0]) * Random.Range(0f, 1f));
-        position.y += 1;
+        position.y += 0.3f;
         ballSpawner.transform.position = position;
         Vector3 lookPosition = near[0] + ((near[1] - near[0]) * Random.Range(0f, 1f));
         lookPosition.y += 0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;

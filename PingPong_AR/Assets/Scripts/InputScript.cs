@@ -14,7 +14,7 @@ public class InputScript : MonoBehaviour
     public GameObject tablePref;
 
     [SerializeField] GameObject netPrefab;
-    GameObject player;
+    [SerializeField] GameObject player;
     GameObject net;
 
     public List<GameObject> tablePoints = new List<GameObject>();
@@ -30,7 +30,7 @@ public class InputScript : MonoBehaviour
 
     GameObject tableFromMesh;
 
-    Vector3[] vertices = new Vector3[4];
+    public Vector3[] vertices = new Vector3[4];
     Vector2[] uv = new Vector2[4];
     int[] triangles = new int[6];
 
@@ -52,19 +52,13 @@ public class InputScript : MonoBehaviour
     Vector3[] sortedVertices = new Vector3[4];
     Vector3 previousVertex;
 
-    GameObject ballSpawnerCube;
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
 
     private Vector3 getNearestPoint(Vector3 point)
     {
-        Vector3 nearestPoint = new Vector3(100000000f, 100000000f, 100000000f);
+        Vector3 nearestPoint = new Vector3(100000f, 100000f, 100000f);
         foreach (Vector3 vertex in vertices)
         {
-            if (Vector3.Distance(vertex, point) < Vector3.Distance(nearestPoint, point))
+            if (point != vertex && Vector3.Distance(vertex, point) < Vector3.Distance(nearestPoint, point))
             {
                 nearestPoint = vertex;
             }
@@ -77,7 +71,7 @@ public class InputScript : MonoBehaviour
         Vector3 farthestPoint = new Vector3(0, 0, 0);
         foreach (Vector3 vertex in vertices)
         {
-            if (Vector3.Distance(vertex, point) > Vector3.Distance(farthestPoint, point))
+            if (point != vertex && Vector3.Distance(vertex, point) > Vector3.Distance(farthestPoint, point))
             {
                 farthestPoint = vertex;
             }
@@ -88,7 +82,7 @@ public class InputScript : MonoBehaviour
     public Vector3[] getNear()
     {
         Vector3 nearestPoint = getNearestPoint(player.transform.position);
-        return new Vector3[] { nearestPoint, getNearestPoint(nearestPoint) };//Ich weiß nicht ob die Reihenfolge hier relevant ist, also ob z.B. { vertices[1], vertices[0] } erlaubt ist
+        return new Vector3[] { nearestPoint, getNearestPoint(nearestPoint) };
         //return new Vector3[] { vertices[0], vertices[1] };
 
     }
@@ -96,7 +90,7 @@ public class InputScript : MonoBehaviour
     public Vector3[] getFar()
     {
         Vector3 farthestPoint = getFarthestPoint(player.transform.position);
-        return new Vector3[] { farthestPoint, getFarthestPoint(farthestPoint) };//Ich weiß nicht ob die Reihenfolge hier relevant ist, also ob z.B. { vertices[1], vertices[0] } erlaubt ist
+        return new Vector3[] { farthestPoint, getNearestPoint(farthestPoint) };
         //return new Vector3[] { vertices[2], vertices[3] };
     }
 
@@ -220,8 +214,8 @@ public class InputScript : MonoBehaviour
         sortVertices();
 
 
-        Vector3 side1 = sortedVertices[1] - sortedVertices[0];
-        Vector3 side2 = sortedVertices[2] - sortedVertices[0];
+        Vector3 side1 = vertices[1] - vertices[0];
+        Vector3 side2 = vertices[2] - vertices[0];
 
         Vector3 normal = Vector3.Cross(side1, side2);
             
@@ -231,7 +225,7 @@ public class InputScript : MonoBehaviour
         }
 
 
-        mesh.vertices = sortedVertices;
+        mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
 
@@ -251,27 +245,27 @@ public class InputScript : MonoBehaviour
     IEnumerator makeTableRectangular()
     {
         //vertices = sortedVertices;
-        Vector3 zeroToOne = sortedVertices[1] - sortedVertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
-        Vector3 zeroToTwo = sortedVertices[2] - sortedVertices[0]; //Vektor von Vertex 0 nach 2 (linke Kante)
-        Vector3 oneToThree = sortedVertices[3] - sortedVertices[1]; //Vektor von Vertex 1 nach 3 (rechte Kante)
+        Vector3 zeroToOne = vertices[1] - vertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
+        Vector3 zeroToTwo = vertices[2] - vertices[0]; //Vektor von Vertex 0 nach 2 (linke Kante)
+        Vector3 oneToThree = vertices[3] - vertices[1]; //Vektor von Vertex 1 nach 3 (rechte Kante)
 
         //Richtet Vertex 3 (untere rechte Ecke) / Winkel bei Vertex 1 (obere rechte Ecke) neue aus
         if (Vector3.Angle(zeroToOne, oneToThree) > 91f)
         {
             while (Vector3.Angle(zeroToOne, oneToThree) > 91f)
             {
-                sortedVertices[3] = sortedVertices[3] + (zeroToOne / 100f);
-                vertex3.transform.position = sortedVertices[3];
-                oneToThree = sortedVertices[3] - sortedVertices[1];
+                vertices[3] = vertices[3] + (zeroToOne / 100f);
+                vertex3.transform.position = vertices[3];
+                oneToThree = vertices[3] - vertices[1];
                 yield return new WaitForSeconds(0.01f);
             }
         } else if (Vector3.Angle(zeroToOne, oneToThree) < 89f)
         {
             while (Vector3.Angle(zeroToOne, oneToThree) < 89f)
             {
-                sortedVertices[3] = sortedVertices[3] - (zeroToOne / 100f);
-                vertex3.transform.position = sortedVertices[3];
-                oneToThree = sortedVertices[3] - sortedVertices[1];
+                vertices[3] = vertices[3] - (zeroToOne / 100f);
+                vertex3.transform.position = vertices[3];
+                oneToThree = vertices[3] - vertices[1];
                 yield return new WaitForSeconds(0.01f);
             }
         }
@@ -281,9 +275,9 @@ public class InputScript : MonoBehaviour
         {
             while (Vector3.Angle(zeroToOne, zeroToTwo) > 91f)
             {
-                sortedVertices[2] = sortedVertices[2] + (zeroToOne / 100f);
-                vertex2.transform.position = sortedVertices[2];
-                zeroToTwo = sortedVertices[2] - sortedVertices[0];
+                vertices[2] = vertices[2] + (zeroToOne / 100f);
+                vertex2.transform.position = vertices[2];
+                zeroToTwo = vertices[2] - vertices[0];
                 yield return new WaitForSeconds(0.01f);
             }
         }
@@ -291,9 +285,9 @@ public class InputScript : MonoBehaviour
         {
             while (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
             {
-                sortedVertices[2] = sortedVertices[2] - (zeroToOne / 100f);
-                vertex2.transform.position = sortedVertices[2];
-                zeroToTwo = sortedVertices[2] - sortedVertices[0];
+                vertices[2] = vertices[2] - (zeroToOne / 100f);
+                vertex2.transform.position = vertices[2];
+                zeroToTwo = vertices[2] - vertices[0];
                 yield return new WaitForSeconds(0.01f);
             }
         }
@@ -304,16 +298,16 @@ public class InputScript : MonoBehaviour
 
         if (Mathf.Abs(zeroToTwo.magnitude) > Mathf.Abs(oneToThree.magnitude))
         {
-            sortedVertices[2] = sortedVertices[2] - differenceToMove;
-            sortedVertices[3] = sortedVertices[3] + differenceToMove;
+            vertices[2] = vertices[2] - differenceToMove;
+            vertices[3] = vertices[3] + differenceToMove;
         } else
         {
-            sortedVertices[2] = sortedVertices[2] + differenceToMove;
-            sortedVertices[3] = sortedVertices[3] - differenceToMove;
+            vertices[2] = vertices[2] + differenceToMove;
+            vertices[3] = vertices[3] - differenceToMove;
         }
 
-        vertex2.transform.position = sortedVertices[2];
-        vertex3.transform.position = sortedVertices[3];
+        vertex2.transform.position = vertices[2];
+        vertex3.transform.position = vertices[3];
 
         Destroy(tableFromMesh);
         makeTableFromMesh();

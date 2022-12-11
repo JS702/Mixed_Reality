@@ -12,7 +12,7 @@ public class MovingTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(transform.position, far[0]) < 0.1f || Vector3.Distance(transform.position, far[1]) < 0.1f)
+        if(Vector3.Distance(transform.position, far[0]) < 0.1f || Vector3.Distance(transform.position, far[1]) < 0.1f)//TODO wenn er in in einem Vertex gespawnt wird, bleibt er auf der Stelle weil er immer näher als 0.1 dran ist
         {
             moveAxis *= -1;
         }
