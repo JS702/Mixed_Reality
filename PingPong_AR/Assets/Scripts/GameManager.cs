@@ -53,7 +53,10 @@ public class GameManager : MonoBehaviour
         */
 
         Vector3 targetPosition = far[0] + ((far[1] - far[0]) * Random.Range(0f, 1f));
-        targetPosition.y += Random.Range(0f, 0.1f);
+        
+        targetPosition.y += Random.Range(0.1f, 0.25f);
+
+        targetPosition += CaculauteDir(near[0], far[1]);
 
         target = Instantiate(targetPrefab, targetPosition, Quaternion.identity); // TODO rotation anpassen
         Vector3 lookPosition = near[0] + ((near[1] - near[0]) * 0.5f);
@@ -77,6 +80,11 @@ public class GameManager : MonoBehaviour
         Vector3 lookPosition = near[0] + ((near[1] - near[0]) * Random.Range(0f, 1f));
         lookPosition.y += 0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
         ballSpawner.transform.LookAt(lookPosition);
+    }
+
+    private Vector3 CaculauteDir(Vector3 near,Vector3 far)
+    {
+        return (near-far); // (getNear()[0]- getFar()[1]);              
     }
 
 
