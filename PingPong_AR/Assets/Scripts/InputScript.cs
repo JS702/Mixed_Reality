@@ -99,6 +99,10 @@ public class InputScript : MonoBehaviour
         return getNear()[1] - getNear()[0];
         //return vertices[1] - vertices[0];
     }
+    public float GetLenght()
+    {
+        return Vector3.Distance(getNear()[0], getFar()[1]);
+    }
 
 
     void flipNormalVector()
@@ -351,6 +355,8 @@ public class InputScript : MonoBehaviour
                     break;
 
                 case 4:
+                    FindObjectOfType<BallSpawner>().shootSpeed = GetLenght() * 10;
+                    Debug.Log(GetLenght() * 10);
                     makeTableFromMesh();
                     break;
 
