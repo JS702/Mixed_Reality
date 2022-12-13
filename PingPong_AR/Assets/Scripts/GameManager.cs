@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     public void MoveBallSpawner(Vector3[] far, Vector3[] near)
     {
         Vector3 position = far[0] + ((far[1] - far[0]) * Random.Range(0f, 1f));
-        position.y += 0.3f;
+        position.y += 0.75f;
         ballSpawner.transform.position = position;
         Vector3 lookPosition = near[0] + ((near[1] - near[0]) * Random.Range(0f, 1f));
         lookPosition.y += 0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
