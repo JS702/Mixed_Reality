@@ -241,6 +241,8 @@ public class InputScript : MonoBehaviour
 
         MeshCollider tableCollider = tableFromMesh.AddComponent(typeof(MeshCollider)) as MeshCollider;
 
+        
+
         makeNet();
 
         
@@ -261,7 +263,7 @@ public class InputScript : MonoBehaviour
                 vertices[3] = vertices[3] + (zeroToOne / 100f);
                 vertex3.transform.position = vertices[3];
                 oneToThree = vertices[3] - vertices[1];
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForEndOfFrame();
             }
         } else if (Vector3.Angle(zeroToOne, oneToThree) < 89f)
         {
@@ -270,7 +272,7 @@ public class InputScript : MonoBehaviour
                 vertices[3] = vertices[3] - (zeroToOne / 100f);
                 vertex3.transform.position = vertices[3];
                 oneToThree = vertices[3] - vertices[1];
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForEndOfFrame();
             }
         }
 
@@ -282,7 +284,7 @@ public class InputScript : MonoBehaviour
                 vertices[2] = vertices[2] + (zeroToOne / 100f);
                 vertex2.transform.position = vertices[2];
                 zeroToTwo = vertices[2] - vertices[0];
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForEndOfFrame();
             }
         }
         else if (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
@@ -292,7 +294,7 @@ public class InputScript : MonoBehaviour
                 vertices[2] = vertices[2] - (zeroToOne / 100f);
                 vertex2.transform.position = vertices[2];
                 zeroToTwo = vertices[2] - vertices[0];
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForEndOfFrame();
             }
         }
 
@@ -355,13 +357,15 @@ public class InputScript : MonoBehaviour
                     break;
 
                 case 4:
-                    FindObjectOfType<BallSpawner>().shootSpeed = GetLenght() * 10;
-                    Debug.Log(GetLenght() * 10);
+                    FindObjectOfType<BallSpawner>().shootSpeed = GetLenght() * 20;
+                    Debug.Log(GetLenght() * 20);
                     makeTableFromMesh();
+                    
+                    StartCoroutine(makeTableRectangular());
                     break;
 
                 case 5:
-                    StartCoroutine(makeTableRectangular());
+                   // StartCoroutine(makeTableRectangular());
                     break;
                 
             }

@@ -14,7 +14,12 @@ public class GameManager : MonoBehaviour
     public Vector3[] site2;
     public GameObject player;
     public GameObject ballSpawner;
+    BallSpawner BallSpawnerLogik;
 
+    private void Start()
+    {
+        BallSpawnerLogik = ballSpawner.GetComponent<BallSpawner>();
+    }
 
 
     public void HitTarget()
@@ -54,9 +59,9 @@ public class GameManager : MonoBehaviour
 
         Vector3 targetPosition = far[0] + ((far[1] - far[0]) * Random.Range(0f, 1f));
         
-        targetPosition.y += Random.Range(0.1f, 0.25f);
+        targetPosition.y += Random.Range(0.05f, 0.15f);
 
-        targetPosition += CaculauteDir(near[0], far[1]);
+       
 
         target = Instantiate(targetPrefab, targetPosition, Quaternion.identity); // TODO rotation anpassen
         Vector3 lookPosition = near[0] + ((near[1] - near[0]) * 0.5f);
@@ -74,17 +79,29 @@ public class GameManager : MonoBehaviour
 
     public void MoveBallSpawner(Vector3[] far, Vector3[] near)
     {
-        Vector3 position = far[0] + ((far[1] - far[0]) * Random.Range(0f, 1f));
-        position.y += 0.75f;
+        Debug.Log(far);
+        Debug.Log(near);
+         
+        Vector3 position = far[0] + ((far[1] - far[0]) * Random.Range(0.2f, 0.8f));
+        position.y += 0.35f;
+        
+        position += CaculauteDir(near[0], far[1]) * 0.5f; //
+
+
         ballSpawner.transform.position = position;
-        Vector3 lookPosition = near[0] + ((near[1] - near[0]) * Random.Range(0f, 1f));
-        lookPosition.y += 0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
+        
+        Vector3 lookPosition = near[0] + ((near[1] - near[0]) * Random.Range(0.2f, 0.8f));
+        lookPosition.y = position.y; //0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
         ballSpawner.transform.LookAt(lookPosition);
+
+        
     }
 
     private Vector3 CaculauteDir(Vector3 near,Vector3 far)
     {
-        return (near-far); // (getNear()[0]- getFar()[1]);              
+        Vector3 ReturnVector = (far - near).normalized;
+        ReturnVector.y = 0;
+        return ReturnVector; // (getNear()[0]- getFar()[1]);              
     }
 
 

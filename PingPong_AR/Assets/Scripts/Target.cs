@@ -7,6 +7,7 @@ public class Target : MonoBehaviour
 
     GameManager gameManager;
     RacketScript racketScript;
+    [SerializeField] AudioClip HitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class Target : MonoBehaviour
         if(other.gameObject.tag.Equals("Ball") && racketScript.hitBall) //hitBall verhindert, dass der Ball das Target trifft, ohne vorher den Schläger berührt zu haben
         {
             gameManager.HitTarget();
+            AudioSource.PlayClipAtPoint(HitSound, transform.position, 1f);
             //Debug.Log("Target destroyed. Cause: Hit Target");
             Destroy(gameObject);
         }

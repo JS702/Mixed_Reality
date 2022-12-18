@@ -7,6 +7,7 @@ public class RacketScript : MonoBehaviour
     [SerializeField] Transform handtoTrack;
     Rigidbody racketRigi;
     public bool hitBall;
+    [SerializeField] AudioClip ballhitSound1;
     // Start is called before the first frame update
 
     void Start()
@@ -49,7 +50,9 @@ public class RacketScript : MonoBehaviour
         if (collision.gameObject.tag.Equals("Ball"))
         {
             hitBall = true;
+            AudioSource.PlayClipAtPoint(ballhitSound1, Camera.main.transform.position, 1f);
             StartCoroutine(vibrate(0.05f, OVRInput.Controller.RHand));
+            
         }
     }
 }
