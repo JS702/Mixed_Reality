@@ -50,7 +50,7 @@ public class RacketScript : MonoBehaviour
         if (collision.gameObject.tag.Equals("Ball"))
         {
             hitBall = true;
-            AudioSource.PlayClipAtPoint(ballhitSound1, Camera.main.transform.position, 1f);
+            AudioSource.PlayClipAtPoint(ballhitSound1, transform.position, 1f);
             StartCoroutine(vibrate(0.05f, OVRInput.Controller.RHand));
             
         }

@@ -14,8 +14,11 @@ public class InputScript : MonoBehaviour
     public GameObject tablePref;
 
     [SerializeField] GameObject netPrefab;
+    [SerializeField] GameObject scoreBoardPrefab;
     [SerializeField] GameObject player;
     GameObject net;
+    GameObject ScoreBoard;
+
 
     public List<GameObject> tablePoints = new List<GameObject>();
 
@@ -71,7 +74,11 @@ public class InputScript : MonoBehaviour
         Vector3 farthestPoint = new Vector3(0, 0, 0);
         foreach (Vector3 vertex in vertices)
         {
-            if (point != vertex && Vector3.Distance(vertex, point) > Vector3.Distance(farthestPoint, point))
+            if (farthestPoint == new Vector3(0, 0, 0) && point != vertex)
+            {
+                farthestPoint = vertex;
+            }
+            else if (point != vertex && Vector3.Distance(vertex, point) > Vector3.Distance(farthestPoint, point))
             {
                 farthestPoint = vertex;
             }
@@ -189,6 +196,10 @@ public class InputScript : MonoBehaviour
         {
             Destroy(net);
         }
+        if (ScoreBoard)
+        {
+            Destroy(ScoreBoard);
+        }
 
         Vector3 zeroToOne = sortedVertices[1] - sortedVertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
         Vector3 tableCenter = sortedVertices[0] - ((sortedVertices[0] - sortedVertices[3]) / 2); //Mitte des Tisches (bzw zwischen Vertex 0 und 3)
@@ -197,6 +208,12 @@ public class InputScript : MonoBehaviour
         net.transform.rotation = Quaternion.FromToRotation(Vector3.right, zeroToOne); //Netz parallel zur oberen Kante aufstellen
         net.transform.localScale = new Vector3(zeroToOne.magnitude, 0.125f, 0.01f); //Breite vom Netz der oberen Kante anpassen
         net.transform.position = new Vector3(net.transform.position.x, net.transform.position.y + 0.06f, net.transform.position.z); //Netz ein Stück hochsetzen
+
+        tableCenter.y += 2;
+        ScoreBoard = Instantiate(scoreBoardPrefab, tableCenter, Quaternion.identity);
+        // net.transform.parent =  ScoreBoard.transform;
+        ScoreBoard.transform.rotation = net.transform.rotation;
+        
     }
 
     void makeTableFromMesh()

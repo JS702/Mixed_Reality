@@ -200,12 +200,12 @@ TrailRenderer:
       - serializedVersion: 3
         time: 0
         value: 0.038297653
-        inSlope: -0.25142306
-        outSlope: -0.25142306
+        inSlope: 0.0000019781294
+        outSlope: 0.0000019781294
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.22809394
+        outWeight: 0.23643884
       - serializedVersion: 3
         time: 0.46993592
         value: 0
@@ -256,6 +256,6 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
-  m_Autodestruct: 1
+  m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1

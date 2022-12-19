@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject ballSpawner;
     BallSpawner BallSpawnerLogik;
 
+    DisplayScore ScoreBoard;
+
     private void Start()
     {
         BallSpawnerLogik = ballSpawner.GetComponent<BallSpawner>();
@@ -26,6 +28,10 @@ public class GameManager : MonoBehaviour
     {
         Destroy(target);
         score++;
+        if (ScoreBoard)
+        {
+            ScoreBoard.UpdateScore(score);
+        }
     }
 
     public void SpawnTargetSimple()
@@ -79,19 +85,19 @@ public class GameManager : MonoBehaviour
 
     public void MoveBallSpawner(Vector3[] far, Vector3[] near)
     {
-        Debug.Log(far);
-        Debug.Log(near);
+        Debug.Log(far[0].ToString() +" " + far[1].ToString());
+        Debug.Log(near[0].ToString() +" " + near[1].ToString());
          
         Vector3 position = far[0] + ((far[1] - far[0]) * Random.Range(0.2f, 0.8f));
-        position.y += 0.35f;
+        position.y += 0.4f;
         
         position += CaculauteDir(near[0], far[1]) * 0.5f; //
 
 
         ballSpawner.transform.position = position;
-        
-        Vector3 lookPosition = near[0] + ((near[1] - near[0]) * Random.Range(0.2f, 0.8f));
-        lookPosition.y = position.y; //0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
+
+        Vector3 lookPosition = (near[0] + ((near[1] - near[0]) * Random.Range(0.2f, 0.8f))) + ((near[1] - far[0]) * 0.75f);
+        //lookPosition.y = position.y; //0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
         ballSpawner.transform.LookAt(lookPosition);
 
         
@@ -103,6 +109,9 @@ public class GameManager : MonoBehaviour
         ReturnVector.y = 0;
         return ReturnVector; // (getNear()[0]- getFar()[1]);              
     }
-
+    public void ApplyingScoreBaord(DisplayScore ds)
+    {
+        ScoreBoard = ds;
+    }
 
 }
