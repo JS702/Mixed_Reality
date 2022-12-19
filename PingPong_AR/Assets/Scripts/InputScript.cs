@@ -19,6 +19,7 @@ public class InputScript : MonoBehaviour
     GameObject net;
     GameObject ScoreBoard;
 
+    [SerializeField] GameManager gameMang;
 
     public List<GameObject> tablePoints = new List<GameObject>();
 
@@ -280,7 +281,7 @@ public class InputScript : MonoBehaviour
                 vertices[3] = vertices[3] + (zeroToOne / 100f);
                 vertex3.transform.position = vertices[3];
                 oneToThree = vertices[3] - vertices[1];
-                yield return new WaitForEndOfFrame();
+             //   yield return new WaitForEndOfFrame();
             }
         } else if (Vector3.Angle(zeroToOne, oneToThree) < 89f)
         {
@@ -289,7 +290,7 @@ public class InputScript : MonoBehaviour
                 vertices[3] = vertices[3] - (zeroToOne / 100f);
                 vertex3.transform.position = vertices[3];
                 oneToThree = vertices[3] - vertices[1];
-                yield return new WaitForEndOfFrame();
+           //     yield return new WaitForEndOfFrame();
             }
         }
 
@@ -301,7 +302,7 @@ public class InputScript : MonoBehaviour
                 vertices[2] = vertices[2] + (zeroToOne / 100f);
                 vertex2.transform.position = vertices[2];
                 zeroToTwo = vertices[2] - vertices[0];
-                yield return new WaitForEndOfFrame();
+            //    yield return new WaitForEndOfFrame();
             }
         }
         else if (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
@@ -311,9 +312,11 @@ public class InputScript : MonoBehaviour
                 vertices[2] = vertices[2] - (zeroToOne / 100f);
                 vertex2.transform.position = vertices[2];
                 zeroToTwo = vertices[2] - vertices[0];
-                yield return new WaitForEndOfFrame();
+             //   yield return new WaitForEndOfFrame();
             }
         }
+
+        yield return new WaitForEndOfFrame();
 
         //Vermittelt den Abstand von Vertex 2 und 3 zur oberen Kante (Kante zwischen Vertex 0 und 1)
         float difference = Mathf.Abs(zeroToTwo.magnitude - oneToThree.magnitude); //Unterschied der Entfernung von Vertex 2 und 3 zur oberen Kante
@@ -374,15 +377,16 @@ public class InputScript : MonoBehaviour
                     break;
 
                 case 4:
-                    FindObjectOfType<BallSpawner>().shootSpeed = GetLenght() * 20;
-                    Debug.Log(GetLenght() * 20);
+                    FindObjectOfType<BallSpawner>().shootSpeed = GetLenght() * 33;
+                    Debug.Log(GetLenght() * 33);
                     makeTableFromMesh();
                     
                     StartCoroutine(makeTableRectangular());
                     break;
 
-                case 5:
-                   // StartCoroutine(makeTableRectangular());
+                case >=5:
+                    // StartCoroutine(makeTableRectangular());
+                    gameMang.StartGame();
                     break;
                 
             }

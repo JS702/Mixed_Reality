@@ -18,6 +18,13 @@ public class GameManager : MonoBehaviour
 
     DisplayScore ScoreBoard;
 
+    bool GameOngoing = false;
+    int maxrounds = 10;
+    int rounds = 10;
+
+    [SerializeField] AudioClip EndGameSound;
+    [SerializeField] AudioClip StartGameSound;
+
     private void Start()
     {
         BallSpawnerLogik = ballSpawner.GetComponent<BallSpawner>();
@@ -30,7 +37,15 @@ public class GameManager : MonoBehaviour
         score++;
         if (ScoreBoard)
         {
-            ScoreBoard.UpdateScore(score);
+            if (GameOngoing)
+            {
+                ScoreBoard.UpdateScoreG(score,maxrounds);
+            }
+            else
+            {
+                ScoreBoard.UpdateScore(score);
+            }
+            
         }
     }
 
@@ -67,7 +82,8 @@ public class GameManager : MonoBehaviour
         
         targetPosition.y += Random.Range(0.05f, 0.15f);
 
-       
+        targetPosition += CaculauteDir(near[0], far[1]) * 0.5f; 
+
 
         target = Instantiate(targetPrefab, targetPosition, Quaternion.identity); // TODO rotation anpassen
         Vector3 lookPosition = near[0] + ((near[1] - near[0]) * 0.5f);
@@ -88,16 +104,16 @@ public class GameManager : MonoBehaviour
         Debug.Log(far[0].ToString() +" " + far[1].ToString());
         Debug.Log(near[0].ToString() +" " + near[1].ToString());
          
-        Vector3 position = far[0] + ((far[1] - far[0]) * Random.Range(0.2f, 0.8f));
-        position.y += 0.4f;
+        Vector3 position = far[0] + ((far[1] - far[0]) * Random.Range(0.1f, 0.9f));
+        position.y += 0.5f;
         
         position += CaculauteDir(near[0], far[1]) * 0.5f; //
 
 
         ballSpawner.transform.position = position;
 
-        Vector3 lookPosition = (near[0] + ((near[1] - near[0]) * Random.Range(0.2f, 0.8f))) + ((near[1] - far[0]) * 0.75f);
-        //lookPosition.y = position.y; //0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
+        Vector3 lookPosition = (near[0] + ((near[1] - near[0]) * Random.Range(0.25f, 0.75f))); // - ((near[0] - far[1]) * 0.75f);
+        lookPosition.y = position.y; //0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
         ballSpawner.transform.LookAt(lookPosition);
 
         
@@ -112,6 +128,38 @@ public class GameManager : MonoBehaviour
     public void ApplyingScoreBaord(DisplayScore ds)
     {
         ScoreBoard = ds;
+    }
+    public void StartGame()
+    {
+       if (!GameOngoing)
+       {
+            AudioSource.PlayClipAtPoint(StartGameSound, Camera.main.transform.position);
+            rounds = maxrounds;
+            score = 0;
+            ScoreBoard.UpdateScoreG(score, maxrounds);
+            GameOngoing = true;
+            ContGame();
+       }
+        
+    }
+    public void ContGame()
+    {
+        if (GameOngoing)
+        {
+            rounds--;
+            if (rounds <= 0)
+            {
+                
+                GameOngoing = false;
+                AudioSource.PlayClipAtPoint(EndGameSound,Camera.main.transform.position);
+            }
+            else
+            {
+                BallSpawnerLogik.SpawnBallProtocol(true);
+            }
+           
+        }
+       
     }
 
 }

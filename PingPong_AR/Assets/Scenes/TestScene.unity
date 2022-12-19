@@ -1144,7 +1144,7 @@ GameObject:
   - component: {fileID: 663673730}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1615,7 +1615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813102069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1733,11 +1733,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4824623895934705188, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0399
+      value: 2.0351
       objectReference: {fileID: 0}
     - target: {fileID: 4824623895934705188, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0364
+      value: 0.0299
       objectReference: {fileID: 0}
     - target: {fileID: 4824623895934705188, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1766,6 +1766,26 @@ PrefabInstance:
     - target: {fileID: 4824623895934705188, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004228992670761415, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+      propertyPath: m_Size.y
+      value: 5.5578322
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004228992670761415, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+      propertyPath: m_Size.z
+      value: 0.44999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004228992670761415, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0004978435
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004228992670761415, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+      propertyPath: m_Center.y
+      value: 1.4316208
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004228992670761415, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+      propertyPath: m_Center.z
+      value: -0.00013524419
       objectReference: {fileID: 0}
     - target: {fileID: 5314055642078299294, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
       propertyPath: m_Name
@@ -2384,6 +2404,8 @@ MonoBehaviour:
   site2: []
   player: {fileID: 86603307}
   ballSpawner: {fileID: 813102069}
+  EndGameSound: {fileID: 8300000, guid: 1ba10c1e3e48e8a49966568f2c969fb5, type: 3}
+  StartGameSound: {fileID: 8300000, guid: 25af09a49cfe9904a8291e2683ca507d, type: 3}
 --- !u!4 &1309850800
 Transform:
   m_ObjectHideFlags: 0
@@ -3298,7 +3320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1790181590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3623,6 +3645,7 @@ MonoBehaviour:
   netPrefab: {fileID: 2185131914241627451, guid: 3252b984e76f54645a51431b20880ae5, type: 3}
   scoreBoardPrefab: {fileID: 6842837930387005225, guid: 2edfbe7abf88c2e4b8b9bd355795262e, type: 3}
   player: {fileID: 86603307}
+  gameMang: {fileID: 1309850799}
   tablePoints: []
   TestObjectInput: {fileID: 0}
   isEnabled: 1
@@ -3634,7 +3657,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  material: {fileID: 2100000, guid: 9482db29b2fd22a4fac0b58c18907000, type: 2}
+  material: {fileID: 2100000, guid: e07f5a136be725144b8bb24a8551b8bd, type: 2}
   testCube: {fileID: 9063742373144981970, guid: 3e5db4c5211c13447a6d49bf5433995d, type: 3}
 --- !u!4 &1857620417
 Transform:
@@ -3752,8 +3775,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001797349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01118, y: 0.00582, z: 0.02127}
-  m_LocalScale: {x: 0.010282296, y: 0.017596943, z: 0.14254442}
+  m_LocalPosition: {x: 0.0112, y: 0.00582, z: 0.6713}
+  m_LocalScale: {x: 0.010282296, y: 0.017596943, z: 1.4425638}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 813102071}

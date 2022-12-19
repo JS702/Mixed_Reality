@@ -28,4 +28,9 @@ public class DisplayScore : MonoBehaviour
         txt.text = "Score:" +(scoreNumber).ToString();
         txt2.text = "Score:" +(scoreNumber).ToString();
     }
+    public void UpdateScoreG(int scoreNumber,int max)
+    {
+        txt.text = "Score:" + (scoreNumber).ToString() + "/" + max.ToString();
+        txt2.text = "Score:" + (scoreNumber).ToString() + "/" + max.ToString();
+    }
 }

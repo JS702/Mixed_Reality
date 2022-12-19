@@ -31,17 +31,25 @@ public class BallSpawner : MonoBehaviour
     {
         if (isEnabled && OVRInput.GetDown(OVRInput.Button.One))//TODO gucken welcher Knopf und ob der immer auslöst oder unter bestimmten Bedingungen
         {
-            racketScript.hitBall = false;
-            Vector3[] a = inputScript.getFar();
-            Vector3[] b = inputScript.vertices;
-            gameManager.SpawnTarget(a, inputScript.getNear(), false);//TODO manchmal moving = true setzen, vllt bei jedem 5 ball oder so
-            if (ball)
-            {
-                Destroy(ball);
-            }
-            ball = Instantiate(ballPrefab, transform);
-            ball.GetComponent<Rigidbody>().AddRelativeForce(shootDirection * shootSpeed);
+            SpawnBallProtocol(false);
         }
     }
 
+    public void SpawnBallProtocol(bool waitCont)
+    {
+        racketScript.hitBall = false;
+        Vector3[] a = inputScript.getFar();
+        Vector3[] b = inputScript.vertices;
+        gameManager.SpawnTarget(a, inputScript.getNear(), false);//TODO manchmal moving = true setzen, vllt bei jedem 5 ball oder so
+        if (ball)
+        {
+            Destroy(ball);
+        }
+        ball = Instantiate(ballPrefab, transform);
+        ball.GetComponent<Rigidbody>().AddRelativeForce(shootDirection * shootSpeed);
+        if (waitCont)
+        {
+            ball.GetComponent<BallScript>().GameOnMode();
+        }
+    }
 }
