@@ -1624,6 +1624,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &858289981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7231282586348530818, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+  m_PrefabInstance: {fileID: 950647869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &934470681
 GameObject:
   m_ObjectHideFlags: 0
@@ -3657,6 +3662,10 @@ MonoBehaviour:
   netPrefab: {fileID: 2185131914241627451, guid: 3252b984e76f54645a51431b20880ae5, type: 3}
   scoreBoardPrefab: {fileID: 6842837930387005225, guid: 2edfbe7abf88c2e4b8b9bd355795262e, type: 3}
   player: {fileID: 86603307}
+  handtoTrack: {fileID: 568997493}
+  raccetChild0: {fileID: 858289981}
+  raccetChild1: {fileID: 2129366216}
+  blackUp: 0
   gameMang: {fileID: 1309850799}
   tablePoints: []
   TestObjectInput: {fileID: 0}
@@ -3847,6 +3856,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001797349}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2129366216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5794525292500851779, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+  m_PrefabInstance: {fileID: 950647869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &114473265469657619
 MonoBehaviour:
   m_ObjectHideFlags: 0

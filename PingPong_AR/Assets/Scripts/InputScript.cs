@@ -18,6 +18,11 @@ public class InputScript : MonoBehaviour
     [SerializeField] GameObject player;
     GameObject net;
     GameObject ScoreBoard;
+	
+	[SerializeField] Transform handtoTrack;
+	[SerializeField] GameObject raccetChild0;
+	[SerializeField] GameObject raccetChild1;
+	public bool blackUp = false;
 
     [SerializeField] GameManager gameMang;
 
@@ -405,6 +410,35 @@ public class InputScript : MonoBehaviour
             Debug.Log("Reset");
             SceneManager.LoadScene((SceneManager.GetActiveScene()).name);
         }
+		
+		if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger)) {
+			
+			raccetChild0.transform.rotation = handtoTrack.rotation;
+			raccetChild1.transform.rotation = handtoTrack.rotation;
+			
+			if (!blackUp) {
+				raccetChild0.transform.eulerAngles = new Vector3(
+					raccetChild0.transform.eulerAngles.x,
+					raccetChild0.transform.eulerAngles.y + 180,
+					raccetChild0.transform.eulerAngles.z/* + 90*/);
+					
+				raccetChild1.transform.eulerAngles = new Vector3(
+					raccetChild1.transform.eulerAngles.x,
+					raccetChild1.transform.eulerAngles.y + 180,
+					raccetChild1.transform.eulerAngles.z/* + 90*/);
+			} else {
+				raccetChild0.transform.eulerAngles = new Vector3(
+					raccetChild0.transform.eulerAngles.x,
+					raccetChild0.transform.eulerAngles.y - 180,
+					raccetChild0.transform.eulerAngles.z/* - 90*/);
+					
+				raccetChild1.transform.eulerAngles = new Vector3(
+					raccetChild1.transform.eulerAngles.x,
+					raccetChild1.transform.eulerAngles.y - 180,
+					raccetChild1.transform.eulerAngles.z/* - 90*/);
+			}
+			blackUp = !blackUp;
+		}
 
 
 
