@@ -13,6 +13,7 @@ public class RacketScript : MonoBehaviour
     void Start()
     {
         racketRigi = GetComponent<Rigidbody>();
+        
        
     }
 
