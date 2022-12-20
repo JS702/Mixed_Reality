@@ -34,7 +34,7 @@ public class BallScript : MonoBehaviour
     public void GameOnMode()
     {
         GameMode = true;
-        StartCoroutine(WaitThenCont(20));
+        StartCoroutine(WaitThenCont(15));
     }
     
 }

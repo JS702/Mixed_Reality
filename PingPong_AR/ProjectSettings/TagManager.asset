@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GameManager
   - Ball
+  - Racket
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -13,8 +15,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Racket
+  - Table
   - 
   - 
   - 

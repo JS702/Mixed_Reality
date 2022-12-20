@@ -19147,18 +19147,18 @@ struct SubmitEvent_t1E0F5A2AB28D0DB55AE18E8DA99147D86492DD5D  : public UnityEven
 {
 };
 
-// InputScript/<makeTableRectangular>d__42
-struct U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7  : public RuntimeObject
+// InputScript/<makeTableRectangular>d__43
+struct U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618  : public RuntimeObject
 {
-	// System.Int32 InputScript/<makeTableRectangular>d__42::<>1__state
+	// System.Int32 InputScript/<makeTableRectangular>d__43::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object InputScript/<makeTableRectangular>d__42::<>2__current
+	// System.Object InputScript/<makeTableRectangular>d__43::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// InputScript InputScript/<makeTableRectangular>d__42::<>4__this
+	// InputScript InputScript/<makeTableRectangular>d__43::<>4__this
 	InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213* ___U3CU3E4__this_2;
-	// UnityEngine.Vector3 InputScript/<makeTableRectangular>d__42::<zeroToTwo>5__2
+	// UnityEngine.Vector3 InputScript/<makeTableRectangular>d__43::<zeroToTwo>5__2
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___U3CzeroToTwoU3E5__2_3;
-	// UnityEngine.Vector3 InputScript/<makeTableRectangular>d__42::<oneToThree>5__3
+	// UnityEngine.Vector3 InputScript/<makeTableRectangular>d__43::<oneToThree>5__3
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___U3ConeToThreeU3E5__3_4;
 };
 
@@ -24224,6 +24224,8 @@ struct InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213  : public MonoBehav
 	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* ___sortedVertices_31;
 	// UnityEngine.Vector3 InputScript::previousVertex
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___previousVertex_32;
+	// UnityEngine.LayerMask InputScript::PhysikLayerTable
+	LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB ___PhysikLayerTable_33;
 };
 
 // Oculus.Voice.Demo.UIShapesDemo.Instructions
@@ -30320,7 +30322,7 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize6339 = { sizeof(DisplayScore
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6340;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize6340 = { sizeof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6341;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize6341 = { sizeof(U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize6341 = { sizeof(U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6342;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize6342 = { sizeof(InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6343;

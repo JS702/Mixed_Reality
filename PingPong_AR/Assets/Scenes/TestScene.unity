@@ -1792,6 +1792,10 @@ PrefabInstance:
       value: Raccheta_Da_PingPong_Fett
       objectReference: {fileID: 0}
     - target: {fileID: 5314055642078299294, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314055642078299294, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
       propertyPath: m_TagString
       value: Racket
       objectReference: {fileID: 0}
@@ -1834,6 +1838,14 @@ PrefabInstance:
     - target: {fileID: 5543100338325842025, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794525292500851779, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231282586348530818, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7251135830023327096, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3659,6 +3671,9 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   material: {fileID: 2100000, guid: e07f5a136be725144b8bb24a8551b8bd, type: 2}
   testCube: {fileID: 9063742373144981970, guid: 3e5db4c5211c13447a6d49bf5433995d, type: 3}
+  PhysikLayerTable:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!4 &1857620417
 Transform:
   m_ObjectHideFlags: 0

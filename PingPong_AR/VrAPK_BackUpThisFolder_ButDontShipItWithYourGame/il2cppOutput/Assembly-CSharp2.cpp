@@ -722,8 +722,8 @@ struct OnToggleValueChange_tD8DB8B3514D20938EF5BC2B343F5B5824217DBDF;
 struct U3CAttachTriggerLogicU3Ed__21_t7407F3611D3E9321CE715B194B83607E4304D8B3;
 // OculusSampleFramework.HandsManager/<FindSkeletonVisualGameObjects>d__52
 struct U3CFindSkeletonVisualGameObjectsU3Ed__52_tAEE38F2607C43B4EC514A9C784FC4E9A2135DF16;
-// InputScript/<makeTableRectangular>d__42
-struct U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7;
+// InputScript/<makeTableRectangular>d__43
+struct U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618;
 // OculusSampleFramework.Interactable/InteractableStateArgsEvent
 struct InteractableStateArgsEvent_tAE90140049B5BEA21987B055A652C8CBA4D67D41;
 // OculusSampleFramework.InteractableToolsCreator/<AttachToolsToHands>d__3
@@ -837,7 +837,7 @@ IL2CPP_EXTERN_C RuntimeClass* U3CFindSkeletonVisualGameObjectsU3Ed__52_tAEE38F26
 IL2CPP_EXTERN_C RuntimeClass* U3CLerpToHMDU3Ed__13_t1C19488BA4B9911BD55B1260DF036568478F5BDA_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CResetPositionU3Ed__26_t447FF0C4C24D521E5C2A09CE93932F840D5ACCB6_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CU3Ec__DisplayClass3_0_tB6C616458AF370A7485118B2AE8C546C20685630_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CvibrateU3Ed__6_t2F45842199C7F749DD4E7502D047E604430F5D51_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UiSceneMenu_tA5C7AC5B4F00307CB28FB567D6CD3624E433486E_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UnboundAnchor_tB94D982DC1C3B6FF028AD53B3D1CEFF5EFBAAF71_il2cpp_TypeInfo_var;
@@ -1043,7 +1043,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* U3CFindSkeletonVisualGameObjectsU3Ed__52_Sy
 IL2CPP_EXTERN_C const RuntimeMethod* U3CLerpToHMDU3Ed__13_System_Collections_IEnumerator_Reset_m9A6EE068410681404FCDA35074CE3306D1AB9036_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CResetPositionU3Ed__26_System_Collections_IEnumerator_Reset_m693B2830178792F2B02E328558109D63ACDB67B8_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CU3Ec__DisplayClass3_0_U3CStartU3Eb__0_m66F58FE70A1074D85B047DA3068CD5C42F4A3FF6_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* U3CmakeTableRectangularU3Ed__42_System_Collections_IEnumerator_Reset_mD7D08657268AA54AC8EA4367A5CF96FFC0C40E9C_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* U3CmakeTableRectangularU3Ed__43_System_Collections_IEnumerator_Reset_mD94407BF6C0299541D3CA7B69B2B8095FE2E2901_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CvibrateU3Ed__6_System_Collections_IEnumerator_Reset_m855DCCB7DB09346C0B8DF5A7247352FF6C1E2F31_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* UnityEvent_1_AddListener_m35712670895235C4BB2182DB1E18A434907F5623_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* UnityEvent_1_Invoke_mB674FB65F41E8F37056CAAFC7291E5252BECCC69_RuntimeMethod_var;
@@ -3149,18 +3149,18 @@ struct ContactTest_tD53016F2C81FB5A359CC3477623648087E841703
 	int32_t ___value___2;
 };
 
-// InputScript/<makeTableRectangular>d__42
-struct U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7  : public RuntimeObject
+// InputScript/<makeTableRectangular>d__43
+struct U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618  : public RuntimeObject
 {
-	// System.Int32 InputScript/<makeTableRectangular>d__42::<>1__state
+	// System.Int32 InputScript/<makeTableRectangular>d__43::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object InputScript/<makeTableRectangular>d__42::<>2__current
+	// System.Object InputScript/<makeTableRectangular>d__43::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// InputScript InputScript/<makeTableRectangular>d__42::<>4__this
+	// InputScript InputScript/<makeTableRectangular>d__43::<>4__this
 	InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213* ___U3CU3E4__this_2;
-	// UnityEngine.Vector3 InputScript/<makeTableRectangular>d__42::<zeroToTwo>5__2
+	// UnityEngine.Vector3 InputScript/<makeTableRectangular>d__43::<zeroToTwo>5__2
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___U3CzeroToTwoU3E5__2_3;
-	// UnityEngine.Vector3 InputScript/<makeTableRectangular>d__42::<oneToThree>5__3
+	// UnityEngine.Vector3 InputScript/<makeTableRectangular>d__43::<oneToThree>5__3
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___U3ConeToThreeU3E5__3_4;
 };
 
@@ -4267,6 +4267,8 @@ struct InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213  : public MonoBehav
 	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* ___sortedVertices_31;
 	// UnityEngine.Vector3 InputScript::previousVertex
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___previousVertex_32;
+	// UnityEngine.LayerMask InputScript::PhysikLayerTable
+	LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB ___PhysikLayerTable_33;
 };
 
 // OculusSampleFramework.Interactable
@@ -7945,10 +7947,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MeshFilter_set_mesh_mD2988E2D835205FD6B6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Renderer_set_material_m21E88977071E0A914D62F3D9CFF0193B3117C45A (Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* __this, Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___value0, const RuntimeMethod* method) ;
 // UnityEngine.Component UnityEngine.GameObject::AddComponent(System.Type)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* GameObject_AddComponent_mDF246771EC34613FA6AF0C98D443368FB43E9F36 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, Type_t* ___componentType0, const RuntimeMethod* method) ;
+// System.Int32 UnityEngine.LayerMask::get_value()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t LayerMask_get_value_m70CBE32210A1F0FD4ECB850285DA90ED57B87974 (LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB* __this, const RuntimeMethod* method) ;
+// System.Void UnityEngine.GameObject::set_layer(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameObject_set_layer_m6E1AF478A2CC86BD222B96317BEB78B7D89B18D0 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, int32_t ___value0, const RuntimeMethod* method) ;
 // System.Void InputScript::makeNet()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InputScript_makeNet_m1111FC1380F444449919B0315C850EFBE8E21FE4 (InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213* __this, const RuntimeMethod* method) ;
-// System.Void InputScript/<makeTableRectangular>d__42::.ctor(System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CmakeTableRectangularU3Ed__42__ctor_m97667621A0B228055DFBF243D45FD7CD3892A59C (U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7* __this, int32_t ___U3CU3E1__state0, const RuntimeMethod* method) ;
+// System.Void InputScript/<makeTableRectangular>d__43::.ctor(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CmakeTableRectangularU3Ed__43__ctor_m6A181B8FD38ED444947101955D58AAAA69531547 (U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618* __this, int32_t ___U3CU3E1__state0, const RuntimeMethod* method) ;
 // T UnityEngine.Object::FindObjectOfType<BallSpawner>()
 inline BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE* Object_FindObjectOfType_TisBallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE_m69E4CCEC552E2ABA287F1B49CCA84B3FE38CF723 (const RuntimeMethod* method)
 {
@@ -14007,6 +14013,13 @@ IL_0101:
 		NullCheck(L_52);
 		Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* L_55;
 		L_55 = GameObject_AddComponent_mDF246771EC34613FA6AF0C98D443368FB43E9F36(L_52, L_54, NULL);
+		// tableFromMesh.layer = PhysikLayerTable.value;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_56 = __this->___tableFromMesh_18;
+		LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB* L_57 = (&__this->___PhysikLayerTable_33);
+		int32_t L_58;
+		L_58 = LayerMask_get_value_m70CBE32210A1F0FD4ECB850285DA90ED57B87974(L_57, NULL);
+		NullCheck(L_56);
+		GameObject_set_layer_m6E1AF478A2CC86BD222B96317BEB78B7D89B18D0(L_56, L_58, NULL);
 		// makeNet();
 		InputScript_makeNet_m1111FC1380F444449919B0315C850EFBE8E21FE4(__this, NULL);
 		// }
@@ -14019,14 +14032,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* InputScript_makeTableRectangul
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7* L_0 = (U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7*)il2cpp_codegen_object_new(U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7_il2cpp_TypeInfo_var);
+		U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618* L_0 = (U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618*)il2cpp_codegen_object_new(U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618_il2cpp_TypeInfo_var);
 		NullCheck(L_0);
-		U3CmakeTableRectangularU3Ed__42__ctor_m97667621A0B228055DFBF243D45FD7CD3892A59C(L_0, 0, NULL);
-		U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7* L_1 = L_0;
+		U3CmakeTableRectangularU3Ed__43__ctor_m6A181B8FD38ED444947101955D58AAAA69531547(L_0, 0, NULL);
+		U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618* L_1 = L_0;
 		NullCheck(L_1);
 		L_1->___U3CU3E4__this_2 = __this;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___U3CU3E4__this_2), (void*)__this);
@@ -14374,8 +14387,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InputScript__ctor_mE8B284D175D80FC19165F
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// System.Void InputScript/<makeTableRectangular>d__42::.ctor(System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CmakeTableRectangularU3Ed__42__ctor_m97667621A0B228055DFBF243D45FD7CD3892A59C (U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7* __this, int32_t ___U3CU3E1__state0, const RuntimeMethod* method) 
+// System.Void InputScript/<makeTableRectangular>d__43::.ctor(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CmakeTableRectangularU3Ed__43__ctor_m6A181B8FD38ED444947101955D58AAAA69531547 (U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618* __this, int32_t ___U3CU3E1__state0, const RuntimeMethod* method) 
 {
 	{
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
@@ -14384,15 +14397,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CmakeTableRectangularU3Ed__42__ctor_m9
 		return;
 	}
 }
-// System.Void InputScript/<makeTableRectangular>d__42::System.IDisposable.Dispose()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CmakeTableRectangularU3Ed__42_System_IDisposable_Dispose_mB9DA02AFE79F6ED95435045F2C31A06D1083887C (U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7* __this, const RuntimeMethod* method) 
+// System.Void InputScript/<makeTableRectangular>d__43::System.IDisposable.Dispose()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CmakeTableRectangularU3Ed__43_System_IDisposable_Dispose_m537015344ABCE6B886E1DA1890ED5E6DBF04EB6A (U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// System.Boolean InputScript/<makeTableRectangular>d__42::MoveNext()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CmakeTableRectangularU3Ed__42_MoveNext_mF55303290DAEA55526A90815A9CFFA71D7A4E9DF (U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7* __this, const RuntimeMethod* method) 
+// System.Boolean InputScript/<makeTableRectangular>d__43::MoveNext()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CmakeTableRectangularU3Ed__43_MoveNext_m0A9396B1B933B622AC425879A27FF3B18EA91248 (U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -14972,26 +14985,26 @@ IL_03c2:
 		return (bool)0;
 	}
 }
-// System.Object InputScript/<makeTableRectangular>d__42::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CmakeTableRectangularU3Ed__42_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m5C4C42DF42D839656E0F17D903D2F25EE708B2E7 (U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7* __this, const RuntimeMethod* method) 
+// System.Object InputScript/<makeTableRectangular>d__43::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CmakeTableRectangularU3Ed__43_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m8D6E4D797ECB59C76E2F33305A2879B04B104CCC (U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618* __this, const RuntimeMethod* method) 
 {
 	{
 		RuntimeObject* L_0 = __this->___U3CU3E2__current_1;
 		return L_0;
 	}
 }
-// System.Void InputScript/<makeTableRectangular>d__42::System.Collections.IEnumerator.Reset()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CmakeTableRectangularU3Ed__42_System_Collections_IEnumerator_Reset_mD7D08657268AA54AC8EA4367A5CF96FFC0C40E9C (U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7* __this, const RuntimeMethod* method) 
+// System.Void InputScript/<makeTableRectangular>d__43::System.Collections.IEnumerator.Reset()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CmakeTableRectangularU3Ed__43_System_Collections_IEnumerator_Reset_mD94407BF6C0299541D3CA7B69B2B8095FE2E2901 (U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618* __this, const RuntimeMethod* method) 
 {
 	{
 		NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A* L_0 = (NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A_il2cpp_TypeInfo_var)));
 		NullCheck(L_0);
 		NotSupportedException__ctor_m1398D0CDE19B36AA3DE9392879738C1EA2439CDF(L_0, NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CmakeTableRectangularU3Ed__42_System_Collections_IEnumerator_Reset_mD7D08657268AA54AC8EA4367A5CF96FFC0C40E9C_RuntimeMethod_var)));
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CmakeTableRectangularU3Ed__43_System_Collections_IEnumerator_Reset_mD94407BF6C0299541D3CA7B69B2B8095FE2E2901_RuntimeMethod_var)));
 	}
 }
-// System.Object InputScript/<makeTableRectangular>d__42::System.Collections.IEnumerator.get_Current()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CmakeTableRectangularU3Ed__42_System_Collections_IEnumerator_get_Current_m4DA9D1DB259566D8060A9D73742C49C6B7AD0398 (U3CmakeTableRectangularU3Ed__42_tCE02AC11A2CA7B2DBFB2D83F33831F3C5F8F68E7* __this, const RuntimeMethod* method) 
+// System.Object InputScript/<makeTableRectangular>d__43::System.Collections.IEnumerator.get_Current()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CmakeTableRectangularU3Ed__43_System_Collections_IEnumerator_get_Current_mCCCC696AF0CA329C2702B1C54D7B3160F2A2CAAF (U3CmakeTableRectangularU3Ed__43_t358DF0125D5FC02016957798F21385F4992F4618* __this, const RuntimeMethod* method) 
 {
 	{
 		RuntimeObject* L_0 = __this->___U3CU3E2__current_1;

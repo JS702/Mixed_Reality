@@ -56,6 +56,7 @@ public class InputScript : MonoBehaviour
     Vector3[] sortedVertices = new Vector3[4];
     Vector3 previousVertex;
 
+    [SerializeField] LayerMask PhysikLayerTable; // Wenn zwischen Tisch und Rackt collsion einfach defaukt angeben
 
     private Vector3 getNearestPoint(Vector3 point)
     {
@@ -259,6 +260,8 @@ public class InputScript : MonoBehaviour
 
         MeshCollider tableCollider = tableFromMesh.AddComponent(typeof(MeshCollider)) as MeshCollider;
 
+        tableFromMesh.layer = PhysikLayerTable; // Funksiniert anscheiden gerade noch nicht
+        
         
 
         makeNet();
