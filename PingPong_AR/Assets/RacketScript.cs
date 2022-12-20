@@ -31,7 +31,7 @@ public class RacketScript : MonoBehaviour
         racketRigi.angularVelocity = (rotationDifferneceInDegree * Mathf.Deg2Rad / Time.fixedDeltaTime);
         */
         
-        transform.rotation = handtoTrack.rotation; // Nur zum Test -1
+      //  transform.rotation = handtoTrack.rotation; // Nur zum Test -1
         
         racketRigi.MoveRotation( handtoTrack.rotation); // Nur zum Test -1
     }
