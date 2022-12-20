@@ -1624,11 +1624,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &858289981 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7231282586348530818, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
-  m_PrefabInstance: {fileID: 950647869}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &934470681
 GameObject:
   m_ObjectHideFlags: 0
@@ -3662,9 +3657,7 @@ MonoBehaviour:
   netPrefab: {fileID: 2185131914241627451, guid: 3252b984e76f54645a51431b20880ae5, type: 3}
   scoreBoardPrefab: {fileID: 6842837930387005225, guid: 2edfbe7abf88c2e4b8b9bd355795262e, type: 3}
   player: {fileID: 86603307}
-  handtoTrack: {fileID: 568997493}
-  raccetChild0: {fileID: 858289981}
-  raccetChild1: {fileID: 2129366216}
+  racketRubber: {fileID: 2129366216}
   blackUp: 0
   gameMang: {fileID: 1309850799}
   tablePoints: []
@@ -3680,9 +3673,6 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   material: {fileID: 2100000, guid: e07f5a136be725144b8bb24a8551b8bd, type: 2}
   testCube: {fileID: 9063742373144981970, guid: 3e5db4c5211c13447a6d49bf5433995d, type: 3}
-  PhysikLayerTable:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!4 &1857620417
 Transform:
   m_ObjectHideFlags: 0
