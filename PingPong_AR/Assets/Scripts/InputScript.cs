@@ -56,7 +56,7 @@ public class InputScript : MonoBehaviour
     Vector3[] sortedVertices = new Vector3[4];
     Vector3 previousVertex;
 
-    [SerializeField] LayerMask PhysikLayerTable; // Wenn zwischen Tisch und Rackt collsion einfach defaukt angeben
+   // [SerializeField] LayerMask PhysikLayerTable; // Wenn zwischen Tisch und Rackt collsion einfach defaukt angeben
 
     private Vector3 getNearestPoint(Vector3 point)
     {
@@ -260,7 +260,7 @@ public class InputScript : MonoBehaviour
 
         MeshCollider tableCollider = tableFromMesh.AddComponent(typeof(MeshCollider)) as MeshCollider;
 
-        tableFromMesh.layer = PhysikLayerTable; // Funksiniert anscheiden gerade noch nicht
+      //  tableFromMesh.layer = PhysikLayerTable; // Funksiniert anscheiden gerade noch nicht
         
         
 
@@ -380,8 +380,8 @@ public class InputScript : MonoBehaviour
                     break;
 
                 case 4:
-                    FindObjectOfType<BallSpawner>().shootSpeed = GetLenght() * 33;
-                    Debug.Log(GetLenght() * 33);
+                    FindObjectOfType<BallSpawner>().shootSpeed = GetLenght() * 24.5f +0.5f; // Stärkste basirend auf Tischlänge 
+                    Debug.Log(GetLenght() * 25);
                     makeTableFromMesh();
                     
                     StartCoroutine(makeTableRectangular());

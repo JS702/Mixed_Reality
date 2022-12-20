@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     DisplayScore ScoreBoard;
 
+    InputScript inputscript;
+
     bool GameOngoing = false;
     int maxrounds = 10;
     int rounds = 10;
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         BallSpawnerLogik = ballSpawner.GetComponent<BallSpawner>();
+        inputscript = FindObjectOfType<InputScript>();  
     }
 
 
@@ -105,15 +108,16 @@ public class GameManager : MonoBehaviour
         Debug.Log(near[0].ToString() +" " + near[1].ToString());
          
         Vector3 position = far[0] + ((far[1] - far[0]) * Random.Range(0.1f, 0.9f));
-        position.y += 0.5f;
-        
+
+        position.y += inputscript.GetLenght() * 0.25f;
+
         position += CaculauteDir(near[0], far[1]) * 0.5f; //
 
 
         ballSpawner.transform.position = position;
 
         Vector3 lookPosition = (near[0] + ((near[1] - near[0]) * Random.Range(0.25f, 0.75f))); // - ((near[0] - far[1]) * 0.75f);
-        lookPosition.y = position.y; //0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
+        lookPosition.y = position.y*1.1f; //0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
         ballSpawner.transform.LookAt(lookPosition);
 
         
