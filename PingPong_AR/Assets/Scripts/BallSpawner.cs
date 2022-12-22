@@ -12,7 +12,8 @@ public class BallSpawner : MonoBehaviour
 
     public bool isEnabled;//Vllt removen wenn der nix anderes macht außer sachen spawnen
 
-    public float shootSpeed;
+    private float shootSpeed = 33f; //fester Wert, nicht ändern
+    public float speedMultiplier = 1f; //wird auf shootSpeed multipliziert, um sich der Tischlänge anzupassen
 
     GameManager gameManager;
     [SerializeField] GameObject inputGuy;
@@ -24,7 +25,7 @@ public class BallSpawner : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         inputScript = inputGuy.GetComponent<InputScript>();
         racketScript = FindObjectOfType<RacketScript>();
-        shootDirection = Vector3.forward;
+        shootDirection = Vector3.Normalize(new Vector3(0, 1, 1)); //schießt immer 45° nach oben
     }
 
     void Update()
@@ -33,6 +34,22 @@ public class BallSpawner : MonoBehaviour
         {
             SpawnBallProtocol(false);
         }
+    }
+
+    public float calculateSpeedMultiplier(float distance)
+    {
+        //Berechnen mit pq-Formel
+
+        //Formel für Flugkurve: f(x) = 1.182*x**2 - 0.1823x
+        //Zur Interpolation genutzte Werte: x:0 = y:0 | x:1 = y:1 | x:1.38f = y:2
+
+        float p = -0.1823f / 1.182f; //durch 1.182 teilen, damit x**2 allein steht
+        float q = (distance * -1f) / 1.182f; //mit -1 multiplizieren, damit die Funktion gleich 0 gesetzt wird, durch 1.182 teilen, damit x**2 allein steht
+
+        float x1 = -(p / 2f) + Mathf.Sqrt(Mathf.Pow((p / 2f), 2f) - q);
+        //float x2 = -(p / 2f) - Mathf.Sqrt(Mathf.Pow((p / 2f), 2f) - q); //idk ob wir das jemals brauchen, aber "ES GIBT IMMER EINEN POSITIVEN UND EINEN NEGATIVEN WERT" ~ jeder Mathelehrer
+
+        return x1;
     }
 
     public void SpawnBallProtocol(bool waitCont)
@@ -45,8 +62,11 @@ public class BallSpawner : MonoBehaviour
         {
             Destroy(ball);
         }
+
+        speedMultiplier = calculateSpeedMultiplier(0.5f + (inputScript.GetLenght() * Random.Range(0.6f, 0.9f))); //0.5 = Entfernung vom Spawner zum Tisch | Länge * Random = Ziel (zwischen 60% und 90% der Tischlänge)
+
         ball = Instantiate(ballPrefab, transform);
-        ball.GetComponent<Rigidbody>().AddRelativeForce(shootDirection * shootSpeed);
+        ball.GetComponent<Rigidbody>().AddRelativeForce(shootDirection * shootSpeed * speedMultiplier);
         if (waitCont)
         {
             ball.GetComponent<BallScript>().GameOnMode();

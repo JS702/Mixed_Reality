@@ -103,24 +103,16 @@ public class GameManager : MonoBehaviour
 
 
     public void MoveBallSpawner(Vector3[] far, Vector3[] near)
-    {
-        Debug.Log(far[0].ToString() +" " + far[1].ToString());
-        Debug.Log(near[0].ToString() +" " + near[1].ToString());
-         
+    {    
         Vector3 position = far[0] + ((far[1] - far[0]) * Random.Range(0.1f, 0.9f));
 
-        position.y += inputscript.GetLenght() * 0.25f;
-
-        position += CaculauteDir(near[0], far[1]) * 0.5f; //
-
+        position += CaculauteDir(near[0], far[1]) * 0.5f; 
 
         ballSpawner.transform.position = position;
 
         Vector3 lookPosition = (near[0] + ((near[1] - near[0]) * Random.Range(0.25f, 0.75f))); // - ((near[0] - far[1]) * 0.75f);
-        lookPosition.y = position.y*1.1f; //0.5f; //Er soll ein bisschen drüber gucken, weil Schwerkraft;
+        lookPosition.y = ballSpawner.transform.position.y; //Er soll genau auf seiner Höhe gucken
         ballSpawner.transform.LookAt(lookPosition);
-
-        
     }
 
     private Vector3 CaculauteDir(Vector3 near,Vector3 far)

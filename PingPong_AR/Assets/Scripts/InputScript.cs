@@ -18,8 +18,8 @@ public class InputScript : MonoBehaviour
     [SerializeField] GameObject player;
     GameObject net;
     GameObject ScoreBoard;
-	
-	[SerializeField] GameObject racketRubber;
+    
+    [SerializeField] GameObject racketRubber;
     public bool blackUp = false;
 
     [SerializeField] GameManager gameMang;
@@ -269,7 +269,7 @@ public class InputScript : MonoBehaviour
 
         makeNet();
 
-        
+        Debug.Log("Table Length: " + Vector3.Distance(sortedVertices[0], sortedVertices[2]));
     }
 
     IEnumerator makeTableRectangular()
@@ -383,47 +383,40 @@ public class InputScript : MonoBehaviour
                     break;
 
                 case 4:
-                    FindObjectOfType<BallSpawner>().shootSpeed = GetLenght() * 24.5f +0.5f; // Stärkste basirend auf Tischlänge 
-                    Debug.Log(GetLenght() * 25);
                     makeTableFromMesh();
-                    
                     StartCoroutine(makeTableRectangular());
                     break;
 
                 case >=5:
-                    // StartCoroutine(makeTableRectangular());
                     gameMang.StartGame();
                     break;
                 
             }
 
             buttonPressCounter++;
-
-
-
-
         }
+
         if (OVRInput.GetDown(OVRInput.Button.Two))
         {
             Debug.Log("Reset");
             SceneManager.LoadScene((SceneManager.GetActiveScene()).name);
         }
-		
+        
         //Rotates the racket between forehand and backhand
-		if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger)) {
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger)) {
             if (!blackUp) {
-				racketRubber.transform.localEulerAngles = new Vector3(
-					racketRubber.transform.localEulerAngles.x,
-					racketRubber.transform.localEulerAngles.y + 180,
-					racketRubber.transform.localEulerAngles.z - 90);
-			} else {
-				racketRubber.transform.localEulerAngles = new Vector3(
-					racketRubber.transform.localEulerAngles.x,
-					racketRubber.transform.localEulerAngles.y - 180,
-					racketRubber.transform.localEulerAngles.z + 90);
-			}
-			blackUp = !blackUp;
-		}
+                racketRubber.transform.localEulerAngles = new Vector3(
+                    racketRubber.transform.localEulerAngles.x,
+                    racketRubber.transform.localEulerAngles.y + 180,
+                    racketRubber.transform.localEulerAngles.z - 90);
+            } else {
+                racketRubber.transform.localEulerAngles = new Vector3(
+                    racketRubber.transform.localEulerAngles.x,
+                    racketRubber.transform.localEulerAngles.y - 180,
+                    racketRubber.transform.localEulerAngles.z + 90);
+            }
+            blackUp = !blackUp;
+        }
 
 
 

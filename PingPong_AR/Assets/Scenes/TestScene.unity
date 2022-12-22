@@ -1605,7 +1605,7 @@ MonoBehaviour:
   ballPrefab: {fileID: 3162465353886834653, guid: b66b300c7723dc6489fc99b63ba41baf, type: 3}
   shootDirection: {x: 0, y: 3, z: 1}
   isEnabled: 1
-  shootSpeed: 17
+  speedMultiplier: 1
   inputGuy: {fileID: 1857620415}
 --- !u!4 &813102071
 Transform:
