@@ -59,7 +59,15 @@ public class InputScript : MonoBehaviour
     Vector3[] sortedVertices = new Vector3[4];
     Vector3 previousVertex;
 
-   // [SerializeField] LayerMask PhysikLayerTable; // Wenn zwischen Tisch und Rackt collsion einfach defaukt angeben
+    bool sorted = false;
+    bool flipped = false;
+
+    [SerializeField] Material material0;
+    [SerializeField] Material material1;
+    [SerializeField] Material material2;
+    [SerializeField] Material material3;
+
+    // [SerializeField] LayerMask PhysikLayerTable; // Wenn zwischen Tisch und Rackt collsion einfach defaukt angeben
 
     private Vector3 getNearestPoint(Vector3 point)
     {
@@ -119,8 +127,10 @@ public class InputScript : MonoBehaviour
 
     void flipNormalVector()
     {
-        Vector3 temp0 = new Vector3(sortedVertices[0].x, sortedVertices[0].y, sortedVertices[0].z);
-        Vector3 temp1 = new Vector3(sortedVertices[1].x, sortedVertices[1].y, sortedVertices[1].z);
+        //Vector3 temp0 = new Vector3(sortedVertices[0].x, sortedVertices[0].y, sortedVertices[0].z);
+        //Vector3 temp1 = new Vector3(sortedVertices[1].x, sortedVertices[1].y, sortedVertices[1].z);
+        Vector3 temp0 = sortedVertices[0];
+        Vector3 temp1 = sortedVertices[1];
 
         sortedVertices[0] = sortedVertices[2];
         sortedVertices[1] = sortedVertices[3];
@@ -128,6 +138,9 @@ public class InputScript : MonoBehaviour
         sortedVertices[2] = temp0;
         sortedVertices[3] = temp1;
 
+        flipped = true;
+
+        Destroy(tableFromMesh);
         makeTableFromMesh();
     }
     Vector3 getClosestVertex(Vector3 start)
@@ -192,6 +205,13 @@ public class InputScript : MonoBehaviour
 
         sortedVertices[3] = getLastVertex();
         previousVertex = sortedVertices[3];
+
+        vertex0.transform.position = sortedVertices[0];
+        vertex1.transform.position = sortedVertices[1];
+        vertex2.transform.position = sortedVertices[2];
+        vertex3.transform.position = sortedVertices[3];
+
+        sorted = true;
     }
 
     
@@ -237,11 +257,15 @@ public class InputScript : MonoBehaviour
         triangles[4] = 1;
         triangles[5] = 3;
 
-        sortVertices();
+        //sortVertices();
 
+        if (!sorted)
+        {
+            sortVertices();
+        }
 
-        Vector3 side1 = vertices[1] - vertices[0];
-        Vector3 side2 = vertices[2] - vertices[0];
+        Vector3 side1 = sortedVertices[1] - sortedVertices[0];
+        Vector3 side2 = sortedVertices[2] - sortedVertices[0];
 
         Vector3 normal = Vector3.Cross(side1, side2);
             
@@ -251,7 +275,7 @@ public class InputScript : MonoBehaviour
         }
 
 
-        mesh.vertices = vertices;
+        mesh.vertices = sortedVertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
 
@@ -272,74 +296,168 @@ public class InputScript : MonoBehaviour
         Debug.Log("Table Length: " + Vector3.Distance(sortedVertices[0], sortedVertices[2]));
     }
 
-    IEnumerator makeTableRectangular()
+    IEnumerator makeTableRectangular(Vector3[] vertices)
     {
-        //vertices = sortedVertices;
-        Vector3 zeroToOne = vertices[1] - vertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante)
-        Vector3 zeroToTwo = vertices[2] - vertices[0]; //Vektor von Vertex 0 nach 2 (linke Kante)
-        Vector3 oneToThree = vertices[3] - vertices[1]; //Vektor von Vertex 1 nach 3 (rechte Kante)
-
-        //Richtet Vertex 3 (untere rechte Ecke) / Winkel bei Vertex 1 (obere rechte Ecke) neue aus
-        if (Vector3.Angle(zeroToOne, oneToThree) > 91f)
+        if (!flipped)
         {
-            while (Vector3.Angle(zeroToOne, oneToThree) > 91f)
+            Vector3 topEdge = vertices[1] - vertices[0]; //Vektor von Vertex 0 nach 1 (obere Kante), ehemals zeroToOne
+            Vector3 leftEdge = vertices[2] - vertices[0]; //Vektor von Vertex 0 nach 2 (linke Kante), ehemals zeroToTwo
+            Vector3 rightEdge = vertices[3] - vertices[1]; //Vektor von Vertex 1 nach 3 (rechte Kante), ehemals oneToThree
+
+            //Richtet Vertex 3 (untere rechte Ecke) / Winkel bei Vertex 1 (obere rechte Ecke) neue aus
+            if (Vector3.Angle(topEdge, rightEdge) > 91f)
             {
-                vertices[3] = vertices[3] + (zeroToOne / 100f);
-                vertex3.transform.position = vertices[3];
-                oneToThree = vertices[3] - vertices[1];
-             //   yield return new WaitForEndOfFrame();
+                while (Vector3.Angle(topEdge, rightEdge) > 91f)
+                {
+                    vertices[3] = vertices[3] + (topEdge / 100f);
+                    vertex3.transform.position = vertices[3];
+                    rightEdge = vertices[3] - vertices[1];
+                    //yield return new WaitForEndOfFrame();
+                }
             }
-        } else if (Vector3.Angle(zeroToOne, oneToThree) < 89f)
-        {
-            while (Vector3.Angle(zeroToOne, oneToThree) < 89f)
+            else if (Vector3.Angle(topEdge, rightEdge) < 89f)
             {
-                vertices[3] = vertices[3] - (zeroToOne / 100f);
-                vertex3.transform.position = vertices[3];
-                oneToThree = vertices[3] - vertices[1];
-           //     yield return new WaitForEndOfFrame();
+                while (Vector3.Angle(topEdge, rightEdge) < 89f)
+                {
+                    vertices[3] = vertices[3] - (topEdge / 100f);
+                    vertex3.transform.position = vertices[3];
+                    rightEdge = vertices[3] - vertices[1];
+                    //yield return new WaitForEndOfFrame();
+                }
             }
-        }
 
-        //Richtet Vertex 2 (untere linke Ecke) / Winkel bei Vertex 0 (obere linke Ecke) neue aus
-        if (Vector3.Angle(zeroToOne, zeroToTwo) > 91f)
-        {
-            while (Vector3.Angle(zeroToOne, zeroToTwo) > 91f)
+            //Richtet Vertex 2 (untere linke Ecke) / Winkel bei Vertex 0 (obere linke Ecke) neue aus
+            if (Vector3.Angle(topEdge, leftEdge) > 91f)
             {
-                vertices[2] = vertices[2] + (zeroToOne / 100f);
-                vertex2.transform.position = vertices[2];
-                zeroToTwo = vertices[2] - vertices[0];
-            //    yield return new WaitForEndOfFrame();
+                while (Vector3.Angle(topEdge, leftEdge) > 91f)
+                {
+                    vertices[2] = vertices[2] + (topEdge / 100f);
+                    vertex2.transform.position = vertices[2];
+                    leftEdge = vertices[2] - vertices[0];
+                    //yield return new WaitForEndOfFrame();
+                }
             }
-        }
-        else if (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
-        {
-            while (Vector3.Angle(zeroToOne, zeroToTwo) < 89f)
+            else if (Vector3.Angle(topEdge, leftEdge) < 89f)
             {
-                vertices[2] = vertices[2] - (zeroToOne / 100f);
-                vertex2.transform.position = vertices[2];
-                zeroToTwo = vertices[2] - vertices[0];
-             //   yield return new WaitForEndOfFrame();
+                while (Vector3.Angle(topEdge, leftEdge) < 89f)
+                {
+                    vertices[2] = vertices[2] - (topEdge / 100f);
+                    vertex2.transform.position = vertices[2];
+                    leftEdge = vertices[2] - vertices[0];
+                    //yield return new WaitForEndOfFrame();
+                }
             }
-        }
 
-        yield return new WaitForEndOfFrame();
+            //yield return new WaitForEndOfFrame();
 
-        //Vermittelt den Abstand von Vertex 2 und 3 zur oberen Kante (Kante zwischen Vertex 0 und 1)
-        float difference = Mathf.Abs(zeroToTwo.magnitude - oneToThree.magnitude); //Unterschied der Entfernung von Vertex 2 und 3 zur oberen Kante
-        Vector3 differenceToMove = Vector3.Normalize(zeroToTwo) * (difference / 2); //Vektor, um den Vertex 1 und 2 bewegt werden müssen, um den Abstand zu vermitteln
+            //Vermittelt den Abstand von Vertex 2 und 3 zur oberen Kante (Kante zwischen Vertex 0 und 1)
+            float difference = Mathf.Abs(leftEdge.magnitude - rightEdge.magnitude); //Unterschied der Entfernung von Vertex 2 und 3 zur oberen Kante
+            Vector3 differenceToMove = Vector3.Normalize(leftEdge) * (difference / 2); //Vektor, um den Vertex 1 und 2 bewegt werden müssen, um den Abstand zu vermitteln
 
-        if (Mathf.Abs(zeroToTwo.magnitude) > Mathf.Abs(oneToThree.magnitude))
-        {
-            vertices[2] = vertices[2] - differenceToMove;
-            vertices[3] = vertices[3] + differenceToMove;
+            if (Mathf.Abs(leftEdge.magnitude) > Mathf.Abs(rightEdge.magnitude))
+            {
+                vertices[2] = vertices[2] - differenceToMove;
+                vertices[3] = vertices[3] + differenceToMove;
+            }
+            else
+            {
+                vertices[2] = vertices[2] + differenceToMove;
+                vertices[3] = vertices[3] - differenceToMove;
+            }
+
+            vertex2.transform.position = vertices[2];
+            vertex3.transform.position = vertices[3];
+
+
+            yield return new WaitForEndOfFrame();
+
         } else
         {
-            vertices[2] = vertices[2] + differenceToMove;
-            vertices[3] = vertices[3] - differenceToMove;
-        }
+            Debug.Log("flipped normal detected");
 
-        vertex2.transform.position = vertices[2];
-        vertex3.transform.position = vertices[3];
+            //vertices[0]: blau
+            //vertices[1]: grün
+            //vertices[2]: rot
+            //vertices[3]: gelb
+
+            Vector3 topEdge = vertices[2] - vertices[3];
+            Vector3 leftEdge = vertices[3] - vertices[1];
+            Vector3 rightEdge = vertices[2] - vertices[0];
+
+            //Richtet Vertex 2 (untere rechte Ecke) / Winkel bei Vertex 0 (obere rechte Ecke) neue aus
+
+            if (Vector3.Angle(topEdge, rightEdge) > 91f)
+            {
+                while (Vector3.Angle(topEdge, rightEdge) > 91f)
+                {
+                    vertices[0] = vertices[0] - (topEdge / 100f);
+                    vertex2.transform.position = vertices[0];
+                    rightEdge = vertices[2] - vertices[0];
+                    //Debug.Log("New Angle: " + Vector3.Angle(topEdge, rightEdge));
+                    //yield return new WaitForSeconds(0.01f);
+                }
+                Debug.Log("Adjusted blue cube. New red angle: " + Vector3.Angle(topEdge, rightEdge));
+            }
+            
+            else if (Vector3.Angle(topEdge, rightEdge) < 89f)
+            {
+                while (Vector3.Angle(topEdge, rightEdge) < 89f)
+                {
+                    vertices[0] = vertices[0] + (topEdge / 100f);
+                    vertex2.transform.position = vertices[0];
+                    rightEdge = vertices[2] - vertices[0];
+                    //yield return new WaitForSeconds(0.01f);
+                }
+                Debug.Log("Adjusted blue cube. New red angle: " + Vector3.Angle(topEdge, rightEdge));
+            }
+            
+            
+            //Richtet Vertex 2 (untere linke Ecke) / Winkel bei Vertex 0 (obere linke Ecke) neue aus
+            if (Vector3.Angle(topEdge, leftEdge) > 91f)
+            {
+                while (Vector3.Angle(topEdge, leftEdge) > 91f)
+                {
+                    vertices[1] = vertices[1] - (topEdge / 100f);
+                    vertex3.transform.position = vertices[1];
+                    leftEdge = vertices[3] - vertices[1];
+                    //yield return new WaitForSeconds(0.01f);
+                }
+                Debug.Log("Adjusted green cube. New yellow angle: " + Vector3.Angle(topEdge, leftEdge));
+            }
+            else if (Vector3.Angle(topEdge, leftEdge) < 89f)
+            {
+                while (Vector3.Angle(topEdge, leftEdge) < 89f)
+                {
+                    vertices[1] = vertices[1] + (topEdge / 100f);
+                    vertex3.transform.position = vertices[1];
+                    leftEdge = vertices[3] - vertices[1];
+                    //yield return new WaitForSeconds(0.01f);
+                }
+                Debug.Log("Adjusted green cube. New yellow angle: " + Vector3.Angle(topEdge, leftEdge));
+            }
+
+            //yield return new WaitForEndOfFrame();
+            
+            float difference = Mathf.Abs(leftEdge.magnitude - rightEdge.magnitude);
+            Vector3 differenceToMove = Vector3.Normalize(leftEdge) * (difference / 2);
+
+            if (Mathf.Abs(leftEdge.magnitude) > Mathf.Abs(rightEdge.magnitude))
+            {
+                vertices[1] = vertices[1] - differenceToMove;
+                vertices[0] = vertices[0] + differenceToMove;
+            }
+            else
+            {
+                vertices[0] = vertices[0] + differenceToMove;
+                vertices[1] = vertices[1] - differenceToMove;
+            }
+
+            vertex2.transform.position = vertices[0];
+            vertex3.transform.position = vertices[1];
+
+
+            yield return new WaitForEndOfFrame();
+        }
 
         Destroy(tableFromMesh);
         makeTableFromMesh();
@@ -362,32 +480,40 @@ public class InputScript : MonoBehaviour
                     vertices[0] = controllerPosition;
                     yPosition = controllerPosition.y;
                     vertex0 = Instantiate(testCube, vertices[0], Quaternion.identity);
+                    vertex0.GetComponent<MeshRenderer>().material = material0;
                     break;
 
                 case 1:
                     controllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
                     vertices[1] = new Vector3(controllerPosition.x, yPosition, controllerPosition.z);
                     vertex1 = Instantiate(testCube, vertices[1], Quaternion.identity);
+                    vertex1.GetComponent<MeshRenderer>().material = material1;
                     break;
 
                 case 2:
                     controllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
                     vertices[2] = new Vector3(controllerPosition.x, yPosition, controllerPosition.z);
                     vertex2 = Instantiate(testCube, vertices[2], Quaternion.identity);
+                    vertex2.GetComponent<MeshRenderer>().material = material2;
                     break;
 
                 case 3:
                     controllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
                     vertices[3] = new Vector3(controllerPosition.x, yPosition, controllerPosition.z);
                     vertex3 = Instantiate(testCube, vertices[3], Quaternion.identity);
+                    vertex3.GetComponent<MeshRenderer>().material = material3;
                     break;
 
                 case 4:
                     makeTableFromMesh();
-                    StartCoroutine(makeTableRectangular());
+                    //StartCoroutine(makeTableRectangular());
                     break;
 
-                case >=5:
+                case 5:
+                    StartCoroutine(makeTableRectangular(sortedVertices));
+                    break;
+
+                case >=6:
                     gameMang.StartGame();
                     break;
                 
