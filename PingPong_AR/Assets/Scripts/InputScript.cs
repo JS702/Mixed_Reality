@@ -127,8 +127,6 @@ public class InputScript : MonoBehaviour
 
     void flipNormalVector()
     {
-        //Vector3 temp0 = new Vector3(sortedVertices[0].x, sortedVertices[0].y, sortedVertices[0].z);
-        //Vector3 temp1 = new Vector3(sortedVertices[1].x, sortedVertices[1].y, sortedVertices[1].z);
         Vector3 temp0 = sortedVertices[0];
         Vector3 temp1 = sortedVertices[1];
 
@@ -140,7 +138,6 @@ public class InputScript : MonoBehaviour
 
         flipped = true;
 
-        Destroy(tableFromMesh);
         makeTableFromMesh();
     }
     Vector3 getClosestVertex(Vector3 start)
@@ -257,8 +254,6 @@ public class InputScript : MonoBehaviour
         triangles[4] = 1;
         triangles[5] = 3;
 
-        //sortVertices();
-
         if (!sorted)
         {
             sortVertices();
@@ -272,28 +267,26 @@ public class InputScript : MonoBehaviour
         if (normal.y < 0f) //Normalenvektor zeigt nach unten
         {
             flipNormalVector();
+        } else
+        {
+            mesh.vertices = sortedVertices;
+            mesh.uv = uv;
+            mesh.triangles = triangles;
+
+            tableFromMesh = new GameObject("Mesh", typeof(MeshFilter), typeof(MeshRenderer));
+
+            tableFromMesh.GetComponent<MeshFilter>().mesh = mesh;
+
+            tableFromMesh.GetComponent<MeshRenderer>().material = material;
+
+            MeshCollider tableCollider = tableFromMesh.AddComponent(typeof(MeshCollider)) as MeshCollider;
+
+            //  tableFromMesh.layer = PhysikLayerTable; // Funksiniert anscheiden gerade noch nicht
+
+            makeNet();
+
+            Debug.Log("Table Length: " + Vector3.Distance(sortedVertices[0], sortedVertices[2]));
         }
-
-
-        mesh.vertices = sortedVertices;
-        mesh.uv = uv;
-        mesh.triangles = triangles;
-
-        tableFromMesh = new GameObject("Mesh", typeof(MeshFilter), typeof(MeshRenderer));
-
-        tableFromMesh.GetComponent<MeshFilter>().mesh = mesh;
-
-        tableFromMesh.GetComponent<MeshRenderer>().material = material;
-
-        MeshCollider tableCollider = tableFromMesh.AddComponent(typeof(MeshCollider)) as MeshCollider;
-
-      //  tableFromMesh.layer = PhysikLayerTable; // Funksiniert anscheiden gerade noch nicht
-        
-        
-
-        makeNet();
-
-        Debug.Log("Table Length: " + Vector3.Distance(sortedVertices[0], sortedVertices[2]));
     }
 
     IEnumerator makeTableRectangular(Vector3[] vertices)
@@ -393,10 +386,9 @@ public class InputScript : MonoBehaviour
                     vertices[0] = vertices[0] - (topEdge / 100f);
                     vertex2.transform.position = vertices[0];
                     rightEdge = vertices[2] - vertices[0];
-                    //Debug.Log("New Angle: " + Vector3.Angle(topEdge, rightEdge));
                     //yield return new WaitForSeconds(0.01f);
                 }
-                Debug.Log("Adjusted blue cube. New red angle: " + Vector3.Angle(topEdge, rightEdge));
+                //Debug.Log("Adjusted blue cube. New red angle: " + Vector3.Angle(topEdge, rightEdge));
             }
             
             else if (Vector3.Angle(topEdge, rightEdge) < 89f)
@@ -408,7 +400,7 @@ public class InputScript : MonoBehaviour
                     rightEdge = vertices[2] - vertices[0];
                     //yield return new WaitForSeconds(0.01f);
                 }
-                Debug.Log("Adjusted blue cube. New red angle: " + Vector3.Angle(topEdge, rightEdge));
+                //Debug.Log("Adjusted blue cube. New red angle: " + Vector3.Angle(topEdge, rightEdge));
             }
             
             
@@ -422,7 +414,7 @@ public class InputScript : MonoBehaviour
                     leftEdge = vertices[3] - vertices[1];
                     //yield return new WaitForSeconds(0.01f);
                 }
-                Debug.Log("Adjusted green cube. New yellow angle: " + Vector3.Angle(topEdge, leftEdge));
+                //Debug.Log("Adjusted green cube. New yellow angle: " + Vector3.Angle(topEdge, leftEdge));
             }
             else if (Vector3.Angle(topEdge, leftEdge) < 89f)
             {
@@ -433,7 +425,7 @@ public class InputScript : MonoBehaviour
                     leftEdge = vertices[3] - vertices[1];
                     //yield return new WaitForSeconds(0.01f);
                 }
-                Debug.Log("Adjusted green cube. New yellow angle: " + Vector3.Angle(topEdge, leftEdge));
+                //Debug.Log("Adjusted green cube. New yellow angle: " + Vector3.Angle(topEdge, leftEdge));
             }
 
             //yield return new WaitForEndOfFrame();
@@ -543,8 +535,6 @@ public class InputScript : MonoBehaviour
             }
             blackUp = !blackUp;
         }
-
-
 
         //TODO iwo hier einen Bereich angeben in dem die Targets spawnen k�nnen
     }
