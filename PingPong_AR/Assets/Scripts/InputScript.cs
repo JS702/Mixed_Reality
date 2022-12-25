@@ -431,7 +431,7 @@ public class InputScript : MonoBehaviour
             //yield return new WaitForEndOfFrame();
             
             float difference = Mathf.Abs(leftEdge.magnitude - rightEdge.magnitude);
-            Vector3 differenceToMove = Vector3.Normalize(leftEdge) * (difference / 2);
+            Vector3 differenceToMove = Vector3.Normalize(leftEdge) * (difference / 2f);
 
             if (Mathf.Abs(leftEdge.magnitude) > Mathf.Abs(rightEdge.magnitude))
             {

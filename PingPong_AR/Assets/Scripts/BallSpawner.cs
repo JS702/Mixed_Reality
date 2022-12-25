@@ -63,7 +63,7 @@ public class BallSpawner : MonoBehaviour
             Destroy(ball);
         }
 
-        speedMultiplier = calculateSpeedMultiplier(0.5f + (inputScript.GetLenght() * Random.Range(0.6f, 0.9f))); //0.5 = Entfernung vom Spawner zum Tisch | Länge * Random = Ziel (zwischen 60% und 90% der Tischlänge)
+        speedMultiplier = calculateSpeedMultiplier(0.5f + (inputScript.GetLenght() * Random.Range(0.65f, 0.85f))); //0.5 = Entfernung vom Spawner zum Tisch | Länge * Random = Ziel (zwischen 60% und 90% der Tischlänge)
 
         ball = Instantiate(ballPrefab, transform);
         ball.GetComponent<Rigidbody>().AddRelativeForce(shootDirection * shootSpeed * speedMultiplier);
