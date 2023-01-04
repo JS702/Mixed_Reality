@@ -2411,7 +2411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   target: {fileID: 0}
-  targetPrefab: {fileID: 1409059863348764837, guid: 00d86bc16ea725a47acc64d204e76f46, type: 3}
+  targetPrefab: {fileID: 142709987376164423, guid: 45753b71897c24a4fbcdfab390d3ebaa, type: 3}
   site1: []
   site2: []
   player: {fileID: 86603307}
