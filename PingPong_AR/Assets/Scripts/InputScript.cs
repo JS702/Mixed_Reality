@@ -41,7 +41,8 @@ public class InputScript : MonoBehaviour
     Vector2[] uv = new Vector2[4];
     int[] triangles = new int[6];
 
-    [SerializeField] Material material;
+    [SerializeField] Material materialTable;
+    [SerializeField] Material materialTableTransparent;
 
     int buttonPressCounter;
 
@@ -238,6 +239,17 @@ public class InputScript : MonoBehaviour
         
     }
 
+    void destroyCubes(){       
+        Destroy(vertex0);
+        Destroy(vertex1);
+        Destroy(vertex2);
+        Destroy(vertex3);
+    }
+    
+    void makeDeskTransparent(){
+        materialTable = materialTableTransparent;
+    }
+
     void makeTableFromMesh()
     {
         Mesh mesh = new Mesh();
@@ -277,7 +289,7 @@ public class InputScript : MonoBehaviour
 
             tableFromMesh.GetComponent<MeshFilter>().mesh = mesh;
 
-            tableFromMesh.GetComponent<MeshRenderer>().material = material;
+            tableFromMesh.GetComponent<MeshRenderer>().material = materialTable;
 
             MeshCollider tableCollider = tableFromMesh.AddComponent(typeof(MeshCollider)) as MeshCollider;
 
@@ -502,7 +514,9 @@ public class InputScript : MonoBehaviour
                     break;
 
                 case 5:
+                    makeDeskTransparent();
                     StartCoroutine(makeTableRectangular(sortedVertices));
+                    destroyCubes();
                     break;
 
                 case >=6:

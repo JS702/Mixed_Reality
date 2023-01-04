@@ -3671,7 +3671,8 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  material: {fileID: 2100000, guid: e07f5a136be725144b8bb24a8551b8bd, type: 2}
+  materialTable: {fileID: 2100000, guid: e07f5a136be725144b8bb24a8551b8bd, type: 2}
+  materialTableTransparent: {fileID: 2100000, guid: 07afbaaf9c1ea394dbf395ab1e15da42, type: 2}
   testCube: {fileID: 9063742373144981970, guid: 3e5db4c5211c13447a6d49bf5433995d, type: 3}
   material0: {fileID: 2100000, guid: 07cb2691f432be0429bcc88e7d1198c2, type: 2}
   material1: {fileID: 2100000, guid: 94cfef172818ca041b5f6e2614541cd6, type: 2}
