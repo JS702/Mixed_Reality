@@ -822,8 +822,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 494843736}
-  - component: {fileID: 494843738}
-  - component: {fileID: 494843737}
   - component: {fileID: 494843739}
   m_Layer: 0
   m_Name: LeftHandAnchor
@@ -850,44 +848,6 @@ Transform:
   m_Father: {fileID: 347684474}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &494843737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494843735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd425c2d06f39bf4899d07c05d0f10eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabBegin: 0.55
-  grabEnd: 0.35
-  m_parentHeldObject: 1
-  m_moveHandPosition: 0
-  m_gripTransform: {fileID: 418209849}
-  m_grabVolumes:
-  - {fileID: 494843739}
-  m_controller: 1
-  m_parentTransform: {fileID: 0}
-  m_player: {fileID: 0}
---- !u!54 &494843738
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494843735}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!135 &494843739
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -897,7 +857,7 @@ SphereCollider:
   m_GameObject: {fileID: 494843735}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
@@ -1723,6 +1683,14 @@ PrefabInstance:
       propertyPath: ballhitSound1
       value: 
       objectReference: {fileID: 8300000, guid: 917664587d98a8f4cac3ccbe4e10e797, type: 3}
+    - target: {fileID: 950647871, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+      propertyPath: rightHandstate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 950647871, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
+      propertyPath: handtoTrackAlternative
+      value: 
+      objectReference: {fileID: 494843736}
     - target: {fileID: 4824623895934705188, guid: a84459efbfddf224396415ba53f2bfda, type: 3}
       propertyPath: m_RootOrder
       value: 7
