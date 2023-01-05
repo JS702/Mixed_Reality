@@ -21,6 +21,8 @@ public class InputScript : MonoBehaviour
     
     [SerializeField] GameObject racketRubber;
     public bool blackUp = false;
+    [SerializeField] GameObject racketRubberLeft;
+    public bool blackUpLeft = false;
 
     [SerializeField] GameManager gameMang;
 
@@ -550,6 +552,20 @@ public class InputScript : MonoBehaviour
             blackUp = !blackUp;
         }
 
-        //TODO iwo hier einen Bereich angeben in dem die Targets spawnen k�nnen
+        //Rotates the racket between forehand and backhand
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)) {
+            if (!blackUpLeft) {
+                racketRubberLeft.transform.localEulerAngles = new Vector3(
+                    racketRubberLeft.transform.localEulerAngles.x,
+                    racketRubberLeft.transform.localEulerAngles.y + 180,
+                    racketRubberLeft.transform.localEulerAngles.z - 90);
+            } else {
+                racketRubberLeft.transform.localEulerAngles = new Vector3(
+                    racketRubberLeft.transform.localEulerAngles.x,
+                    racketRubberLeft.transform.localEulerAngles.y - 180,
+                    racketRubberLeft.transform.localEulerAngles.z + 90);
+            }
+            blackUpLeft = !blackUpLeft;
+        }
     }
 }
