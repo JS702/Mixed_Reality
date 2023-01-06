@@ -7,7 +7,7 @@ public class RacketScript : MonoBehaviour
     Transform currentHandtoTrack;
     [SerializeField] Transform handtoTrack;
     [SerializeField] Transform handtoTrackAlternative;
-    public bool rightHandstate=true;
+    public bool rightHandstate=false;
     Rigidbody racketRigi;
     public bool hitBall;
     [SerializeField] AudioClip ballhitSound1;
@@ -18,11 +18,7 @@ public class RacketScript : MonoBehaviour
     {
         racketRigi = GetComponent<Rigidbody>();
         
-        if(rightHandstate){
-            currentHandtoTrack=handtoTrack; 
-        }else{
-            currentHandtoTrack=handtoTrackAlternative; 
-        }
+        currentHandtoTrack=rightHandstate?handtoTrack:handtoTrackAlternative;
     }
 
     // Update is called once per frame
