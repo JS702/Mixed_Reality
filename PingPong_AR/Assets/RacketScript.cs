@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class RacketScript : MonoBehaviour
 {
+    bool rightHandstate=false;
+
     Transform currentHandtoTrack;
-    [SerializeField] Transform handtoTrack;
-    [SerializeField] Transform handtoTrackAlternative;
-    public bool rightHandstate=false;
+    [SerializeField] Transform rightHand;
+    [SerializeField] Transform leftHand;
+    
+    GameObject otherHandObject;
+    [SerializeField] GameObject rightHandGameobject;
+    [SerializeField] GameObject leftHandGameobject;
+
+    GameObject otherController;
+    [SerializeField] GameObject rightController;
+    [SerializeField] GameObject leftController;
+
     Rigidbody racketRigi;
     public bool hitBall;
     [SerializeField] AudioClip ballhitSound1;
@@ -17,8 +27,14 @@ public class RacketScript : MonoBehaviour
     void Start()
     {
         racketRigi = GetComponent<Rigidbody>();
+          
+        currentHandtoTrack=rightHandstate?rightHand:leftHand;
+        otherHandObject=rightHandstate?leftHandGameobject:rightHandGameobject;
+        otherController=rightHandstate?leftController:rightController;
+
         
-        currentHandtoTrack=rightHandstate?handtoTrack:handtoTrackAlternative;
+        //otherHandObject.GetComponent<ShpereCollider>();
+        otherController.SetActive(true);
     }
 
     // Update is called once per frame
