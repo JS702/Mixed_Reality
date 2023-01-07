@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public static bool rightHandState=true;
+
+    public void changeValueOfRightHandState(){
+        rightHandState=rightHandState?false:true;
+    }
+
     public void LoadingSceneById(int i)
     {
         SceneManager.LoadScene(i);

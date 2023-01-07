@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RacketScript : MonoBehaviour
 {
-    bool rightHandstate=false;
+    bool rightHandstate;
 
     Transform currentHandtoTrack;
     [SerializeField] Transform rightHand;
@@ -26,6 +26,8 @@ public class RacketScript : MonoBehaviour
 
     void Start()
     {
+        rightHandstate=SceneLoader.rightHandState;
+
         racketRigi = GetComponent<Rigidbody>();
           
         currentHandtoTrack=rightHandstate?rightHand:leftHand;
