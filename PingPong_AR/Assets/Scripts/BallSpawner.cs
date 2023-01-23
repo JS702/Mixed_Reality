@@ -19,6 +19,7 @@ public class BallSpawner : MonoBehaviour
     [SerializeField] GameObject inputGuy;
     InputScript inputScript;
     RacketScript racketScript;
+    ParticleSystem partSystem;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class BallSpawner : MonoBehaviour
         inputScript = inputGuy.GetComponent<InputScript>();
         racketScript = FindObjectOfType<RacketScript>();
         shootDirection = Vector3.Normalize(new Vector3(0, 1, 1)); //schieﬂt immer 45∞ nach oben
+        partSystem = GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -71,5 +73,13 @@ public class BallSpawner : MonoBehaviour
         {
             ball.GetComponent<BallScript>().GameOnMode();
         }
+        StartCoroutine(SpawnParticel(0.1f));
+        
+    }
+    IEnumerator SpawnParticel(float Waitime)
+    {
+        partSystem.Play();
+        yield return new WaitForSeconds(Waitime);
+        partSystem.Stop();
     }
 }

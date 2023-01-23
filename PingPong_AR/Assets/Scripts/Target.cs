@@ -8,6 +8,7 @@ public class Target : MonoBehaviour
     GameManager gameManager;
     RacketScript racketScript;
     [SerializeField] AudioClip HitSound;
+    [SerializeField] ParticleSingle ps;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class Target : MonoBehaviour
             gameManager.HitTarget();
             AudioSource.PlayClipAtPoint(HitSound, transform.position, 1f);
             //Debug.Log("Target destroyed. Cause: Hit Target");
+            Instantiate(ps, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

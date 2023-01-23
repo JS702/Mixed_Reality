@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: 9482db29b2fd22a4fac0b58c18907000, type: 2}
   m_ModifiedSerializedProperties: 2
   m_ValidKeywords:
+  - _ALPHAPREMULTIPLY_ON
   - _EMISSION
   - _METALLICGLOSSMAP
   - _NORMALMAP
@@ -20,7 +21,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -48,5 +50,5 @@ Material:
     - _Glossiness: 0.2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.9911022, g: 0.42869055, b: 0.0060488326, a: 1}
+    - _EmissionColor: {r: 1, g: 0.45078585, b: 0.00699541, a: 1}
   m_BuildTextureStacks: []

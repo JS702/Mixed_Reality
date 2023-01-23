@@ -410,6 +410,8 @@ struct ITextPreprocessor_tDBB49C8B68D7B80E8D233B9D9666C43981EFAAB9;
 struct Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E;
 // UnityEngine.UI.InputField
 struct InputField_tABEA115F23FBD374EBE80D4FAC1D15BD6E37A140;
+// InputScript
+struct InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213;
 // UnityEngine.Events.InvokableCallList
 struct InvokableCallList_t309E1C8C7CE885A0D2F98C84CEA77A8935688382;
 // LaserPointer
@@ -4661,16 +4663,18 @@ struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6  : public MonoBehav
 	BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE* ___BallSpawnerLogik_11;
 	// DisplayScore GameManager::ScoreBoard
 	DisplayScore_t6AC052183EC740F89830126C0485CA606D8EE957* ___ScoreBoard_12;
+	// InputScript GameManager::inputscript
+	InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213* ___inputscript_13;
 	// System.Boolean GameManager::GameOngoing
-	bool ___GameOngoing_13;
+	bool ___GameOngoing_14;
 	// System.Int32 GameManager::maxrounds
-	int32_t ___maxrounds_14;
+	int32_t ___maxrounds_15;
 	// System.Int32 GameManager::rounds
-	int32_t ___rounds_15;
+	int32_t ___rounds_16;
 	// UnityEngine.AudioClip GameManager::EndGameSound
-	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___EndGameSound_16;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___EndGameSound_17;
 	// UnityEngine.AudioClip GameManager::StartGameSound
-	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___StartGameSound_17;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___StartGameSound_18;
 };
 
 // HandedInputSelector
@@ -8799,9 +8803,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BallScript_GameOnMode_mDA0287AD3F5CB5F98
 	{
 		// GameMode = true;
 		__this->___GameMode_5 = (bool)1;
-		// StartCoroutine(WaitThenCont(20));
+		// StartCoroutine(WaitThenCont(15));
 		RuntimeObject* L_0;
-		L_0 = BallScript_WaitThenCont_mC4D52482CDC3FEE8D0EE104D1C5B785509D7B332(__this, (20.0f), NULL);
+		L_0 = BallScript_WaitThenCont_mC4D52482CDC3FEE8D0EE104D1C5B785509D7B332(__this, (15.0f), NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_1;
 		L_1 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_0, NULL);
 		// }
