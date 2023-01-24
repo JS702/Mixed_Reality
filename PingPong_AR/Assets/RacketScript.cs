@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -77,5 +78,10 @@ public class RacketScript : MonoBehaviour
             StartCoroutine(vibrate(0.05f, OVRInput.Controller.RHand));
             
         }
+    }
+
+    public static implicit operator RacketScript(GameObject v)
+    {
+        throw new NotImplementedException();
     }
 }

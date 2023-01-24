@@ -19,12 +19,17 @@ public class BallSpawner : MonoBehaviour
     [SerializeField] GameObject inputGuy;
     InputScript inputScript;
     RacketScript racketScript;
+    public RacketScript racketScriptManuell;
 
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         inputScript = inputGuy.GetComponent<InputScript>();
         racketScript = FindObjectOfType<RacketScript>();
+        if(racketScript == null)
+        {
+            racketScript = racketScriptManuell;
+        }
         shootDirection = Vector3.Normalize(new Vector3(0, 1, 1)); //schießt immer 45° nach oben
     }
 
@@ -32,6 +37,7 @@ public class BallSpawner : MonoBehaviour
     {
         if (isEnabled && OVRInput.GetDown(OVRInput.Button.One))//TODO gucken welcher Knopf und ob der immer auslöst oder unter bestimmten Bedingungen
         {
+            Debug.Log("SpawnProt");
             SpawnBallProtocol(false);
         }
     }
@@ -54,21 +60,27 @@ public class BallSpawner : MonoBehaviour
 
     public void SpawnBallProtocol(bool waitCont)
     {
+        Debug.Log("enterProt");
         racketScript.hitBall = false;
+        Debug.Log("2");
         Vector3[] a = inputScript.getFar();
+        Debug.Log("3");
         Vector3[] b = inputScript.vertices;
+        Debug.Log("spawnTarget");
         gameManager.SpawnTarget(a, inputScript.getNear(), false);//TODO manchmal moving = true setzen, vllt bei jedem 5 ball oder so
         if (ball)
         {
             Destroy(ball);
         }
-
+        Debug.Log("Targetspawned");
         speedMultiplier = calculateSpeedMultiplier(0.5f + (inputScript.GetLenght() * Random.Range(0.65f, 0.85f))); //0.5 = Entfernung vom Spawner zum Tisch | Länge * Random = Ziel (zwischen 60% und 90% der Tischlänge)
-
+        Debug.Log("speedmult");
         ball = Instantiate(ballPrefab, transform);
+        Debug.Log("ballinit");
         ball.GetComponent<Rigidbody>().AddRelativeForce(shootDirection * shootSpeed * speedMultiplier);
         if (waitCont)
         {
+            Debug.Log("GamemodeON");
             ball.GetComponent<BallScript>().GameOnMode();
         }
     }

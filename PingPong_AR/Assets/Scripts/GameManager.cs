@@ -132,8 +132,10 @@ public class GameManager : MonoBehaviour
             AudioSource.PlayClipAtPoint(StartGameSound, Camera.main.transform.position);
             rounds = maxrounds;
             score = 0;
+            Debug.Log("1");
             ScoreBoard.UpdateScoreG(score, maxrounds);
             GameOngoing = true;
+            Debug.Log("ContGame");
             ContGame();
        }
         
@@ -145,12 +147,13 @@ public class GameManager : MonoBehaviour
             rounds--;
             if (rounds <= 0)
             {
-                
+                Debug.Log("Gameoff");
                 GameOngoing = false;
                 AudioSource.PlayClipAtPoint(EndGameSound,Camera.main.transform.position);
             }
             else
             {
+                Debug.Log("GameBallProt");
                 BallSpawnerLogik.SpawnBallProtocol(true);
             }
            

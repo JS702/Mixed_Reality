@@ -70,6 +70,8 @@ public class InputScript : MonoBehaviour
     [SerializeField] Material material2;
     [SerializeField] Material material3;
 
+    public GameObject MenuCanvas;
+
     // [SerializeField] LayerMask PhysikLayerTable; // Wenn zwischen Tisch und Rackt collsion einfach defaukt angeben
 
     private Vector3 getNearestPoint(Vector3 point)
@@ -535,7 +537,21 @@ public class InputScript : MonoBehaviour
             Debug.Log("Reset");
             SceneManager.LoadScene((SceneManager.GetActiveScene()).name);
         }
-        
+
+        if (OVRInput.GetDown(OVRInput.Button.Start))
+        {
+            Debug.Log(MenuCanvas.activeSelf);
+            if (MenuCanvas.activeSelf == true)
+            {
+                MenuCanvas.SetActive(false);
+            }
+            else
+            {
+                MenuCanvas.SetActive(true);
+            }
+            
+        }
+
         //Rotates the racket between forehand and backhand
         if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger)) {
             if (!blackUp) {
