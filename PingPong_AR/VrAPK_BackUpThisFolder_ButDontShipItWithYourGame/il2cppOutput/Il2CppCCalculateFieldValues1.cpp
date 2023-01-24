@@ -29890,46 +29890,48 @@ struct OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5  : public MonoBeha
 // OVRGrabber
 struct OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	// System.Boolean OVRGrabber::rightHand
+	bool ___rightHand_4;
 	// System.Single OVRGrabber::grabBegin
-	float ___grabBegin_4;
+	float ___grabBegin_5;
 	// System.Single OVRGrabber::grabEnd
-	float ___grabEnd_5;
+	float ___grabEnd_6;
 	// System.Boolean OVRGrabber::m_parentHeldObject
-	bool ___m_parentHeldObject_6;
+	bool ___m_parentHeldObject_7;
 	// System.Boolean OVRGrabber::m_moveHandPosition
-	bool ___m_moveHandPosition_7;
+	bool ___m_moveHandPosition_8;
 	// UnityEngine.Transform OVRGrabber::m_gripTransform
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___m_gripTransform_8;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___m_gripTransform_9;
 	// UnityEngine.Collider[] OVRGrabber::m_grabVolumes
-	ColliderU5BU5D_t94A9D70F63D095AFF2A9B4613012A5F7F3141787* ___m_grabVolumes_9;
+	ColliderU5BU5D_t94A9D70F63D095AFF2A9B4613012A5F7F3141787* ___m_grabVolumes_10;
 	// OVRInput/Controller OVRGrabber::m_controller
-	int32_t ___m_controller_10;
+	int32_t ___m_controller_11;
 	// UnityEngine.Transform OVRGrabber::m_parentTransform
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___m_parentTransform_11;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___m_parentTransform_12;
 	// UnityEngine.GameObject OVRGrabber::m_player
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_player_12;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_player_13;
 	// System.Boolean OVRGrabber::m_grabVolumeEnabled
-	bool ___m_grabVolumeEnabled_13;
+	bool ___m_grabVolumeEnabled_14;
 	// UnityEngine.Vector3 OVRGrabber::m_lastPos
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_lastPos_14;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_lastPos_15;
 	// UnityEngine.Quaternion OVRGrabber::m_lastRot
-	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_lastRot_15;
+	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_lastRot_16;
 	// UnityEngine.Quaternion OVRGrabber::m_anchorOffsetRotation
-	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_anchorOffsetRotation_16;
+	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_anchorOffsetRotation_17;
 	// UnityEngine.Vector3 OVRGrabber::m_anchorOffsetPosition
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_anchorOffsetPosition_17;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_anchorOffsetPosition_18;
 	// System.Single OVRGrabber::m_prevFlex
-	float ___m_prevFlex_18;
+	float ___m_prevFlex_19;
 	// OVRGrabbable OVRGrabber::m_grabbedObj
-	OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* ___m_grabbedObj_19;
+	OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* ___m_grabbedObj_20;
 	// UnityEngine.Vector3 OVRGrabber::m_grabbedObjectPosOff
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_grabbedObjectPosOff_20;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_grabbedObjectPosOff_21;
 	// UnityEngine.Quaternion OVRGrabber::m_grabbedObjectRotOff
-	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_grabbedObjectRotOff_21;
+	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_grabbedObjectRotOff_22;
 	// System.Collections.Generic.Dictionary`2<OVRGrabbable,System.Int32> OVRGrabber::m_grabCandidates
-	Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* ___m_grabCandidates_22;
+	Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* ___m_grabCandidates_23;
 	// System.Boolean OVRGrabber::m_operatingWithoutOVRCameraRig
-	bool ___m_operatingWithoutOVRCameraRig_23;
+	bool ___m_operatingWithoutOVRCameraRig_24;
 };
 
 // OVRGridCube
@@ -34637,9 +34639,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3054[17] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3056[8] = 
 {
 	static_cast<int32_t>(offsetof(OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5, ___m_allowOffhandGrab_4)),static_cast<int32_t>(offsetof(OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5, ___m_snapPosition_5)),static_cast<int32_t>(offsetof(OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5, ___m_snapOrientation_6)),static_cast<int32_t>(offsetof(OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5, ___m_snapOffset_7)),static_cast<int32_t>(offsetof(OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5, ___m_grabPoints_8)),static_cast<int32_t>(offsetof(OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5, ___m_grabbedKinematic_9)),static_cast<int32_t>(offsetof(OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5, ___m_grabbedCollider_10)),static_cast<int32_t>(offsetof(OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5, ___m_grabbedBy_11)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3057[20] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3057[21] = 
 {
-	static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___grabBegin_4)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___grabEnd_5)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_parentHeldObject_6)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_moveHandPosition_7)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_gripTransform_8)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabVolumes_9)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_controller_10)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_parentTransform_11)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_player_12)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabVolumeEnabled_13)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_lastPos_14)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_lastRot_15)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_anchorOffsetRotation_16)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_anchorOffsetPosition_17)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_prevFlex_18)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabbedObj_19)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabbedObjectPosOff_20)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabbedObjectRotOff_21)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabCandidates_22)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_operatingWithoutOVRCameraRig_23)),};
+	static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___rightHand_4)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___grabBegin_5)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___grabEnd_6)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_parentHeldObject_7)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_moveHandPosition_8)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_gripTransform_9)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabVolumes_10)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_controller_11)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_parentTransform_12)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_player_13)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabVolumeEnabled_14)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_lastPos_15)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_lastRot_16)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_anchorOffsetRotation_17)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_anchorOffsetPosition_18)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_prevFlex_19)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabbedObj_20)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabbedObjectPosOff_21)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabbedObjectRotOff_22)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_grabCandidates_23)),static_cast<int32_t>(offsetof(OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC, ___m_operatingWithoutOVRCameraRig_24)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3058[11] = 
 {
 	static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___GridKey_4)),static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___CubeGrid_5)),static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___CubeGridOn_6)),static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___CubeSwitchColorOld_7)),static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___CubeSwitchColor_8)),static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___gridSizeX_9)),static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___gridSizeY_10)),static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___gridSizeZ_11)),static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___gridScale_12)),static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___cubeScale_13)),static_cast<int32_t>(offsetof(OVRGridCube_tFE8F792286A2BC747DB19455AF4878AF5EBD55E6, ___CameraController_14)),};

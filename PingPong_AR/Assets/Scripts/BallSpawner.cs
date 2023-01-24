@@ -10,16 +10,17 @@ public class BallSpawner : MonoBehaviour
 
     public Vector3 shootDirection;
 
-    public bool isEnabled;//Vllt removen wenn der nix anderes macht außer sachen spawnen
+    public bool isEnabled;//Vllt removen wenn der nix anderes macht auï¿½er sachen spawnen
 
-    private float shootSpeed = 33f; //fester Wert, nicht ändern
-    public float speedMultiplier = 1f; //wird auf shootSpeed multipliziert, um sich der Tischlänge anzupassen
+    private float shootSpeed = 33f; //fester Wert, nicht ï¿½ndern
+    public float speedMultiplier = 1f; //wird auf shootSpeed multipliziert, um sich der Tischlï¿½nge anzupassen
 
     GameManager gameManager;
     [SerializeField] GameObject inputGuy;
     InputScript inputScript;
     RacketScript racketScript;
     public RacketScript racketScriptManuell;
+    ParticleSystem partSystem;
 
     void Start()
     {
@@ -30,12 +31,13 @@ public class BallSpawner : MonoBehaviour
         {
             racketScript = racketScriptManuell;
         }
-        shootDirection = Vector3.Normalize(new Vector3(0, 1, 1)); //schießt immer 45° nach oben
+        shootDirection = Vector3.Normalize(new Vector3(0, 1, 1)); //schieï¿½t immer 45ï¿½ nach oben
+        partSystem = GetComponent<ParticleSystem>();
     }
 
     void Update()
     {
-        if (isEnabled && OVRInput.GetDown(OVRInput.Button.One))//TODO gucken welcher Knopf und ob der immer auslöst oder unter bestimmten Bedingungen
+        if (isEnabled && OVRInput.GetDown(OVRInput.Button.One))//TODO gucken welcher Knopf und ob der immer auslï¿½st oder unter bestimmten Bedingungen
         {
             Debug.Log("SpawnProt");
             SpawnBallProtocol(false);
@@ -46,7 +48,7 @@ public class BallSpawner : MonoBehaviour
     {
         //Berechnen mit pq-Formel
 
-        //Formel für Flugkurve: f(x) = 1.182*x**2 - 0.1823x
+        //Formel fï¿½r Flugkurve: f(x) = 1.182*x**2 - 0.1823x
         //Zur Interpolation genutzte Werte: x:0 = y:0 | x:1 = y:1 | x:1.38f = y:2
 
         float p = -0.1823f / 1.182f; //durch 1.182 teilen, damit x**2 allein steht
@@ -73,7 +75,7 @@ public class BallSpawner : MonoBehaviour
             Destroy(ball);
         }
         Debug.Log("Targetspawned");
-        speedMultiplier = calculateSpeedMultiplier(0.5f + (inputScript.GetLenght() * Random.Range(0.65f, 0.85f))); //0.5 = Entfernung vom Spawner zum Tisch | Länge * Random = Ziel (zwischen 60% und 90% der Tischlänge)
+        speedMultiplier = calculateSpeedMultiplier(0.5f + (inputScript.GetLenght() * Random.Range(0.65f, 0.85f))); //0.5 = Entfernung vom Spawner zum Tisch | Lï¿½nge * Random = Ziel (zwischen 60% und 90% der Tischlï¿½nge)
         Debug.Log("speedmult");
         ball = Instantiate(ballPrefab, transform);
         Debug.Log("ballinit");
@@ -83,5 +85,13 @@ public class BallSpawner : MonoBehaviour
             Debug.Log("GamemodeON");
             ball.GetComponent<BallScript>().GameOnMode();
         }
+        StartCoroutine(SpawnParticel(0.1f));
+        
+    }
+    IEnumerator SpawnParticel(float Waitime)
+    {
+        partSystem.Play();
+        yield return new WaitForSeconds(Waitime);
+        partSystem.Stop();
     }
 }

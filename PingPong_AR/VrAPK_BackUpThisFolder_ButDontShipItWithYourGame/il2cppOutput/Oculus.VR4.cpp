@@ -932,7 +932,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* Nullable_1_get_Value_m7A5224A3B4243538B5241
 IL2CPP_EXTERN_C const RuntimeMethod* OVRControllerHelper_InputFocusAquired_mBAF49616FF51B2AA447176DEA7AF18E61F84F054_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* OVRControllerHelper_InputFocusLost_m4ACCF6BC49B4AC978E0EA2025F56FF79BDE3140F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* OVRGrabbable_Awake_m56F392787FAA65893FC1477FA20E5B6200A8258E_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* OVRGrabber_U3CAwakeU3Eb__23_0_m739508F39EF9AA2ADA88B14E21540B6D4BD0D571_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* OVRGrabber_U3CAwakeU3Eb__24_0_m521750052A42F7DDAF06D6ACCAA25D770B97091E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* OVRMeshGenerator_GenerateTrianglesFromBoundaryVertices_m9F85F67BF7DA8ECFB5266737B3FE30B97CBDE21F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* OVRNetworkTcpClient_ConnectCallback_mE2CC8541F53E17016416B37234FF9BD3D652E0C4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* OVRNetworkTcpClient_OnReadDataCallback_m0C37027F739B423C7A3360D66F4D175AFA8E7BCE_RuntimeMethod_var;
@@ -4141,46 +4141,48 @@ struct OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5  : public MonoBeha
 // OVRGrabber
 struct OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	// System.Boolean OVRGrabber::rightHand
+	bool ___rightHand_4;
 	// System.Single OVRGrabber::grabBegin
-	float ___grabBegin_4;
+	float ___grabBegin_5;
 	// System.Single OVRGrabber::grabEnd
-	float ___grabEnd_5;
+	float ___grabEnd_6;
 	// System.Boolean OVRGrabber::m_parentHeldObject
-	bool ___m_parentHeldObject_6;
+	bool ___m_parentHeldObject_7;
 	// System.Boolean OVRGrabber::m_moveHandPosition
-	bool ___m_moveHandPosition_7;
+	bool ___m_moveHandPosition_8;
 	// UnityEngine.Transform OVRGrabber::m_gripTransform
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___m_gripTransform_8;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___m_gripTransform_9;
 	// UnityEngine.Collider[] OVRGrabber::m_grabVolumes
-	ColliderU5BU5D_t94A9D70F63D095AFF2A9B4613012A5F7F3141787* ___m_grabVolumes_9;
+	ColliderU5BU5D_t94A9D70F63D095AFF2A9B4613012A5F7F3141787* ___m_grabVolumes_10;
 	// OVRInput/Controller OVRGrabber::m_controller
-	int32_t ___m_controller_10;
+	int32_t ___m_controller_11;
 	// UnityEngine.Transform OVRGrabber::m_parentTransform
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___m_parentTransform_11;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___m_parentTransform_12;
 	// UnityEngine.GameObject OVRGrabber::m_player
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_player_12;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_player_13;
 	// System.Boolean OVRGrabber::m_grabVolumeEnabled
-	bool ___m_grabVolumeEnabled_13;
+	bool ___m_grabVolumeEnabled_14;
 	// UnityEngine.Vector3 OVRGrabber::m_lastPos
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_lastPos_14;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_lastPos_15;
 	// UnityEngine.Quaternion OVRGrabber::m_lastRot
-	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_lastRot_15;
+	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_lastRot_16;
 	// UnityEngine.Quaternion OVRGrabber::m_anchorOffsetRotation
-	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_anchorOffsetRotation_16;
+	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_anchorOffsetRotation_17;
 	// UnityEngine.Vector3 OVRGrabber::m_anchorOffsetPosition
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_anchorOffsetPosition_17;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_anchorOffsetPosition_18;
 	// System.Single OVRGrabber::m_prevFlex
-	float ___m_prevFlex_18;
+	float ___m_prevFlex_19;
 	// OVRGrabbable OVRGrabber::m_grabbedObj
-	OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* ___m_grabbedObj_19;
+	OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* ___m_grabbedObj_20;
 	// UnityEngine.Vector3 OVRGrabber::m_grabbedObjectPosOff
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_grabbedObjectPosOff_20;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_grabbedObjectPosOff_21;
 	// UnityEngine.Quaternion OVRGrabber::m_grabbedObjectRotOff
-	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_grabbedObjectRotOff_21;
+	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___m_grabbedObjectRotOff_22;
 	// System.Collections.Generic.Dictionary`2<OVRGrabbable,System.Int32> OVRGrabber::m_grabCandidates
-	Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* ___m_grabCandidates_22;
+	Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* ___m_grabCandidates_23;
 	// System.Boolean OVRGrabber::m_operatingWithoutOVRCameraRig
-	bool ___m_operatingWithoutOVRCameraRig_23;
+	bool ___m_operatingWithoutOVRCameraRig_24;
 };
 
 // OVRGridCube
@@ -17364,7 +17366,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR OVRGrabbable_t322F6468B588212B888E9397723397A
 {
 	{
 		// get { return m_grabbedObj; }
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_20;
 		return L_0;
 	}
 }
@@ -17383,7 +17385,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_ForceRelease_m27CDE284F1EFAD0
 		//     (m_grabbedObj != null) &&
 		//     (m_grabbedObj == grabbable)
 		// );
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_20;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
 		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
@@ -17393,7 +17395,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_ForceRelease_m27CDE284F1EFAD0
 		}
 	}
 	{
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_2 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_2 = __this->___m_grabbedObj_20;
 		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_3 = ___grabbable0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_4;
@@ -17434,7 +17436,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_Awake_mA142B6986B2E9E592DD5B7
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Action_1_t88CC03E8C305DA991BBBCEBE79519B58D52F577F_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponentInParent_TisOVRCameraRig_t7FC2BB0D30DED2B7F0C8914AF2B66E9F4CF891A9_m132CAE22DC4B18ACA26D293EE1D3799068ADAA5D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&OVRGrabber_U3CAwakeU3Eb__23_0_m739508F39EF9AA2ADA88B14E21540B6D4BD0D571_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&OVRGrabber_U3CAwakeU3Eb__24_0_m521750052A42F7DDAF06D6ACCAA25D770B97091E_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
@@ -17446,16 +17448,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_Awake_mA142B6986B2E9E592DD5B7
 		NullCheck(L_0);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1;
 		L_1 = Transform_get_localPosition_mA9C86B990DF0685EA1061A120218993FDCC60A95(L_0, NULL);
-		__this->___m_anchorOffsetPosition_17 = L_1;
+		__this->___m_anchorOffsetPosition_18 = L_1;
 		// m_anchorOffsetRotation = transform.localRotation;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2;
 		L_2 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_2);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_3;
 		L_3 = Transform_get_localRotation_mD53D37611A5DAE93EC6C7BBCAC337408C5CACA77(L_2, NULL);
-		__this->___m_anchorOffsetRotation_16 = L_3;
+		__this->___m_anchorOffsetRotation_17 = L_3;
 		// if(!m_moveHandPosition)
-		bool L_4 = __this->___m_moveHandPosition_7;
+		bool L_4 = __this->___m_moveHandPosition_8;
 		if (L_4)
 		{
 			goto IL_0058;
@@ -17484,11 +17486,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_Awake_mA142B6986B2E9E592DD5B7
 		OVRCameraRig_t7FC2BB0D30DED2B7F0C8914AF2B66E9F4CF891A9* L_9 = V_0;
 		Action_1_t88CC03E8C305DA991BBBCEBE79519B58D52F577F* L_10 = (Action_1_t88CC03E8C305DA991BBBCEBE79519B58D52F577F*)il2cpp_codegen_object_new(Action_1_t88CC03E8C305DA991BBBCEBE79519B58D52F577F_il2cpp_TypeInfo_var);
 		NullCheck(L_10);
-		Action_1__ctor_m992ECB87E90C3F7EC7889339CEA48B40EDEC5160(L_10, __this, (intptr_t)((void*)OVRGrabber_U3CAwakeU3Eb__23_0_m739508F39EF9AA2ADA88B14E21540B6D4BD0D571_RuntimeMethod_var), NULL);
+		Action_1__ctor_m992ECB87E90C3F7EC7889339CEA48B40EDEC5160(L_10, __this, (intptr_t)((void*)OVRGrabber_U3CAwakeU3Eb__24_0_m521750052A42F7DDAF06D6ACCAA25D770B97091E_RuntimeMethod_var), NULL);
 		NullCheck(L_9);
 		OVRCameraRig_add_UpdatedAnchors_m7F37F5EAA0B3AF5C4D14BAB445F7249AC5886FC7(L_9, L_10, NULL);
 		// m_operatingWithoutOVRCameraRig = false;
-		__this->___m_operatingWithoutOVRCameraRig_23 = (bool)0;
+		__this->___m_operatingWithoutOVRCameraRig_24 = (bool)0;
 	}
 
 IL_0058:
@@ -17513,16 +17515,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_Start_mAE90E8E794F4345B69EFB1
 		NullCheck(L_0);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1;
 		L_1 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_0, NULL);
-		__this->___m_lastPos_14 = L_1;
+		__this->___m_lastPos_15 = L_1;
 		// m_lastRot = transform.rotation;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2;
 		L_2 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_2);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_3;
 		L_3 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_2, NULL);
-		__this->___m_lastRot_15 = L_3;
+		__this->___m_lastRot_16 = L_3;
 		// if(m_parentTransform == null)
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_4 = __this->___m_parentTransform_11;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_4 = __this->___m_parentTransform_12;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_5;
 		L_5 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_4, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
@@ -17538,8 +17540,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_Start_mAE90E8E794F4345B69EFB1
 		NullCheck(L_6);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_7;
 		L_7 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_6, NULL);
-		__this->___m_parentTransform_11 = L_7;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_parentTransform_11), (void*)L_7);
+		__this->___m_parentTransform_12 = L_7;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_parentTransform_12), (void*)L_7);
 	}
 
 IL_0041:
@@ -17557,7 +17559,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_Update_m224179E35485BD0DC4F5A
 {
 	{
 		// if (m_operatingWithoutOVRCameraRig)
-		bool L_0 = __this->___m_operatingWithoutOVRCameraRig_23;
+		bool L_0 = __this->___m_operatingWithoutOVRCameraRig_24;
 		if (!L_0)
 		{
 			goto IL_000e;
@@ -17591,23 +17593,23 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_OnUpdatedAnchors_mB8354E640AB
 	float V_2 = 0.0f;
 	{
 		// Vector3 destPos = m_parentTransform.TransformPoint(m_anchorOffsetPosition);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___m_parentTransform_11;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1 = __this->___m_anchorOffsetPosition_17;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___m_parentTransform_12;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1 = __this->___m_anchorOffsetPosition_18;
 		NullCheck(L_0);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_2;
 		L_2 = Transform_TransformPoint_m05BFF013DB830D7BFE44A007703694AE1062EE44(L_0, L_1, NULL);
 		V_0 = L_2;
 		// Quaternion destRot = m_parentTransform.rotation * m_anchorOffsetRotation;
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3 = __this->___m_parentTransform_11;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3 = __this->___m_parentTransform_12;
 		NullCheck(L_3);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_4;
 		L_4 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_3, NULL);
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_5 = __this->___m_anchorOffsetRotation_16;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_5 = __this->___m_anchorOffsetRotation_17;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_6;
 		L_6 = Quaternion_op_Multiply_mCB375FCCC12A2EC8F9EB824A1BFB4453B58C2012_inline(L_4, L_5, NULL);
 		V_1 = L_6;
 		// if (m_moveHandPosition)
-		bool L_7 = __this->___m_moveHandPosition_7;
+		bool L_7 = __this->___m_moveHandPosition_8;
 		if (!L_7)
 		{
 			goto IL_0049;
@@ -17631,7 +17633,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_OnUpdatedAnchors_mB8354E640AB
 IL_0049:
 	{
 		// if (!m_parentHeldObject)
-		bool L_12 = __this->___m_parentHeldObject_6;
+		bool L_12 = __this->___m_parentHeldObject_7;
 		if (L_12)
 		{
 			goto IL_005a;
@@ -17652,23 +17654,23 @@ IL_005a:
 		NullCheck(L_15);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_16;
 		L_16 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_15, NULL);
-		__this->___m_lastPos_14 = L_16;
+		__this->___m_lastPos_15 = L_16;
 		// m_lastRot = transform.rotation;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_17;
 		L_17 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_17);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_18;
 		L_18 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_17, NULL);
-		__this->___m_lastRot_15 = L_18;
+		__this->___m_lastRot_16 = L_18;
 		// float prevFlex = m_prevFlex;
-		float L_19 = __this->___m_prevFlex_18;
+		float L_19 = __this->___m_prevFlex_19;
 		V_2 = L_19;
-		// m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
-		int32_t L_20 = __this->___m_controller_10;
+		// m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, m_controller);
+		int32_t L_20 = __this->___m_controller_11;
 		il2cpp_codegen_runtime_class_init_inline(OVRInput_t759D9CC8F14D8539AD78A0375A2306C39D77100A_il2cpp_TypeInfo_var);
 		float L_21;
-		L_21 = OVRInput_Get_m1FD85568F358C43019E09E48A7BEBD6CD7F7E5D8(4, L_20, NULL);
-		__this->___m_prevFlex_18 = L_21;
+		L_21 = OVRInput_Get_m1FD85568F358C43019E09E48A7BEBD6CD7F7E5D8(1, L_20, NULL);
+		__this->___m_prevFlex_19 = L_21;
 		// CheckForGrabOrRelease(prevFlex);
 		float L_22 = V_2;
 		OVRGrabber_CheckForGrabOrRelease_mE38D1C7F40235FD4745476A15A9163BDFC7429B9(__this, L_22, NULL);
@@ -17687,7 +17689,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_OnDestroy_m01C4E35377126EEE9C
 	}
 	{
 		// if (m_grabbedObj != null)
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_20;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
 		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
@@ -17769,13 +17771,13 @@ IL_001b:
 		// int refCount = 0;
 		V_1 = 0;
 		// m_grabCandidates.TryGetValue(grabbable, out refCount);
-		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_7 = __this->___m_grabCandidates_22;
+		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_7 = __this->___m_grabCandidates_23;
 		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_8 = V_0;
 		NullCheck(L_7);
 		bool L_9;
 		L_9 = Dictionary_2_TryGetValue_m24A435B8CCCF0BA357166939766ACBAFB850055B(L_7, L_8, (&V_1), Dictionary_2_TryGetValue_m24A435B8CCCF0BA357166939766ACBAFB850055B_RuntimeMethod_var);
 		// m_grabCandidates[grabbable] = refCount + 1;
-		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_10 = __this->___m_grabCandidates_22;
+		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_10 = __this->___m_grabCandidates_23;
 		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_11 = V_0;
 		int32_t L_12 = V_1;
 		NullCheck(L_10);
@@ -17847,7 +17849,7 @@ IL_001b:
 		// int refCount = 0;
 		V_1 = 0;
 		// bool found = m_grabCandidates.TryGetValue(grabbable, out refCount);
-		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_7 = __this->___m_grabCandidates_22;
+		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_7 = __this->___m_grabCandidates_23;
 		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_8 = V_0;
 		NullCheck(L_7);
 		bool L_9;
@@ -17874,7 +17876,7 @@ IL_002e:
 	}
 	{
 		// m_grabCandidates[grabbable] = refCount - 1;
-		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_11 = __this->___m_grabCandidates_22;
+		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_11 = __this->___m_grabCandidates_23;
 		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_12 = V_0;
 		int32_t L_13 = V_1;
 		NullCheck(L_11);
@@ -17885,7 +17887,7 @@ IL_002e:
 IL_0042:
 	{
 		// m_grabCandidates.Remove(grabbable);
-		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_14 = __this->___m_grabCandidates_22;
+		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_14 = __this->___m_grabCandidates_23;
 		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_15 = V_0;
 		NullCheck(L_14);
 		bool L_16;
@@ -17899,8 +17901,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_CheckForGrabOrRelease_mE38D1C
 {
 	{
 		// if ((m_prevFlex >= grabBegin) && (prevFlex < grabBegin))
-		float L_0 = __this->___m_prevFlex_18;
-		float L_1 = __this->___grabBegin_4;
+		float L_0 = __this->___m_prevFlex_19;
+		float L_1 = __this->___grabBegin_5;
 		if ((!(((float)L_0) >= ((float)L_1))))
 		{
 			goto IL_001e;
@@ -17908,7 +17910,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_CheckForGrabOrRelease_mE38D1C
 	}
 	{
 		float L_2 = ___prevFlex0;
-		float L_3 = __this->___grabBegin_4;
+		float L_3 = __this->___grabBegin_5;
 		if ((!(((float)L_2) < ((float)L_3))))
 		{
 			goto IL_001e;
@@ -17923,8 +17925,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_CheckForGrabOrRelease_mE38D1C
 IL_001e:
 	{
 		// else if ((m_prevFlex <= grabEnd) && (prevFlex > grabEnd))
-		float L_4 = __this->___m_prevFlex_18;
-		float L_5 = __this->___grabEnd_5;
+		float L_4 = __this->___m_prevFlex_19;
+		float L_5 = __this->___grabEnd_6;
 		if ((!(((float)L_4) <= ((float)L_5))))
 		{
 			goto IL_003b;
@@ -17932,7 +17934,7 @@ IL_001e:
 	}
 	{
 		float L_6 = ___prevFlex0;
-		float L_7 = __this->___grabEnd_5;
+		float L_7 = __this->___grabEnd_6;
 		if ((!(((float)L_6) > ((float)L_7))))
 		{
 			goto IL_003b;
@@ -17991,7 +17993,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_GrabBegin_m819188BE496A506AF7
 		// Collider closestGrabbableCollider = null;
 		V_2 = (Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76*)NULL;
 		// foreach (OVRGrabbable grabbable in m_grabCandidates.Keys)
-		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_0 = __this->___m_grabCandidates_22;
+		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_0 = __this->___m_grabCandidates_23;
 		NullCheck(L_0);
 		KeyCollection_t6E5D9300B5F8B6ABD19C3917B7C37329CF44D54C* L_1;
 		L_1 = Dictionary_2_get_Keys_m044AEE814C082DBC310C3F394D7D6E1C58E1EEF3(L_0, Dictionary_2_get_Keys_m044AEE814C082DBC310C3F394D7D6E1C58E1EEF3_RuntimeMethod_var);
@@ -18074,7 +18076,7 @@ IL_0043_1:
 				V_6 = L_12;
 				// Vector3 closestPointOnBounds = grabbableCollider.ClosestPointOnBounds(m_gripTransform.position);
 				Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* L_13 = V_6;
-				Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_14 = __this->___m_gripTransform_8;
+				Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_14 = __this->___m_gripTransform_9;
 				NullCheck(L_14);
 				Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_15;
 				L_15 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_14, NULL);
@@ -18083,7 +18085,7 @@ IL_0043_1:
 				L_16 = Collider_ClosestPointOnBounds_mBF2F0C0E76C5F11AED801931D780823A94630952(L_13, L_15, NULL);
 				V_7 = L_16;
 				// float grabbableMagSq = (m_gripTransform.position - closestPointOnBounds).sqrMagnitude;
-				Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_17 = __this->___m_gripTransform_8;
+				Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_17 = __this->___m_gripTransform_9;
 				NullCheck(L_17);
 				Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_18;
 				L_18 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_17, NULL);
@@ -18196,10 +18198,10 @@ IL_00e4:
 	{
 		// m_grabbedObj = closestGrabbable;
 		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_39 = V_1;
-		__this->___m_grabbedObj_19 = L_39;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_grabbedObj_19), (void*)L_39);
+		__this->___m_grabbedObj_20 = L_39;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_grabbedObj_20), (void*)L_39);
 		// m_grabbedObj.GrabBegin(this, closestGrabbableCollider);
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_40 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_40 = __this->___m_grabbedObj_20;
 		Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* L_41 = V_2;
 		NullCheck(L_40);
 		VirtualActionInvoker2< OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC*, Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* >::Invoke(4 /* System.Void OVRGrabbable::GrabBegin(OVRGrabber,UnityEngine.Collider) */, L_40, __this, L_41);
@@ -18209,16 +18211,16 @@ IL_00e4:
 		NullCheck(L_42);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_43;
 		L_43 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_42, NULL);
-		__this->___m_lastPos_14 = L_43;
+		__this->___m_lastPos_15 = L_43;
 		// m_lastRot = transform.rotation;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_44;
 		L_44 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_44);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_45;
 		L_45 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_44, NULL);
-		__this->___m_lastRot_15 = L_45;
+		__this->___m_lastRot_16 = L_45;
 		// if(m_grabbedObj.snapPosition)
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_46 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_46 = __this->___m_grabbedObj_20;
 		NullCheck(L_46);
 		bool L_47;
 		L_47 = OVRGrabbable_get_snapPosition_m14AB730100CB5ACD389548D34B2633511C47BF34_inline(L_46, NULL);
@@ -18229,13 +18231,13 @@ IL_00e4:
 	}
 	{
 		// m_grabbedObjectPosOff = m_gripTransform.localPosition;
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_48 = __this->___m_gripTransform_8;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_48 = __this->___m_gripTransform_9;
 		NullCheck(L_48);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_49;
 		L_49 = Transform_get_localPosition_mA9C86B990DF0685EA1061A120218993FDCC60A95(L_48, NULL);
-		__this->___m_grabbedObjectPosOff_20 = L_49;
+		__this->___m_grabbedObjectPosOff_21 = L_49;
 		// if(m_grabbedObj.snapOffset)
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_50 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_50 = __this->___m_grabbedObj_20;
 		NullCheck(L_50);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_51;
 		L_51 = OVRGrabbable_get_snapOffset_m0141A961996F9ED0707F608910CA996751002ACE_inline(L_50, NULL);
@@ -18249,7 +18251,7 @@ IL_00e4:
 	}
 	{
 		// Vector3 snapOffset = m_grabbedObj.snapOffset.position;
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_53 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_53 = __this->___m_grabbedObj_20;
 		NullCheck(L_53);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_54;
 		L_54 = OVRGrabbable_get_snapOffset_m0141A961996F9ED0707F608910CA996751002ACE_inline(L_53, NULL);
@@ -18258,7 +18260,7 @@ IL_00e4:
 		L_55 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_54, NULL);
 		V_10 = L_55;
 		// if (m_controller == OVRInput.Controller.LTouch) snapOffset.x = -snapOffset.x;
-		int32_t L_56 = __this->___m_controller_10;
+		int32_t L_56 = __this->___m_controller_11;
 		if ((!(((uint32_t)L_56) == ((uint32_t)1))))
 		{
 			goto IL_0177;
@@ -18274,18 +18276,18 @@ IL_00e4:
 IL_0177:
 	{
 		// m_grabbedObjectPosOff += snapOffset;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_59 = __this->___m_grabbedObjectPosOff_20;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_59 = __this->___m_grabbedObjectPosOff_21;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_60 = V_10;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_61;
 		L_61 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_59, L_60, NULL);
-		__this->___m_grabbedObjectPosOff_20 = L_61;
+		__this->___m_grabbedObjectPosOff_21 = L_61;
 		goto IL_01cf;
 	}
 
 IL_018c:
 	{
 		// Vector3 relPos = m_grabbedObj.transform.position - transform.position;
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_62 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_62 = __this->___m_grabbedObj_20;
 		NullCheck(L_62);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_63;
 		L_63 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_62, NULL);
@@ -18314,13 +18316,13 @@ IL_018c:
 		V_11 = L_72;
 		// m_grabbedObjectPosOff = relPos;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_73 = V_11;
-		__this->___m_grabbedObjectPosOff_20 = L_73;
+		__this->___m_grabbedObjectPosOff_21 = L_73;
 	}
 
 IL_01cf:
 	{
 		// if (m_grabbedObj.snapOrientation)
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_74 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_74 = __this->___m_grabbedObj_20;
 		NullCheck(L_74);
 		bool L_75;
 		L_75 = OVRGrabbable_get_snapOrientation_m7D330F08D4E235643CB4AD214D8B231176D8A568_inline(L_74, NULL);
@@ -18331,13 +18333,13 @@ IL_01cf:
 	}
 	{
 		// m_grabbedObjectRotOff = m_gripTransform.localRotation;
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_76 = __this->___m_gripTransform_8;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_76 = __this->___m_gripTransform_9;
 		NullCheck(L_76);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_77;
 		L_77 = Transform_get_localRotation_mD53D37611A5DAE93EC6C7BBCAC337408C5CACA77(L_76, NULL);
-		__this->___m_grabbedObjectRotOff_21 = L_77;
+		__this->___m_grabbedObjectRotOff_22 = L_77;
 		// if(m_grabbedObj.snapOffset)
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_78 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_78 = __this->___m_grabbedObj_20;
 		NullCheck(L_78);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_79;
 		L_79 = OVRGrabbable_get_snapOffset_m0141A961996F9ED0707F608910CA996751002ACE_inline(L_78, NULL);
@@ -18351,17 +18353,17 @@ IL_01cf:
 	}
 	{
 		// m_grabbedObjectRotOff = m_grabbedObj.snapOffset.rotation * m_grabbedObjectRotOff;
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_81 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_81 = __this->___m_grabbedObj_20;
 		NullCheck(L_81);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_82;
 		L_82 = OVRGrabbable_get_snapOffset_m0141A961996F9ED0707F608910CA996751002ACE_inline(L_81, NULL);
 		NullCheck(L_82);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_83;
 		L_83 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_82, NULL);
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_84 = __this->___m_grabbedObjectRotOff_21;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_84 = __this->___m_grabbedObjectRotOff_22;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_85;
 		L_85 = Quaternion_op_Multiply_mCB375FCCC12A2EC8F9EB824A1BFB4453B58C2012_inline(L_83, L_84, NULL);
-		__this->___m_grabbedObjectRotOff_21 = L_85;
+		__this->___m_grabbedObjectRotOff_22 = L_85;
 		goto IL_0251;
 	}
 
@@ -18375,7 +18377,7 @@ IL_0222:
 		L_87 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_86, NULL);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_88;
 		L_88 = Quaternion_Inverse_mD9C060AC626A7B406F4984AC98F8358DC89EF512(L_87, NULL);
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_89 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_89 = __this->___m_grabbedObj_20;
 		NullCheck(L_89);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_90;
 		L_90 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_89, NULL);
@@ -18387,23 +18389,23 @@ IL_0222:
 		V_12 = L_92;
 		// m_grabbedObjectRotOff = relOri;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_93 = V_12;
-		__this->___m_grabbedObjectRotOff_21 = L_93;
+		__this->___m_grabbedObjectRotOff_22 = L_93;
 	}
 
 IL_0251:
 	{
 		// MoveGrabbedObject(m_lastPos, m_lastRot, true);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_94 = __this->___m_lastPos_14;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_95 = __this->___m_lastRot_15;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_94 = __this->___m_lastPos_15;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_95 = __this->___m_lastRot_16;
 		VirtualActionInvoker3< Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974, bool >::Invoke(8 /* System.Void OVRGrabber::MoveGrabbedObject(UnityEngine.Vector3,UnityEngine.Quaternion,System.Boolean) */, __this, L_94, L_95, (bool)1);
 		// SetPlayerIgnoreCollision(m_grabbedObj.gameObject, true);
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_96 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_96 = __this->___m_grabbedObj_20;
 		NullCheck(L_96);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_97;
 		L_97 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_96, NULL);
 		OVRGrabber_SetPlayerIgnoreCollision_mABFAE989021D7F5E11AE8D3F77D0F9EC26407516(__this, L_97, (bool)1, NULL);
 		// if (m_parentHeldObject)
-		bool L_98 = __this->___m_parentHeldObject_6;
+		bool L_98 = __this->___m_parentHeldObject_7;
 		if (!L_98)
 		{
 			goto IL_0294;
@@ -18411,7 +18413,7 @@ IL_0251:
 	}
 	{
 		// m_grabbedObj.transform.parent = transform;
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_99 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_99 = __this->___m_grabbedObj_20;
 		NullCheck(L_99);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_100;
 		L_100 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_99, NULL);
@@ -18443,7 +18445,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_MoveGrabbedObject_mD37ECCA5E8
 	memset((&V_2), 0, sizeof(V_2));
 	{
 		// if (m_grabbedObj == null)
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_20;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
 		L_1 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
@@ -18460,7 +18462,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_MoveGrabbedObject_mD37ECCA5E8
 IL_000f:
 	{
 		// Rigidbody grabbedRigidbody = m_grabbedObj.grabbedRigidbody;
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_2 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_2 = __this->___m_grabbedObj_20;
 		NullCheck(L_2);
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_3;
 		L_3 = OVRGrabbable_get_grabbedRigidbody_m3F5EB0BF5978D6E998F13A27AD4919AE47681E5B(L_2, NULL);
@@ -18468,7 +18470,7 @@ IL_000f:
 		// Vector3 grabbablePosition = pos + rot * m_grabbedObjectPosOff;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4 = ___pos0;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_5 = ___rot1;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6 = __this->___m_grabbedObjectPosOff_20;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6 = __this->___m_grabbedObjectPosOff_21;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
 		L_7 = Quaternion_op_Multiply_mE1EBA73F9173432B50F8F17CE8190C5A7986FB8C(L_5, L_6, NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
@@ -18476,7 +18478,7 @@ IL_000f:
 		V_1 = L_8;
 		// Quaternion grabbableRotation = rot * m_grabbedObjectRotOff;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_9 = ___rot1;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_10 = __this->___m_grabbedObjectRotOff_21;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_10 = __this->___m_grabbedObjectRotOff_22;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_11;
 		L_11 = Quaternion_op_Multiply_mCB375FCCC12A2EC8F9EB824A1BFB4453B58C2012_inline(L_9, L_10, NULL);
 		V_2 = L_11;
@@ -18545,7 +18547,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_GrabEnd_m7B6593D516EB87C4CF8D
 	memset((&V_4), 0, sizeof(V_4));
 	{
 		// if (m_grabbedObj != null)
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_20;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
 		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
@@ -18557,12 +18559,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_GrabEnd_m7B6593D516EB87C4CF8D
 	{
 		// OVRPose localPose = new OVRPose { position = OVRInput.GetLocalControllerPosition(m_controller), orientation = OVRInput.GetLocalControllerRotation(m_controller) };
 		il2cpp_codegen_initobj((&V_4), sizeof(OVRPose_t8054769FD4517C10D2ECD2C14C823723D675EEFB));
-		int32_t L_2 = __this->___m_controller_10;
+		int32_t L_2 = __this->___m_controller_11;
 		il2cpp_codegen_runtime_class_init_inline(OVRInput_t759D9CC8F14D8539AD78A0375A2306C39D77100A_il2cpp_TypeInfo_var);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3;
 		L_3 = OVRInput_GetLocalControllerPosition_mD8A4504C441B477AB11C92CB7FBD561ECF15E253(L_2, NULL);
 		(&V_4)->___position_0 = L_3;
-		int32_t L_4 = __this->___m_controller_10;
+		int32_t L_4 = __this->___m_controller_11;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_5;
 		L_5 = OVRInput_GetLocalControllerRotation_mF2ECF5F8BBB3EF1CF9D4B5E0A1BEC6CA9036515F(L_4, NULL);
 		(&V_4)->___orientation_1 = L_5;
@@ -18570,9 +18572,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_GrabEnd_m7B6593D516EB87C4CF8D
 		V_0 = L_6;
 		// OVRPose offsetPose = new OVRPose { position = m_anchorOffsetPosition, orientation = m_anchorOffsetRotation };
 		il2cpp_codegen_initobj((&V_4), sizeof(OVRPose_t8054769FD4517C10D2ECD2C14C823723D675EEFB));
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7 = __this->___m_anchorOffsetPosition_17;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7 = __this->___m_anchorOffsetPosition_18;
 		(&V_4)->___position_0 = L_7;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_8 = __this->___m_anchorOffsetRotation_16;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_8 = __this->___m_anchorOffsetRotation_17;
 		(&V_4)->___orientation_1 = L_8;
 		OVRPose_t8054769FD4517C10D2ECD2C14C823723D675EEFB L_9 = V_4;
 		V_1 = L_9;
@@ -18594,7 +18596,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_GrabEnd_m7B6593D516EB87C4CF8D
 		// Vector3 linearVelocity = trackingSpace.orientation * OVRInput.GetLocalControllerVelocity(m_controller);
 		OVRPose_t8054769FD4517C10D2ECD2C14C823723D675EEFB L_17 = L_16;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_18 = L_17.___orientation_1;
-		int32_t L_19 = __this->___m_controller_10;
+		int32_t L_19 = __this->___m_controller_11;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_20;
 		L_20 = OVRInput_GetLocalControllerVelocity_m2E8ED9F38FCB0E781C796E72917D27F65A3EFF14(L_19, NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_21;
@@ -18602,7 +18604,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_GrabEnd_m7B6593D516EB87C4CF8D
 		V_2 = L_21;
 		// Vector3 angularVelocity = trackingSpace.orientation * OVRInput.GetLocalControllerAngularVelocity(m_controller);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_22 = L_17.___orientation_1;
-		int32_t L_23 = __this->___m_controller_10;
+		int32_t L_23 = __this->___m_controller_11;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_24;
 		L_24 = OVRInput_GetLocalControllerAngularVelocity_m4A05C6F3F878F119AEB2E5222154B773C3FE8F24(L_23, NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_25;
@@ -18627,13 +18629,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_GrabbableRelease_mAE82FEDF7F7
 {
 	{
 		// m_grabbedObj.GrabEnd(linearVelocity, angularVelocity);
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_20;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1 = ___linearVelocity0;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_2 = ___angularVelocity1;
 		NullCheck(L_0);
 		VirtualActionInvoker2< Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 >::Invoke(5 /* System.Void OVRGrabbable::GrabEnd(UnityEngine.Vector3,UnityEngine.Vector3) */, L_0, L_1, L_2);
 		// if(m_parentHeldObject) m_grabbedObj.transform.parent = null;
-		bool L_3 = __this->___m_parentHeldObject_6;
+		bool L_3 = __this->___m_parentHeldObject_7;
 		if (!L_3)
 		{
 			goto IL_0026;
@@ -18641,7 +18643,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_GrabbableRelease_mAE82FEDF7F7
 	}
 	{
 		// if(m_parentHeldObject) m_grabbedObj.transform.parent = null;
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_4 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_4 = __this->___m_grabbedObj_20;
 		NullCheck(L_4);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_5;
 		L_5 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_4, NULL);
@@ -18652,8 +18654,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_GrabbableRelease_mAE82FEDF7F7
 IL_0026:
 	{
 		// m_grabbedObj = null;
-		__this->___m_grabbedObj_19 = (OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5*)NULL;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_grabbedObj_19), (void*)(OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5*)NULL);
+		__this->___m_grabbedObj_20 = (OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5*)NULL;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_grabbedObj_20), (void*)(OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5*)NULL);
 		// }
 		return;
 	}
@@ -18670,7 +18672,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_GrabVolumeEnable_m0DF038ADAA6
 	int32_t V_0 = 0;
 	{
 		// if (m_grabVolumeEnabled == enabled)
-		bool L_0 = __this->___m_grabVolumeEnabled_13;
+		bool L_0 = __this->___m_grabVolumeEnabled_14;
 		bool L_1 = ___enabled0;
 		if ((!(((uint32_t)L_0) == ((uint32_t)L_1))))
 		{
@@ -18686,7 +18688,7 @@ IL_000a:
 	{
 		// m_grabVolumeEnabled = enabled;
 		bool L_2 = ___enabled0;
-		__this->___m_grabVolumeEnabled_13 = L_2;
+		__this->___m_grabVolumeEnabled_14 = L_2;
 		// for (int i = 0; i < m_grabVolumes.Length; ++i)
 		V_0 = 0;
 		goto IL_002c;
@@ -18695,13 +18697,13 @@ IL_000a:
 IL_0015:
 	{
 		// Collider grabVolume = m_grabVolumes[i];
-		ColliderU5BU5D_t94A9D70F63D095AFF2A9B4613012A5F7F3141787* L_3 = __this->___m_grabVolumes_9;
+		ColliderU5BU5D_t94A9D70F63D095AFF2A9B4613012A5F7F3141787* L_3 = __this->___m_grabVolumes_10;
 		int32_t L_4 = V_0;
 		NullCheck(L_3);
 		int32_t L_5 = L_4;
 		Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* L_6 = (L_3)->GetAt(static_cast<il2cpp_array_size_t>(L_5));
 		// grabVolume.enabled = m_grabVolumeEnabled;
-		bool L_7 = __this->___m_grabVolumeEnabled_13;
+		bool L_7 = __this->___m_grabVolumeEnabled_14;
 		NullCheck(L_6);
 		Collider_set_enabled_m8D5C3B5047592D227A52560FC9723D176E209F70(L_6, L_7, NULL);
 		// for (int i = 0; i < m_grabVolumes.Length; ++i)
@@ -18713,7 +18715,7 @@ IL_002c:
 	{
 		// for (int i = 0; i < m_grabVolumes.Length; ++i)
 		int32_t L_9 = V_0;
-		ColliderU5BU5D_t94A9D70F63D095AFF2A9B4613012A5F7F3141787* L_10 = __this->___m_grabVolumes_9;
+		ColliderU5BU5D_t94A9D70F63D095AFF2A9B4613012A5F7F3141787* L_10 = __this->___m_grabVolumes_10;
 		NullCheck(L_10);
 		if ((((int32_t)L_9) < ((int32_t)((int32_t)(((RuntimeArray*)L_10)->max_length)))))
 		{
@@ -18722,7 +18724,7 @@ IL_002c:
 	}
 	{
 		// if (!m_grabVolumeEnabled)
-		bool L_11 = __this->___m_grabVolumeEnabled_13;
+		bool L_11 = __this->___m_grabVolumeEnabled_14;
 		if (L_11)
 		{
 			goto IL_004a;
@@ -18730,7 +18732,7 @@ IL_002c:
 	}
 	{
 		// m_grabCandidates.Clear();
-		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_12 = __this->___m_grabCandidates_22;
+		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_12 = __this->___m_grabCandidates_23;
 		NullCheck(L_12);
 		Dictionary_2_Clear_m23F8A137C69449D416D8BDD46FA5D64C8A72D056(L_12, Dictionary_2_Clear_m23F8A137C69449D416D8BDD46FA5D64C8A72D056_RuntimeMethod_var);
 	}
@@ -18752,7 +18754,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_OffhandGrabbed_m9C044BADB86E5
 	}
 	{
 		// if (m_grabbedObj == grabbable)
-		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_19;
+		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_0 = __this->___m_grabbedObj_20;
 		OVRGrabbable_t322F6468B588212B888E9397723397A16E7614B5* L_1 = ___grabbable0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_2;
@@ -18795,7 +18797,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_SetPlayerIgnoreCollision_mABF
 	Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* V_5 = NULL;
 	{
 		// if (m_player != null)
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = __this->___m_player_12;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = __this->___m_player_13;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
 		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
@@ -18806,7 +18808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_SetPlayerIgnoreCollision_mABF
 	}
 	{
 		// Collider[] playerColliders = m_player.GetComponentsInChildren<Collider>();
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2 = __this->___m_player_12;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2 = __this->___m_player_13;
 		NullCheck(L_2);
 		ColliderU5BU5D_t94A9D70F63D095AFF2A9B4613012A5F7F3141787* L_3;
 		L_3 = GameObject_GetComponentsInChildren_TisCollider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_mEB861FF41A6625D346B9D34D7A5A1E761E27963D(L_2, GameObject_GetComponentsInChildren_TisCollider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_mEB861FF41A6625D346B9D34D7A5A1E761E27963D_RuntimeMethod_var);
@@ -18924,26 +18926,28 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber__ctor_m2BF96B9B9B6F6D0158D55F
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// [SerializeField] bool rightHand=true;
+		__this->___rightHand_4 = (bool)1;
 		// public float grabBegin = 0.55f;
-		__this->___grabBegin_4 = (0.550000012f);
+		__this->___grabBegin_5 = (0.550000012f);
 		// public float grabEnd = 0.35f;
-		__this->___grabEnd_5 = (0.349999994f);
+		__this->___grabEnd_6 = (0.349999994f);
 		// protected bool m_grabVolumeEnabled = true;
-		__this->___m_grabVolumeEnabled_13 = (bool)1;
+		__this->___m_grabVolumeEnabled_14 = (bool)1;
 		// protected Dictionary<OVRGrabbable, int> m_grabCandidates = new Dictionary<OVRGrabbable, int>();
 		Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD* L_0 = (Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD*)il2cpp_codegen_object_new(Dictionary_2_t749E8D446C2E8EE6FF423979EE55DB04E3E91EBD_il2cpp_TypeInfo_var);
 		NullCheck(L_0);
 		Dictionary_2__ctor_mE346B986A184A0AA7484B36FC794073AFCBAEAFA(L_0, Dictionary_2__ctor_mE346B986A184A0AA7484B36FC794073AFCBAEAFA_RuntimeMethod_var);
-		__this->___m_grabCandidates_22 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_grabCandidates_22), (void*)L_0);
+		__this->___m_grabCandidates_23 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_grabCandidates_23), (void*)L_0);
 		// protected bool m_operatingWithoutOVRCameraRig = true;
-		__this->___m_operatingWithoutOVRCameraRig_23 = (bool)1;
+		__this->___m_operatingWithoutOVRCameraRig_24 = (bool)1;
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
 	}
 }
-// System.Void OVRGrabber::<Awake>b__23_0(OVRCameraRig)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_U3CAwakeU3Eb__23_0_m739508F39EF9AA2ADA88B14E21540B6D4BD0D571 (OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC* __this, OVRCameraRig_t7FC2BB0D30DED2B7F0C8914AF2B66E9F4CF891A9* ___r0, const RuntimeMethod* method) 
+// System.Void OVRGrabber::<Awake>b__24_0(OVRCameraRig)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OVRGrabber_U3CAwakeU3Eb__24_0_m521750052A42F7DDAF06D6ACCAA25D770B97091E (OVRGrabber_tC16FABB1A90FB635BDE98E18F032A793D7033FCC* __this, OVRCameraRig_t7FC2BB0D30DED2B7F0C8914AF2B66E9F4CF891A9* ___r0, const RuntimeMethod* method) 
 {
 	{
 		// rig.UpdatedAnchors += (r) => {OnUpdatedAnchors();};
