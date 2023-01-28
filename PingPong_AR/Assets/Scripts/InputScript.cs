@@ -73,7 +73,7 @@ public class InputScript : MonoBehaviour
 
     public GameObject MenuCanvas;
 
-    float pressTimer = 1.5f;
+    float pressTimerSceneR = 1.0f;
 
     // [SerializeField] LayerMask PhysikLayerTable; // Wenn zwischen Tisch und Rackt collsion einfach defaukt angeben
 
@@ -548,15 +548,15 @@ public class InputScript : MonoBehaviour
         if (OVRInput.Get(OVRInput.Button.Two)) // So und nicht per Courtine da die Scene reseted wird
         {
            // Debug.Log("pressIt:" + pressTimer);
-            pressTimer -= Time.deltaTime;
-            if(pressTimer <= 0)
+            pressTimerSceneR -= Time.deltaTime;
+            if(pressTimerSceneR <= 0)
             {
                 SceneManager.LoadScene(0);
             }
         }
         else
         {
-            pressTimer = 1.5f;
+            pressTimerSceneR = 1.0f;
         }
 
         if (OVRInput.GetDown(OVRInput.Button.Start))
