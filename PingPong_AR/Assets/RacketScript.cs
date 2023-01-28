@@ -61,7 +61,7 @@ public class RacketScript : MonoBehaviour
 
     //vibrationTime = Zeit in Sekunden, die der Controller vibrieren soll
     //controller = entweder OVRInput.Controller.RHand oder OVRInput.Controller.LHand f�r rechts oder links
-    public IEnumerator vibrate(float vibrationTime, OVRInput.Controller controller)
+    public IEnumerator Vibrate(float vibrationTime, OVRInput.Controller controller)
     {
         OVRInput.SetControllerVibration(0.1f, 1f, controller);
 
@@ -75,8 +75,15 @@ public class RacketScript : MonoBehaviour
         {
             hitBall = true;
             AudioSource.PlayClipAtPoint(ballhitSound1, transform.position, 1f);
-            StartCoroutine(vibrate(0.05f, OVRInput.Controller.RHand));
-            
+            if (rightHandstate)
+            {
+                StartCoroutine(Vibrate(0.05f, OVRInput.Controller.RHand));
+            }
+            else
+            {
+                StartCoroutine(Vibrate(0.05f, OVRInput.Controller.LHand));
+            }
+
         }
     }
 

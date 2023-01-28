@@ -7056,16 +7056,16 @@ struct U3CWaitThenContU3Ed__3_t458835ABFCADA0B79F80C9DB8786A4E894D0554B  : publi
 	BallScript_t04C431F64A356D97BC46CD4A16C68D27CF9FC57B* ___U3CU3E4__this_3;
 };
 
-// BallSpawner/<SpawnParticel>d__15
-struct U3CSpawnParticelU3Ed__15_t369528E1B7F9311E9D8A637FD4D48424350CF1CE  : public RuntimeObject
+// BallSpawner/<SpawnParticel>d__16
+struct U3CSpawnParticelU3Ed__16_t133DD53E04167BFC13267FAA4240235010687B71  : public RuntimeObject
 {
-	// System.Int32 BallSpawner/<SpawnParticel>d__15::<>1__state
+	// System.Int32 BallSpawner/<SpawnParticel>d__16::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object BallSpawner/<SpawnParticel>d__15::<>2__current
+	// System.Object BallSpawner/<SpawnParticel>d__16::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// BallSpawner BallSpawner/<SpawnParticel>d__15::<>4__this
+	// BallSpawner BallSpawner/<SpawnParticel>d__16::<>4__this
 	BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE* ___U3CU3E4__this_2;
-	// System.Single BallSpawner/<SpawnParticel>d__15::Waitime
+	// System.Single BallSpawner/<SpawnParticel>d__16::Waitime
 	float ___Waitime_3;
 };
 
@@ -7439,16 +7439,16 @@ struct U3CMouseDragOutsideRectU3Ed__194_t781B4CA947F9CF50ED6945C50544D71BC12FB69
 	InputField_tABEA115F23FBD374EBE80D4FAC1D15BD6E37A140* ___U3CU3E4__this_3;
 };
 
-// InputScript/<makeTableRectangular>d__55
-struct U3CmakeTableRectangularU3Ed__55_tAA4D6EC934F17F31177BBC2A34FF80E81E3493FA  : public RuntimeObject
+// InputScript/<makeTableRectangular>d__59
+struct U3CmakeTableRectangularU3Ed__59_t613BF6B4DCC94EDE442F0F9D5A3CE01B1B4FB571  : public RuntimeObject
 {
-	// System.Int32 InputScript/<makeTableRectangular>d__55::<>1__state
+	// System.Int32 InputScript/<makeTableRectangular>d__59::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object InputScript/<makeTableRectangular>d__55::<>2__current
+	// System.Object InputScript/<makeTableRectangular>d__59::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// InputScript InputScript/<makeTableRectangular>d__55::<>4__this
+	// InputScript InputScript/<makeTableRectangular>d__59::<>4__this
 	InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213* ___U3CU3E4__this_2;
-	// UnityEngine.Vector3[] InputScript/<makeTableRectangular>d__55::vertices
+	// UnityEngine.Vector3[] InputScript/<makeTableRectangular>d__59::vertices
 	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* ___vertices_3;
 };
 
@@ -8034,16 +8034,16 @@ struct U3CU3Ec__DisplayClass4_0_t482509500D9FEF5BA0E67B41AD12E51E887D626B  : pub
 	PoseUseSample_tBA55177F63A3EF1260D1B1ADD2F66A8A765C2B07* ___U3CU3E4__this_1;
 };
 
-// RacketScript/<vibrate>d__15
-struct U3CvibrateU3Ed__15_t13CF91ED3128D52916CA836F5098D2DA41BEB614  : public RuntimeObject
+// RacketScript/<Vibrate>d__15
+struct U3CVibrateU3Ed__15_tC19A8E1C036E595C389B47D02AB8D9ED62D44573  : public RuntimeObject
 {
-	// System.Int32 RacketScript/<vibrate>d__15::<>1__state
+	// System.Int32 RacketScript/<Vibrate>d__15::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object RacketScript/<vibrate>d__15::<>2__current
+	// System.Object RacketScript/<Vibrate>d__15::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// OVRInput/Controller RacketScript/<vibrate>d__15::controller
+	// OVRInput/Controller RacketScript/<Vibrate>d__15::controller
 	int32_t ___controller_2;
-	// System.Single RacketScript/<vibrate>d__15::vibrationTime
+	// System.Single RacketScript/<Vibrate>d__15::vibrationTime
 	float ___vibrationTime_3;
 };
 
@@ -23151,8 +23151,10 @@ struct BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE  : public MonoBehav
 	InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213* ___inputScript_12;
 	// RacketScript BallSpawner::racketScript
 	RacketScript_t001923E15D1B68EAFE466CEC6D33B14D71FB2638* ___racketScript_13;
+	// RacketScript BallSpawner::racketScriptManuell
+	RacketScript_t001923E15D1B68EAFE466CEC6D33B14D71FB2638* ___racketScriptManuell_14;
 	// UnityEngine.ParticleSystem BallSpawner::partSystem
-	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___partSystem_14;
+	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___partSystem_15;
 };
 
 // Oculus.Interaction.Demo.BasicPBRGlobals
@@ -24190,86 +24192,92 @@ struct IAPManager_t1BC52798D66C79698EA5E9DB930B62D0BF321060  : public MonoBehavi
 // InputScript
 struct InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	// System.Boolean InputScript::rightHanded
+	bool ___rightHanded_4;
 	// UnityEngine.GameObject InputScript::objectToSpawn
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___objectToSpawn_4;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___objectToSpawn_5;
 	// UnityEngine.GameObject InputScript::tablePref
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___tablePref_5;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___tablePref_6;
 	// UnityEngine.GameObject InputScript::netPrefab
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___netPrefab_6;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___netPrefab_7;
 	// UnityEngine.GameObject InputScript::scoreBoardPrefab
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___scoreBoardPrefab_7;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___scoreBoardPrefab_8;
 	// UnityEngine.GameObject InputScript::player
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player_8;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player_9;
 	// UnityEngine.GameObject InputScript::net
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___net_9;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___net_10;
 	// UnityEngine.GameObject InputScript::ScoreBoard
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___ScoreBoard_10;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___ScoreBoard_11;
 	// UnityEngine.GameObject InputScript::racketRubber
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___racketRubber_11;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___racketRubber_12;
 	// System.Boolean InputScript::blackUp
-	bool ___blackUp_12;
+	bool ___blackUp_13;
 	// UnityEngine.GameObject InputScript::racketRubberLeft
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___racketRubberLeft_13;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___racketRubberLeft_14;
 	// System.Boolean InputScript::blackUpLeft
-	bool ___blackUpLeft_14;
+	bool ___blackUpLeft_15;
 	// GameManager InputScript::gameMang
-	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___gameMang_15;
+	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___gameMang_16;
 	// System.Collections.Generic.List`1<UnityEngine.GameObject> InputScript::tablePoints
-	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___tablePoints_16;
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___tablePoints_17;
 	// UnityEngine.GameObject InputScript::TestObjectInput
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___TestObjectInput_17;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___TestObjectInput_18;
 	// System.Boolean InputScript::isEnabled
-	bool ___isEnabled_18;
+	bool ___isEnabled_19;
 	// UnityEngine.GameObject InputScript::Cam
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___Cam_19;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___Cam_20;
 	// System.Single InputScript::scaleX
-	float ___scaleX_20;
+	float ___scaleX_21;
 	// System.Single InputScript::scaleZ
-	float ___scaleZ_21;
+	float ___scaleZ_22;
 	// UnityEngine.GameObject InputScript::tableFromMesh
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___tableFromMesh_22;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___tableFromMesh_23;
 	// UnityEngine.Vector3[] InputScript::vertices
-	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* ___vertices_23;
+	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* ___vertices_24;
 	// UnityEngine.Vector2[] InputScript::uv
-	Vector2U5BU5D_tFEBBC94BCC6C9C88277BA04047D2B3FDB6ED7FDA* ___uv_24;
+	Vector2U5BU5D_tFEBBC94BCC6C9C88277BA04047D2B3FDB6ED7FDA* ___uv_25;
 	// System.Int32[] InputScript::triangles
-	Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* ___triangles_25;
+	Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* ___triangles_26;
 	// UnityEngine.Material InputScript::materialTable
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___materialTable_26;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___materialTable_27;
 	// UnityEngine.Material InputScript::materialTableTransparent
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___materialTableTransparent_27;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___materialTableTransparent_28;
 	// System.Int32 InputScript::buttonPressCounter
-	int32_t ___buttonPressCounter_28;
+	int32_t ___buttonPressCounter_29;
 	// UnityEngine.GameObject InputScript::testCube
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___testCube_29;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___testCube_30;
 	// System.Single InputScript::yPosition
-	float ___yPosition_30;
+	float ___yPosition_31;
 	// UnityEngine.Vector3 InputScript::controllerPosition
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___controllerPosition_31;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___controllerPosition_32;
 	// UnityEngine.GameObject InputScript::vertex0
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___vertex0_32;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___vertex0_33;
 	// UnityEngine.GameObject InputScript::vertex1
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___vertex1_33;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___vertex1_34;
 	// UnityEngine.GameObject InputScript::vertex2
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___vertex2_34;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___vertex2_35;
 	// UnityEngine.GameObject InputScript::vertex3
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___vertex3_35;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___vertex3_36;
 	// UnityEngine.Vector3[] InputScript::sortedVertices
-	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* ___sortedVertices_36;
+	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* ___sortedVertices_37;
 	// UnityEngine.Vector3 InputScript::previousVertex
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___previousVertex_37;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___previousVertex_38;
 	// System.Boolean InputScript::sorted
-	bool ___sorted_38;
+	bool ___sorted_39;
 	// System.Boolean InputScript::flipped
-	bool ___flipped_39;
+	bool ___flipped_40;
 	// UnityEngine.Material InputScript::material0
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___material0_40;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___material0_41;
 	// UnityEngine.Material InputScript::material1
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___material1_41;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___material1_42;
 	// UnityEngine.Material InputScript::material2
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___material2_42;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___material2_43;
 	// UnityEngine.Material InputScript::material3
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___material3_43;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___material3_44;
+	// UnityEngine.GameObject InputScript::MenuCanvas
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___MenuCanvas_45;
+	// System.Single InputScript::pressTimer
+	float ___pressTimer_46;
 };
 
 // Oculus.Voice.Demo.UIShapesDemo.Instructions
@@ -30400,11 +30408,11 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize6335 = { sizeof(UiVectorInsp
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6336;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize6336 = { sizeof(ParticleSingle_t3EC3E375F15358F27555587B2CCDCD98CD55546F), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6337;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize6337 = { sizeof(U3CvibrateU3Ed__15_t13CF91ED3128D52916CA836F5098D2DA41BEB614), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize6337 = { sizeof(U3CVibrateU3Ed__15_tC19A8E1C036E595C389B47D02AB8D9ED62D44573), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6338;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize6338 = { sizeof(RacketScript_t001923E15D1B68EAFE466CEC6D33B14D71FB2638), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6339;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize6339 = { sizeof(U3CSpawnParticelU3Ed__15_t369528E1B7F9311E9D8A637FD4D48424350CF1CE), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize6339 = { sizeof(U3CSpawnParticelU3Ed__16_t133DD53E04167BFC13267FAA4240235010687B71), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6340;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize6340 = { sizeof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6341;
@@ -30414,7 +30422,7 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize6342 = { sizeof(GameManager_
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6343;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize6343 = { sizeof(HighLightHandButton_tB8F9C9F0E89FF63DE7FB1BFD5190B2EDBC892749), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6344;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize6344 = { sizeof(U3CmakeTableRectangularU3Ed__55_tAA4D6EC934F17F31177BBC2A34FF80E81E3493FA), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize6344 = { sizeof(U3CmakeTableRectangularU3Ed__59_t613BF6B4DCC94EDE442F0F9D5A3CE01B1B4FB571), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6345;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize6345 = { sizeof(InputScript_t5BB047FB7E4127BBF8380090C936CD535F6DE213), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize6346;

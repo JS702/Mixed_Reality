@@ -3219,6 +3219,7 @@ MonoBehaviour:
   material1: {fileID: 2100000, guid: 94cfef172818ca041b5f6e2614541cd6, type: 2}
   material2: {fileID: 2100000, guid: 5b74f87eda1ad414aaf687d3a6bc5616, type: 2}
   material3: {fileID: 2100000, guid: 2de7fec89daf0b14dbcda27fb7927de3, type: 2}
+  MenuCanvas: {fileID: 0}
 --- !u!4 &556750209
 Transform:
   m_ObjectHideFlags: 0

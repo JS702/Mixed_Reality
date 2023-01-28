@@ -17665,15 +17665,18 @@ IL_005a:
 		// float prevFlex = m_prevFlex;
 		float L_19 = __this->___m_prevFlex_19;
 		V_2 = L_19;
-		// m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, m_controller);
+		// m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller) + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, m_controller);  // m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, m_controller);
 		int32_t L_20 = __this->___m_controller_11;
 		il2cpp_codegen_runtime_class_init_inline(OVRInput_t759D9CC8F14D8539AD78A0375A2306C39D77100A_il2cpp_TypeInfo_var);
 		float L_21;
-		L_21 = OVRInput_Get_m1FD85568F358C43019E09E48A7BEBD6CD7F7E5D8(1, L_20, NULL);
-		__this->___m_prevFlex_19 = L_21;
+		L_21 = OVRInput_Get_m1FD85568F358C43019E09E48A7BEBD6CD7F7E5D8(4, L_20, NULL);
+		int32_t L_22 = __this->___m_controller_11;
+		float L_23;
+		L_23 = OVRInput_Get_m1FD85568F358C43019E09E48A7BEBD6CD7F7E5D8(1, L_22, NULL);
+		__this->___m_prevFlex_19 = ((float)il2cpp_codegen_add(L_21, L_23));
 		// CheckForGrabOrRelease(prevFlex);
-		float L_22 = V_2;
-		OVRGrabber_CheckForGrabOrRelease_mE38D1C7F40235FD4745476A15A9163BDFC7429B9(__this, L_22, NULL);
+		float L_24 = V_2;
+		OVRGrabber_CheckForGrabOrRelease_mE38D1C7F40235FD4745476A15A9163BDFC7429B9(__this, L_24, NULL);
 		// }
 		return;
 	}

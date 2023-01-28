@@ -8,6 +8,7 @@ using System.Linq;
 
 public class InputScript : MonoBehaviour
 {
+    bool rightHanded = true;
 
     public GameObject objectToSpawn;
 
@@ -72,7 +73,14 @@ public class InputScript : MonoBehaviour
 
     public GameObject MenuCanvas;
 
+    float pressTimer = 1.5f;
+
     // [SerializeField] LayerMask PhysikLayerTable; // Wenn zwischen Tisch und Rackt collsion einfach defaukt angeben
+
+    void Start()
+    {
+        rightHanded = SceneLoader.rightHandState;
+    }
 
     private Vector3 getNearestPoint(Vector3 point)
     {
@@ -537,6 +545,19 @@ public class InputScript : MonoBehaviour
             Debug.Log("Reset");
             SceneManager.LoadScene((SceneManager.GetActiveScene()).name);
         }
+        if (OVRInput.Get(OVRInput.Button.Two)) // So und nicht per Courtine da die Scene reseted wird
+        {
+           // Debug.Log("pressIt:" + pressTimer);
+            pressTimer -= Time.deltaTime;
+            if(pressTimer <= 0)
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+        else
+        {
+            pressTimer = 1.5f;
+        }
 
         if (OVRInput.GetDown(OVRInput.Button.Start))
         {
@@ -553,22 +574,24 @@ public class InputScript : MonoBehaviour
         }
 
         //Rotates the racket between forehand and backhand
-        if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger)) {
-            if (!blackUp) {
-                racketRubber.transform.localEulerAngles = new Vector3(
-                    racketRubber.transform.localEulerAngles.x,
-                    racketRubber.transform.localEulerAngles.y + 180,
-                    racketRubber.transform.localEulerAngles.z - 90);
-            } else {
-                racketRubber.transform.localEulerAngles = new Vector3(
-                    racketRubber.transform.localEulerAngles.x,
-                    racketRubber.transform.localEulerAngles.y - 180,
-                    racketRubber.transform.localEulerAngles.z + 90);
+        if (rightHanded)
+        {
+            if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
+            {
+                RotateRacket();
             }
-            blackUp = !blackUp;
         }
+        else
+        {
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+            {
+                RotateRacket();
+            }
+        }
+       
 
         //Rotates the racket between forehand and backhand
+        /*
         if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)) {
             if (!blackUpLeft) {
                 racketRubberLeft.transform.localEulerAngles = new Vector3(
@@ -583,5 +606,25 @@ public class InputScript : MonoBehaviour
             }
             blackUpLeft = !blackUpLeft;
         }
+        */
+    }
+
+    private void RotateRacket()
+    {
+        if (!blackUp)
+        {
+            racketRubber.transform.localEulerAngles = new Vector3(
+                racketRubber.transform.localEulerAngles.x,
+                racketRubber.transform.localEulerAngles.y + 180,
+                racketRubber.transform.localEulerAngles.z - 90);
+        }
+        else
+        {
+            racketRubber.transform.localEulerAngles = new Vector3(
+                racketRubber.transform.localEulerAngles.x,
+                racketRubber.transform.localEulerAngles.y - 180,
+                racketRubber.transform.localEulerAngles.z + 90);
+        }
+        blackUp = !blackUp;
     }
 }
